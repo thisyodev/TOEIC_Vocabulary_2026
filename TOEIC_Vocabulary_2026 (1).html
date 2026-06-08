@@ -1,0 +1,1483 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TOEIC Vocabulary 2026 — 3,000+ Words</title>
+<style>
+:root{--navy:#0D1B2A;--blue:#1565C0;--cyan:#0288D1;--green:#2E7D32;--purple:#6A1B9A;--orange:#E65100;--red:#C62828;--teal:#00695C;--brown:#4E342E;--slate:#37474F;--indigo:#283593;--darkpurple:#4A148C;--bg:#F8F9FA;--card:#fff;--text:#1a1a2e;--muted:#666;--border:#dee2e6}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:var(--bg);color:var(--text);display:flex;min-height:100vh}
+
+/* ── SIDEBAR ── */
+#sidebar{width:260px;min-width:260px;background:var(--navy);color:#fff;display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow-y:auto;z-index:100}
+#sidebar::-webkit-scrollbar{width:4px}
+#sidebar::-webkit-scrollbar-thumb{background:rgba(255,255,255,.2);border-radius:2px}
+.sidebar-header{padding:20px 16px 12px;border-bottom:1px solid rgba(255,255,255,.1)}
+.sidebar-header h1{font-size:16px;font-weight:700;color:#FFD54F;line-height:1.3}
+.sidebar-header p{font-size:11px;color:rgba(255,255,255,.5);margin-top:4px}
+.stat-pills{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
+.stat-pill{background:rgba(255,255,255,.1);border-radius:20px;padding:3px 10px;font-size:11px;color:rgba(255,255,255,.8)}
+
+.search-wrap{padding:10px 12px;border-bottom:1px solid rgba(255,255,255,.08)}
+#searchBox{width:100%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:#fff;padding:7px 10px;font-size:12px;outline:none}
+#searchBox::placeholder{color:rgba(255,255,255,.4)}
+#searchBox:focus{border-color:rgba(255,255,255,.4)}
+
+.nav-section{padding:8px 0}
+.nav-label{padding:6px 16px 2px;font-size:10px;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,.35);font-weight:600}
+.nav-item{display:flex;align-items:center;gap:8px;padding:8px 16px;cursor:pointer;font-size:12.5px;color:rgba(255,255,255,.75);border-left:3px solid transparent;transition:all .15s}
+.nav-item:hover{background:rgba(255,255,255,.07);color:#fff}
+.nav-item.active{background:rgba(255,255,255,.12);color:#fff;border-left-color:#FFD54F}
+.nav-item .icon{width:22px;height:22px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
+.nav-item .cnt{margin-left:auto;background:rgba(255,255,255,.15);border-radius:10px;padding:1px 7px;font-size:10px}
+
+/* ── MAIN ── */
+#main{flex:1;overflow-y:auto;padding:0}
+#main::-webkit-scrollbar{width:6px}
+#main::-webkit-scrollbar-thumb{background:#ccc;border-radius:3px}
+
+/* ── COVER ── */
+#cover{background:linear-gradient(135deg,#0D1B2A 0%,#1565C0 60%,#0288D1 100%);color:#fff;padding:60px 48px;min-height:100vh;display:flex;flex-direction:column;justify-content:center}
+#cover h1{font-size:56px;font-weight:800;line-height:1.1;margin-bottom:16px}
+#cover h1 span{color:#FFD54F}
+#cover .subtitle{font-size:18px;color:rgba(255,255,255,.7);margin-bottom:40px}
+.cover-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:700px}
+.cover-stat{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:12px;padding:20px 16px;text-align:center}
+.cover-stat .num{font-size:32px;font-weight:800;color:#FFD54F;display:block}
+.cover-stat .lbl{font-size:12px;color:rgba(255,255,255,.6);margin-top:4px}
+.cover-badge{display:inline-block;background:rgba(255,215,64,.2);border:1px solid rgba(255,215,64,.4);color:#FFD54F;border-radius:20px;padding:6px 16px;font-size:13px;margin-bottom:24px}
+
+/* ── SECTION ── */
+.section{padding:40px 48px;border-bottom:1px solid var(--border);scroll-margin-top:0}
+.section-header{display:flex;align-items:center;gap:14px;margin-bottom:24px;padding-bottom:14px;border-bottom:2px solid}
+.section-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.section-title{font-size:22px;font-weight:700}
+.section-thai{font-size:13px;color:var(--muted);margin-top:2px}
+.word-count-badge{margin-left:auto;background:var(--bg);border:1px solid var(--border);border-radius:20px;padding:4px 14px;font-size:12px;color:var(--muted);white-space:nowrap}
+
+/* ── VOCAB TABLE ── */
+.vocab-table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:10px}
+.vocab-table{width:100%;border-collapse:collapse;font-size:13.5px}
+.vocab-table thead th{padding:10px 14px;text-align:left;font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.5px;white-space:nowrap}
+.vocab-table tbody tr{border-top:1px solid var(--border);transition:background .1s}
+.vocab-table tbody tr:hover{background:#f0f4ff}
+.vocab-table td{padding:10px 14px;vertical-align:top;line-height:1.5}
+.word-cell{font-weight:700;color:#1565C0;min-width:130px}
+.pos-cell{color:var(--muted);font-style:italic;font-size:12px;min-width:60px;padding-top:12px}
+.thai-cell{color:#2E7D32;font-weight:600;min-width:160px}
+.eng-cell{min-width:220px;color:#333}
+.th2-cell{color:#7B4F2E;font-size:12px;min-width:200px}
+.row-even{background:#fafafa}
+
+/* ── TIPS ── */
+.tips-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.tip-card{border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.tip-card-head{padding:12px 16px;color:#fff;display:flex;align-items:center;gap:8px}
+.tip-card-head .part{font-size:11px;opacity:.8}
+.tip-card-head .name{font-size:14px;font-weight:700}
+.tip-card-body{padding:14px 16px}
+.tip-card-body li{font-size:12.5px;color:#444;line-height:1.6;padding:3px 0 3px 16px;position:relative}
+.tip-card-body li::before{content:'•';position:absolute;left:4px;color:#999}
+
+/* ── SCORE TABLE ── */
+.score-table{width:100%;border-collapse:collapse;font-size:13.5px;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.score-table th{padding:10px 16px;text-align:left;background:var(--navy);color:#fff;font-size:12px;text-transform:uppercase;letter-spacing:.5px}
+.score-table td{padding:10px 16px;border-top:1px solid var(--border)}
+.grade-badge{display:inline-block;border-radius:6px;padding:2px 10px;font-size:12px;font-weight:700;color:#fff}
+
+/* ── WORD FAMILIES ── */
+.wf-table{width:100%;border-collapse:collapse;font-size:13px;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.wf-table th{padding:10px 14px;background:#2E7D32;color:#fff;font-size:11px;text-transform:uppercase;letter-spacing:.5px;text-align:left}
+.wf-table td{padding:9px 14px;border-top:1px solid var(--border)}
+.wf-table tr:nth-child(even) td{background:#f5faf5}
+.wf-verb{color:#1565C0;font-weight:700}
+.wf-noun{color:#E65100;font-weight:600}
+.wf-adj{color:#6A1B9A;font-weight:600}
+.wf-adv{color:#00695C;font-weight:600}
+.wf-thai{color:var(--muted);font-size:12px}
+
+/* ── COLLOCATIONS ── */
+.coll-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
+.coll-card{background:#fff;border:1px solid var(--border);border-radius:8px;padding:12px 14px}
+.coll-verb{font-size:14px;font-weight:700;color:#E65100}
+.coll-noun{font-size:13px;color:#333;margin-top:2px}
+.coll-thai{font-size:11.5px;color:var(--muted);margin-top:4px}
+
+/* ── PHRASAL VERBS ── */
+.pv-table{width:100%;border-collapse:collapse;font-size:13.5px;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.pv-table th{padding:10px 14px;background:#E65100;color:#fff;font-size:11px;text-transform:uppercase;letter-spacing:.5px;text-align:left}
+.pv-table td{padding:9px 14px;border-top:1px solid var(--border)}
+.pv-table tr:nth-child(even) td{background:#fff8f4}
+.pv-phrase{color:#E65100;font-weight:700}
+.pv-thai{color:#2E7D32;font-weight:600}
+.pv-ex{color:#555;font-style:italic;font-size:12.5px}
+
+/* ── INDEX ── */
+.index-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:6px}
+.index-item{font-size:12px;padding:5px 10px;background:#fff;border:1px solid var(--border);border-radius:6px;display:flex;gap:6px;align-items:baseline}
+.index-word{font-weight:700;color:#1565C0}
+.index-thai{color:var(--muted)}
+.index-unit{margin-left:auto;font-size:10px;background:var(--bg);border-radius:10px;padding:1px 6px;color:#888;white-space:nowrap}
+
+/* ── SEARCH RESULTS ── */
+#searchResults{padding:32px 48px;display:none}
+#searchResults h2{font-size:18px;margin-bottom:16px}
+
+/* ── TOP NAV ── */
+.topbar{position:sticky;top:0;background:rgba(248,249,250,.95);backdrop-filter:blur(10px);padding:12px 48px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;z-index:50;font-size:13px;color:var(--muted)}
+.topbar span{color:#1565C0;font-weight:600}
+
+/* ── HAMBURGER / OVERLAY ── */
+#menuBtn{display:none;background:none;border:none;cursor:pointer;padding:8px;color:var(--navy);flex-shrink:0}
+#menuBtn span{display:block;width:22px;height:2px;background:var(--navy);margin:5px 0;border-radius:2px;transition:.3s}
+#overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:90}
+#overlay.show{display:block}
+
+/* ── QUIZ ── */
+#quizModal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:200;overflow-y:auto;padding:16px}
+#quizModal.show{display:flex;align-items:flex-start;justify-content:center}
+.quiz-box{background:#fff;border-radius:16px;width:100%;max-width:640px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.quiz-header{background:var(--navy);color:#fff;padding:18px 20px;display:flex;align-items:center;gap:12px}
+.quiz-header h2{font-size:17px;font-weight:700;flex:1}
+.quiz-header .close-btn{background:none;border:none;color:#fff;font-size:22px;cursor:pointer;line-height:1;padding:0 4px}
+.quiz-progress-wrap{padding:16px 20px 0}
+.quiz-progress-bar{height:6px;background:#e0e0e0;border-radius:3px;overflow:hidden}
+.quiz-progress-fill{height:100%;background:linear-gradient(90deg,#1565C0,#0288D1);border-radius:3px;transition:width .4s}
+.quiz-progress-text{font-size:12px;color:var(--muted);margin-top:6px}
+.quiz-body{padding:20px}
+.quiz-q-type{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:8px}
+.quiz-question{font-size:16px;font-weight:600;color:var(--navy);line-height:1.5;margin-bottom:18px}
+.quiz-opts{display:grid;gap:8px}
+.quiz-opt{width:100%;text-align:left;padding:12px 16px;border:1.5px solid #dee2e6;border-radius:10px;background:#fff;cursor:pointer;font-size:14px;color:#333;transition:all .15s;line-height:1.4}
+.quiz-opt:hover{border-color:#1565C0;background:#E3F2FD;color:#1565C0}
+.quiz-opt.correct{border-color:#2E7D32;background:#E8F5E9;color:#2E7D32;font-weight:700}
+.quiz-opt.wrong{border-color:#C62828;background:#FFEBEE;color:#C62828}
+.quiz-opt.show-answer{border-color:#2E7D32;background:#E8F5E9;color:#2E7D32;opacity:.7}
+.quiz-opt:disabled{cursor:default}
+.quiz-explain{margin-top:14px;padding:12px 14px;background:#FFF9C4;border-radius:8px;font-size:13px;color:#555;border-left:3px solid #F9A825;display:none}
+.quiz-explain.show{display:block}
+.quiz-explain .exp-word{font-weight:700;color:#1565C0}
+.quiz-explain .exp-thai{color:#2E7D32;font-weight:600}
+.quiz-actions{padding:0 20px 20px;display:flex;gap:10px;flex-wrap:wrap}
+.quiz-btn{padding:10px 20px;border-radius:8px;border:none;cursor:pointer;font-size:14px;font-weight:600;transition:all .15s}
+.quiz-btn-next{background:var(--navy);color:#fff;flex:1}
+.quiz-btn-next:hover{background:#1565C0}
+.quiz-btn-skip{background:#f5f5f5;color:#666}
+.quiz-btn-skip:hover{background:#e0e0e0}
+.quiz-result{padding:24px 20px;text-align:center;display:none}
+.quiz-result.show{display:block}
+.quiz-score-circle{width:100px;height:100px;border-radius:50%;background:linear-gradient(135deg,#1565C0,#0288D1);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 16px;font-size:32px;font-weight:800}
+.quiz-score-circle small{font-size:12px;font-weight:400;opacity:.8}
+.quiz-result h3{font-size:20px;font-weight:700;margin-bottom:8px}
+.quiz-result p{font-size:14px;color:var(--muted);margin-bottom:20px}
+.quiz-restart-btn{background:var(--navy);color:#fff;border:none;border-radius:10px;padding:12px 28px;font-size:15px;font-weight:700;cursor:pointer}
+
+/* ── QUIZ LAUNCHER ── */
+.quiz-launch-bar{background:linear-gradient(135deg,#0D1B2A,#1565C0);color:#fff;padding:16px 48px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.quiz-launch-bar h3{font-size:16px;font-weight:700;flex:1;min-width:180px}
+.quiz-launch-bar p{font-size:12px;opacity:.7;margin-top:2px}
+.quiz-launch-btn{background:#FFD54F;color:#0D1B2A;border:none;border-radius:8px;padding:10px 20px;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;transition:all .15s}
+.quiz-launch-btn:hover{background:#FFC107;transform:translateY(-1px)}
+.quiz-type-select{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:6px;color:#fff;padding:8px 10px;font-size:12px;cursor:pointer}
+.quiz-type-select option{background:#1565C0;color:#fff}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  #sidebar{width:240px;min-width:240px}
+  .section{padding:32px 32px}
+  #cover{padding:48px 32px}
+}
+@media(max-width:768px){
+  body{flex-direction:column}
+  #sidebar{width:280px;min-width:280px;position:fixed;left:-290px;top:0;height:100vh;transition:left .3s;z-index:100;box-shadow:4px 0 20px rgba(0,0,0,.3)}
+  #sidebar.open{left:0}
+  #main{width:100%;overflow-y:auto}
+  .topbar{padding:10px 16px;gap:10px}
+  #menuBtn{display:flex;flex-direction:column;justify-content:center}
+  .section{padding:20px 16px}
+  #cover{padding:28px 16px;min-height:auto}
+  #cover h1{font-size:32px}
+  .cover-stats{grid-template-columns:repeat(2,1fr);gap:10px}
+  .cover-stat .num{font-size:24px}
+  .vocab-table{font-size:12px}
+  .vocab-table td{padding:8px 10px}
+  .word-cell{min-width:90px}
+  .thai-cell{min-width:110px}
+  .eng-cell{min-width:150px}
+  .th2-cell{min-width:130px;font-size:11px}
+  .tips-grid{grid-template-columns:1fr}
+  .coll-grid{grid-template-columns:repeat(2,1fr)}
+  .index-grid{grid-template-columns:1fr}
+  .wf-table{font-size:12px}
+  .wf-table td{padding:7px 10px}
+  #searchResults{padding:16px}
+  .quiz-launch-bar{padding:14px 16px}
+  .section-header{flex-wrap:wrap}
+  .word-count-badge{font-size:11px;padding:3px 10px}
+  .section-title{font-size:18px}
+}
+@media(max-width:480px){
+  #cover h1{font-size:26px}
+  .cover-stats{grid-template-columns:repeat(2,1fr);gap:8px}
+  .cover-stat{padding:14px 10px}
+  .cover-stat .num{font-size:20px}
+  .section{padding:16px 12px}
+  .vocab-table-wrap{font-size:11.5px}
+  .quiz-box{border-radius:12px}
+  .quiz-header{padding:14px 16px}
+  .quiz-body{padding:16px}
+  .quiz-actions{padding:0 16px 16px}
+  .tips-grid{gap:10px}
+  .wf-table thead th{font-size:10px;padding:8px 8px}
+  .wf-table td{font-size:11.5px;padding:7px 8px}
+  .pv-table td{padding:7px 10px;font-size:12.5px}
+  #cover{padding:20px 12px}
+}
+@media(max-width:360px){
+  #cover h1{font-size:22px}
+  .quiz-question{font-size:14px}
+  .quiz-opt{font-size:13px;padding:10px 12px}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ SIDEBAR ═══════════════ -->
+<nav id="sidebar">
+  <div class="sidebar-header">
+    <h1>TOEIC Vocabulary<br><span style="color:#FFD54F">2026 Edition</span></h1>
+    <p>คู่มือคำศัพท์ TOEIC ฉบับสมบูรณ์</p>
+    <div class="stat-pills">
+      <span class="stat-pill">3,000+ คำ</span>
+      <span class="stat-pill">12 Units</span>
+      <span class="stat-pill">EN–TH</span>
+    </div>
+  </div>
+
+  <div class="search-wrap">
+    <input type="text" id="searchBox" placeholder="🔍 ค้นหาคำศัพท์..." oninput="doSearch(this.value)">
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-label">เนื้อหาหลัก</div>
+    <div class="nav-item active" onclick="goTo('cover')">
+      <span class="icon">📖</span> Cover &amp; Overview
+    </div>
+    <div class="nav-item" onclick="goTo('score')">
+      <span class="icon">🎯</span> Score Guide 2026
+    </div>
+    <div class="nav-item" onclick="goTo('tips')">
+      <span class="icon">💡</span> TOEIC Tips — 7 Parts
+    </div>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-label">12 หมวดคำศัพท์</div>
+    <div class="nav-item" onclick="goTo('u1')"><span class="icon" style="background:#E3F2FD">🏢</span> Business &amp; Office <span class="cnt">70</span></div>
+    <div class="nav-item" onclick="goTo('u2')"><span class="icon" style="background:#E8F5E9">💰</span> Finance <span class="cnt">62</span></div>
+    <div class="nav-item" onclick="goTo('u3')"><span class="icon" style="background:#F3E5F5">👥</span> Human Resources <span class="cnt">55</span></div>
+    <div class="nav-item" onclick="goTo('u4')"><span class="icon" style="background:#FFF3E0">📊</span> Marketing &amp; Sales <span class="cnt">48</span></div>
+    <div class="nav-item" onclick="goTo('u5')"><span class="icon" style="background:#E0F7FA">💻</span> Technology <span class="cnt">50</span></div>
+    <div class="nav-item" onclick="goTo('u6')"><span class="icon" style="background:#E0F2F1">✈️</span> Travel <span class="cnt">42</span></div>
+    <div class="nav-item" onclick="goTo('u7')"><span class="icon" style="background:#FFEBEE">🏥</span> Health &amp; Safety <span class="cnt">30</span></div>
+    <div class="nav-item" onclick="goTo('u8')"><span class="icon" style="background:#EDE7F6">⚖️</span> Legal <span class="cnt">35</span></div>
+    <div class="nav-item" onclick="goTo('u9')"><span class="icon" style="background:#E0F7FA">🎧</span> Customer Service <span class="cnt">35</span></div>
+    <div class="nav-item" onclick="goTo('u10')"><span class="icon" style="background:#ECEFF1">🏭</span> Manufacturing <span class="cnt">40</span></div>
+    <div class="nav-item" onclick="goTo('u11')"><span class="icon" style="background:#E8EAF6">🏦</span> Banking <span class="cnt">35</span></div>
+    <div class="nav-item" onclick="goTo('u12')"><span class="icon" style="background:#EFEBE9">🏘️</span> Real Estate <span class="cnt">30</span></div>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-label">ส่วนเสริม</div>
+    <div class="nav-item" onclick="goTo('wf')"><span class="icon">🔤</span> Word Families <span class="cnt">20</span></div>
+    <div class="nav-item" onclick="goTo('coll')"><span class="icon">🔗</span> Collocations <span class="cnt">24</span></div>
+    <div class="nav-item" onclick="goTo('pv')"><span class="icon">➡️</span> Phrasal Verbs <span class="cnt">25</span></div>
+    <div class="nav-item" onclick="goTo('idx')"><span class="icon">📑</span> Quick Index A–Z</div>
+  </div>
+</nav>
+
+<!-- ═══════════════ MAIN CONTENT ═══════════════ -->
+<main id="main">
+
+<!-- TOPBAR -->
+<div class="topbar" id="topbar">
+  <button id="menuBtn" aria-label="Toggle menu" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+  <span>TOEIC Vocabulary 2026</span> &rsaquo; <span id="topbarLabel">Cover</span>
+</div>
+<div id="overlay" onclick="toggleMenu()"></div>
+
+<!-- QUIZ MODAL -->
+<div id="quizModal">
+  <div class="quiz-box">
+    <div class="quiz-header">
+      <h2>🎯 TOEIC Quick Quiz</h2>
+      <button class="close-btn" onclick="closeQuiz()">✕</button>
+    </div>
+    <div id="quizInner"></div>
+  </div>
+</div>
+
+<!-- SEARCH RESULTS -->
+<div id="searchResults">
+  <h2>🔍 ผลการค้นหา: "<span id="searchTerm"></span>"</h2>
+  <div id="searchTable"></div>
+</div>
+
+<!-- ── QUIZ LAUNCH BAR ── -->
+<div class="quiz-launch-bar">
+  <div>
+    <h3>🎯 Quick Quiz — TOEIC 600+ Level</h3>
+    <p>ทดสอบคำศัพท์แบบ Interactive พร้อมเฉลยและคำอธิบาย</p>
+  </div>
+  <select class="quiz-type-select" id="quizTypeSelect">
+    <option value="all">ทุกหมวด (All Units)</option>
+    <option value="u1">Unit 1: Business</option>
+    <option value="u2">Unit 2: Finance</option>
+    <option value="u3">Unit 3: HR</option>
+    <option value="u4">Unit 4: Marketing</option>
+    <option value="u5">Unit 5: Technology</option>
+    <option value="u6">Unit 6: Travel</option>
+    <option value="u7">Unit 7: Health</option>
+    <option value="u8">Unit 8: Legal</option>
+    <option value="u9">Unit 9: Customer Service</option>
+    <option value="u10">Unit 10: Manufacturing</option>
+    <option value="u11">Unit 11: Banking</option>
+    <option value="u12">Unit 12: Real Estate</option>
+  </select>
+  <select class="quiz-type-select" id="quizModeSelect">
+    <option value="mixed">Mixed (ผสม)</option>
+    <option value="th2en">TH → EN</option>
+    <option value="en2th">EN → TH</option>
+    <option value="fill">Fill in Blank</option>
+    <option value="sentence">Sentence Completion</option>
+  </select>
+  <button class="quiz-launch-btn" onclick="launchQuiz()">▶ เริ่ม Quiz (20 ข้อ)</button>
+</div>
+
+<!-- ── COVER ── -->
+<div id="cover" class="scroll-target">
+  <div class="cover-badge">📅 Version 2026 — Updated Content</div>
+  <h1>TOEIC<br><span>Vocabulary</span><br>2026</h1>
+  <p class="subtitle">คู่มือคำศัพท์ TOEIC ฉบับปี 2026 พร้อมคำแปลภาษาไทย<br>ครอบคลุมทุก Part พร้อมตัวอย่างประโยคใช้งานจริง</p>
+  <div class="cover-stats">
+    <div class="cover-stat"><span class="num">3,000+</span><div class="lbl">คำศัพท์ทั้งหมด</div></div>
+    <div class="cover-stat"><span class="num">12</span><div class="lbl">Units หมวดหมู่</div></div>
+    <div class="cover-stat"><span class="num">7</span><div class="lbl">TOEIC Parts Tips</div></div>
+    <div class="cover-stat"><span class="num">EN–TH</span><div class="lbl">Bilingual</div></div>
+  </div>
+  <div style="margin-top:40px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:600px">
+    <div style="background:rgba(255,255,255,.08);border-radius:8px;padding:14px">
+      <div style="font-size:11px;color:rgba(255,255,255,.5);margin-bottom:4px">WEEK 1</div>
+      <div style="font-size:13px;color:#fff">Units 1–4<br><span style="color:rgba(255,255,255,.6);font-size:11px">Business · Finance · HR · Marketing</span></div>
+    </div>
+    <div style="background:rgba(255,255,255,.08);border-radius:8px;padding:14px">
+      <div style="font-size:11px;color:rgba(255,255,255,.5);margin-bottom:4px">WEEK 2</div>
+      <div style="font-size:13px;color:#fff">Units 5–8<br><span style="color:rgba(255,255,255,.6);font-size:11px">Tech · Travel · Health · Legal</span></div>
+    </div>
+    <div style="background:rgba(255,255,255,.08);border-radius:8px;padding:14px">
+      <div style="font-size:11px;color:rgba(255,255,255,.5);margin-bottom:4px">WEEK 3</div>
+      <div style="font-size:13px;color:#fff">Units 9–12 + Extras<br><span style="color:rgba(255,255,255,.6);font-size:11px">Service · Mfg · Banking · RE</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── SCORE GUIDE ── -->
+<div id="score" class="section scroll-target">
+  <div class="section-header" style="border-color:#FFD54F">
+    <div class="section-icon" style="background:#FFF9C4;font-size:24px">🎯</div>
+    <div><div class="section-title">TOEIC Score Guide 2026</div><div class="section-thai">คู่มือคะแนน TOEIC ฉบับปี 2026</div></div>
+  </div>
+  <table class="score-table" style="border-radius:10px;overflow:hidden">
+    <thead><tr><th>Score Range</th><th>Grade</th><th>Level</th><th>คำอธิบาย (Thai)</th><th>Work Level</th></tr></thead>
+    <tbody>
+      <tr><td><strong>905–990</strong></td><td><span class="grade-badge" style="background:#1B5E20">C</span></td><td>Advanced</td><td>สื่อสารได้อย่างมืออาชีพ</td><td>Executive / Management</td></tr>
+      <tr style="background:#f5fff5"><td><strong>785–900</strong></td><td><span class="grade-badge" style="background:#2E7D32">B+</span></td><td>Upper-Intermediate</td><td>สื่อสารได้คล่องแคล่ว</td><td>Senior Officer</td></tr>
+      <tr><td><strong>605–780</strong></td><td><span class="grade-badge" style="background:#4CAF50">B</span></td><td>Intermediate</td><td>สื่อสารได้บ้าง</td><td>General Staff</td></tr>
+      <tr style="background:#fffbf0"><td><strong>405–600</strong></td><td><span class="grade-badge" style="background:#F57F17">C+</span></td><td>Lower-Intermediate</td><td>สื่อสารได้จำกัด</td><td>Entry Level</td></tr>
+      <tr><td><strong>255–400</strong></td><td><span class="grade-badge" style="background:#E65100">C</span></td><td>Elementary</td><td>สื่อสารได้น้อย</td><td>Basic Tasks</td></tr>
+      <tr style="background:#fff5f5"><td><strong>10–250</strong></td><td><span class="grade-badge" style="background:#B71C1C">D</span></td><td>Beginner</td><td>สื่อสารได้น้อยมาก</td><td>Needs Training</td></tr>
+    </tbody>
+  </table>
+  <p style="margin-top:12px;font-size:12px;color:var(--muted)">💡 TOEIC total = Listening (5–495) + Reading (5–495). คะแนนสูงสุด 990. คะแนน 785+ มักใช้เป็นเกณฑ์สำหรับงานระดับมืออาชีพในประเทศไทย</p>
+</div>
+
+<!-- ── TOEIC TIPS ── -->
+<div id="tips" class="section scroll-target">
+  <div class="section-header" style="border-color:#0288D1">
+    <div class="section-icon" style="background:#E0F7FA;font-size:24px">💡</div>
+    <div><div class="section-title">TOEIC Tips — All 7 Parts</div><div class="section-thai">เทคนิคทำข้อสอบครบทุก Part</div></div>
+  </div>
+  <div class="tips-grid" id="tipsGrid"></div>
+</div>
+
+<!-- ── UNITS (dynamically rendered) ── -->
+<div id="unitsContainer"></div>
+
+<!-- ── WORD FAMILIES ── -->
+<div id="wf" class="section scroll-target">
+  <div class="section-header" style="border-color:#2E7D32">
+    <div class="section-icon" style="background:#E8F5E9;font-size:22px">🔤</div>
+    <div><div class="section-title">Word Families</div><div class="section-thai">ตระกูลคำ — เรียนหนึ่งรู้สี่</div></div>
+  </div>
+  <table class="wf-table">
+    <thead><tr><th>Verb</th><th>Noun</th><th>Adjective</th><th>Adverb</th><th>ความหมาย</th></tr></thead>
+    <tbody id="wfBody"></tbody>
+  </table>
+</div>
+
+<!-- ── COLLOCATIONS ── -->
+<div id="coll" class="section scroll-target">
+  <div class="section-header" style="border-color:#E65100">
+    <div class="section-icon" style="background:#FFF3E0;font-size:22px">🔗</div>
+    <div><div class="section-title">Business Collocations</div><div class="section-thai">คำที่มักใช้คู่กันในภาษาธุรกิจ</div></div>
+  </div>
+  <div class="coll-grid" id="collGrid"></div>
+</div>
+
+<!-- ── PHRASAL VERBS ── -->
+<div id="pv" class="section scroll-target">
+  <div class="section-header" style="border-color:#E65100">
+    <div class="section-icon" style="background:#FFF3E0;font-size:22px">➡️</div>
+    <div><div class="section-title">Essential Phrasal Verbs</div><div class="section-thai">Phrasal verbs ที่ออกบ่อยใน TOEIC</div></div>
+  </div>
+  <table class="pv-table">
+    <thead><tr><th style="width:140px">Phrasal Verb</th><th style="width:200px">ความหมาย (Thai)</th><th>ตัวอย่างประโยค</th></tr></thead>
+    <tbody id="pvBody"></tbody>
+  </table>
+</div>
+
+<!-- ── INDEX ── -->
+<div id="idx" class="section scroll-target">
+  <div class="section-header" style="border-color:#1565C0">
+    <div class="section-icon" style="background:#E3F2FD;font-size:22px">📑</div>
+    <div><div class="section-title">Quick Reference Index A–Z</div><div class="section-thai">ดัชนีคำศัพท์ทั้งหมดเรียงตามตัวอักษร</div></div>
+  </div>
+  <div class="index-grid" id="indexGrid"></div>
+</div>
+
+<!-- ── FOOTER ── -->
+<div style="background:var(--navy);color:rgba(255,255,255,.5);text-align:center;padding:24px;font-size:12px">
+  TOEIC Vocabulary 2026 Edition &nbsp;•&nbsp; Designed for Thai Learners &nbsp;•&nbsp; 3,000+ Words
+</div>
+
+</main><!-- /main -->
+
+<script>
+// ═══════════════════════════════════════════════════════════════════════
+// DATA
+// ═══════════════════════════════════════════════════════════════════════
+const TIPS=[
+  {part:"Part 1",name:"Photographs",col:"#1565C0",tips:["Focus on the main subject and action in the photo","Watch for tense: present continuous is common (is being, are working)","Eliminate distractors by checking ALL people/objects mentioned","Key vocab: adjacent, displayed, stacked, leaning, scattered, mounted","Beware of sounds similar to words visible in the photo"]},
+  {part:"Part 2",name:"Question-Response",col:"#2E7D32",tips:["Identify the question word (Who/What/Where/When/Why/How) immediately","Beware of answers that repeat keywords — they are often traps","Indirect responses are common and valid answers","Practice listening for tag questions and embedded questions","Don't be tricked by homophone distractors"]},
+  {part:"Part 3",name:"Conversations",col:"#E65100",tips:["Preview the questions BEFORE the audio starts","Focus on the purpose and speakers' relationship","3-question sets: Q1=main idea, Q2=detail, Q3=implied/next action","Graphic-linked questions: scan the table/schedule during preview","Listen for negatives and corrections: 'Actually, it's...'"]},
+  {part:"Part 4",name:"Talks",col:"#6A1B9A",tips:["Identify type of talk: announcement, advertisement, news, voicemail","Listen for problem and solution, or request and outcome","Numbers, dates, and locations are common answer triggers","Preview: read Q3 first — usually asks about next action","Advertisements use persuasive language — spot the purpose first"]},
+  {part:"Part 5",name:"Incomplete Sentences",col:"#C62828",tips:["Determine part of speech needed before looking at options","Vocabulary: check context — beware words with similar forms","Watch for subject-verb agreement, tense, article usage","Time limit: ~20 sec per question; skip and return if stuck","Watch for -ing vs infinitive after certain verbs"]},
+  {part:"Part 6",name:"Text Completion",col:"#00695C",tips:["Read the entire passage before answering — context is key","Sentence insertion: check discourse connectors (However, Therefore)","Pay attention to pronoun references and tense consistency","Look for transition phrases that signal paragraph flow","Choose the option that fits grammatically AND contextually"]},
+  {part:"Part 7",name:"Reading Comprehension",col:"#283593",tips:["Skim text for structure; scan for answers to specific questions","Double passages: Q3-4 usually compare/contrast both texts","Triple passages: one question requires info from all 3 sources","NOT/EXCEPT questions: systematically eliminate options one by one","Time management: ~1 minute per question maximum"]},
+];
+
+const WF=[
+  ["analyze","analysis","analytical","analytically","วิเคราะห์"],
+  ["compete","competition","competitive","competitively","แข่งขัน"],
+  ["distribute","distribution","distributive","distributively","จัดจำหน่าย"],
+  ["finance","financial","financially","—","การเงิน"],
+  ["manage","management","managerial","managerially","จัดการ"],
+  ["negotiate","negotiation","negotiable","—","เจรจา"],
+  ["organize","organization","organizational","organizationally","จัดระเบียบ"],
+  ["produce","production","productive","productively","ผลิต"],
+  ["regulate","regulation","regulatory","—","ควบคุม"],
+  ["supervise","supervision","supervisory","—","ดูแล"],
+  ["invest","investment","investable","—","ลงทุน"],
+  ["communicate","communication","communicative","communicatively","สื่อสาร"],
+  ["collaborate","collaboration","collaborative","collaboratively","ร่วมมือ"],
+  ["innovate","innovation","innovative","innovatively","สร้างนวัตกรรม"],
+  ["implement","implementation","implementable","—","ดำเนินการ"],
+  ["evaluate","evaluation","evaluative","—","ประเมิน"],
+  ["authorize","authorization","authorized","—","อนุญาต"],
+  ["customize","customization","customizable","—","ปรับแต่ง"],
+  ["document","documentation","documentary","—","จัดทำเอกสาร"],
+  ["optimize","optimization","optimal","optimally","ปรับให้ดีที่สุด"],
+];
+
+const COLL=[
+  ["draw up","a contract","ร่างสัญญา"],["meet","a deadline","ตรงตามกำหนดเวลา"],
+  ["file","a complaint","ยื่นคำร้องเรียน"],["place","an order","สั่งซื้อ"],
+  ["conduct","a survey","ดำเนินการสำรวจ"],["make","a profit","ทำกำไร"],
+  ["attend","a conference","เข้าร่วมการประชุม"],["sign","an agreement","ลงนามข้อตกลง"],
+  ["submit","a report","ส่งรายงาน"],["launch","a product","เปิดตัวสินค้า"],
+  ["raise","capital","ระดมทุน"],["exceed","expectations","เกินความคาดหมาย"],
+  ["achieve","a goal","บรรลุเป้าหมาย"],["schedule","a meeting","กำหนดการประชุม"],
+  ["issue","an invoice","ออกใบแจ้งหนี้"],["handle","a complaint","จัดการข้อร้องเรียน"],
+  ["take","responsibility","รับผิดชอบ"],["reach","a consensus","บรรลุมติร่วม"],
+  ["give","a presentation","นำเสนอ"],["negotiate","a deal","เจรจาข้อตกลง"],
+  ["increase","revenue","เพิ่มรายได้"],["reduce","costs","ลดต้นทุน"],
+  ["expand","operations","ขยายการดำเนินงาน"],["build","a team","สร้างทีม"],
+];
+
+const PV=[
+  ["back up","สำรองข้อมูล / สนับสนุน","Back up your files before the update."],
+  ["bring up","หยิบยกประเด็น","She brought up a valid point in the meeting."],
+  ["call off","ยกเลิก","The event was called off due to rain."],
+  ["carry out","ดำเนินการ","Carry out the plan as scheduled."],
+  ["come up with","คิดหาวิธี / เสนอ","Come up with a solution by Monday."],
+  ["cut back on","ลดลง","We need to cut back on expenses."],
+  ["draw up","ร่าง","Draw up a contract for the new hire."],
+  ["fall through","ล้มเหลว / ไม่เป็นไปตามแผน","The merger deal fell through last week."],
+  ["follow up","ติดตาม","Follow up with the client after the demo."],
+  ["hand in","ส่ง (งาน/เอกสาร)","Hand in your report by Friday."],
+  ["hold off","ชะลอ","Hold off the decision until Friday."],
+  ["keep up with","ตามทัน","Keep up with industry trends."],
+  ["lay off","เลิกจ้าง","The company laid off 200 workers."],
+  ["look into","ตรวจสอบ / สืบสวน","Look into the billing error."],
+  ["make up for","ชดเชย","Work overtime to make up for the delay."],
+  ["phase out","ทยอยยกเลิก","They are phasing out the old system."],
+  ["put off","เลื่อน","Don't put off the quarterly review."],
+  ["roll out","เปิดตัว / เริ่มใช้","Roll out the new software next month."],
+  ["set up","ตั้งค่า / จัดตั้ง","Set up a meeting with the client."],
+  ["take over","รับช่วงต่อ / เข้าครอบครอง","She took over as CEO last quarter."],
+  ["turn down","ปฏิเสธ","He turned down the job offer."],
+  ["wind up","สรุป / เลิกกิจการ","They wound up the subsidiary last year."],
+  ["work out","แก้ไข / คำนวณ","Work out the budget before presenting."],
+  ["wrap up","สรุป / จบ","Let's wrap up the meeting by 5 PM."],
+  ["write off","ตัดเป็นค่าใช้จ่าย","Write off the bad debt this quarter."],
+];
+
+// ── w(word,pos,thai,eng,th2) helper ──
+const w=(word,pos,thai,eng,th2)=>({w:word,p:pos,t:thai,e:eng,x:th2});
+
+const UNITS=[
+ {id:"u1",num:1,title:"Business & Office",thai:"ธุรกิจและสำนักงาน",icon:"🏢",col:"#1565C0",light:"#E3F2FD",words:[
+  w("abstract","n./adj.","บทคัดย่อ / นามธรรม","Submit an abstract before the full report.","ส่งบทคัดย่อก่อนรายงานฉบับเต็ม"),
+  w("accountability","n.","ความรับผิดชอบ","Accountability is key in any organization.","ความรับผิดชอบเป็นสิ่งสำคัญในองค์กร"),
+  w("accreditation","n.","การรับรองมาตรฐาน","ISO accreditation boosts client confidence.","การรับรอง ISO เพิ่มความมั่นใจของลูกค้า"),
+  w("acquire","v.","ได้มา / เข้าซื้อกิจการ","The company acquired a smaller rival.","บริษัทเข้าซื้อกิจการคู่แข่งขนาดเล็ก"),
+  w("adjacent","adj.","อยู่ติดกัน","The meeting room is adjacent to the lobby.","ห้องประชุมอยู่ติดกับล็อบบี้"),
+  w("agenda","n.","วาระการประชุม","Please review the agenda before the meeting.","กรุณาตรวจสอบวาระก่อนประชุม"),
+  w("allocate","v.","จัดสรร","Allocate more budget to the marketing team.","จัดสรรงบมากขึ้นให้ฝ่ายการตลาด"),
+  w("amendment","n.","การแก้ไข","An amendment was made to the original contract.","มีการแก้ไขสัญญาต้นฉบับ"),
+  w("annual report","n.","รายงานประจำปี","The annual report showed strong performance.","รายงานประจำปีแสดงผลการดำเนินงานที่แข็งแกร่ง"),
+  w("approve","v.","อนุมัติ","The board approved the new budget.","คณะกรรมการอนุมัติงบประมาณใหม่"),
+  w("authenticate","v.","ยืนยันตัวตน","Please authenticate your account via email.","กรุณายืนยันบัญชีของคุณทางอีเมล"),
+  w("authorize","v.","ให้อำนาจ / อนุญาต","Only the manager can authorize payments.","เฉพาะผู้จัดการที่สามารถอนุมัติการชำระเงิน"),
+  w("benchmark","n.","มาตรฐานเปรียบเทียบ","Set a benchmark for performance evaluation.","กำหนดมาตรฐานสำหรับการประเมินผล"),
+  w("brief","v.","สรุปให้ฟัง","The manager briefed the team on new policies.","ผู้จัดการสรุปนโยบายใหม่ให้ทีม"),
+  w("capacity","n.","ความสามารถ / ปริมาณสูงสุด","The venue has a capacity of 500 people.","สถานที่รองรับได้สูงสุด 500 คน"),
+  w("centralize","v.","รวมศูนย์","They centralized all operations in Bangkok.","พวกเขารวมศูนย์การดำเนินงานทั้งหมดในกรุงเทพฯ"),
+  w("collaborate","v.","ร่วมมือกัน","Teams must collaborate to meet the deadline.","ทีมต้องร่วมมือกันเพื่อให้ทันกำหนด"),
+  w("comply","v.","ปฏิบัติตาม","All staff must comply with company regulations.","พนักงานทุกคนต้องปฏิบัติตามกฎบริษัท"),
+  w("confidential","adj.","เป็นความลับ","This document is strictly confidential.","เอกสารนี้เป็นความลับอย่างเคร่งครัด"),
+  w("consensus","n.","มติร่วม","We reached a consensus after long discussion.","เราบรรลุมติร่วมหลังการอภิปรายนาน"),
+  w("contingency","n.","แผนฉุกเฉิน","Have a contingency plan ready at all times.","เตรียมแผนฉุกเฉินไว้ให้พร้อมตลอดเวลา"),
+  w("convene","v.","เรียกประชุม","The committee will convene next Monday.","คณะกรรมการจะประชุมในวันจันทร์หน้า"),
+  w("corporate","adj.","เกี่ยวกับองค์กร","Corporate culture affects employee morale.","วัฒนธรรมองค์กรส่งผลต่อขวัญกำลังใจ"),
+  w("deadline","n.","กำหนดเวลา","Submit the report before the deadline.","ส่งรายงานก่อนกำหนดเวลา"),
+  w("decentralize","v.","กระจายอำนาจ","Decentralize decision-making to speed up processes.","กระจายอำนาจการตัดสินใจเพื่อเร่งกระบวนการ"),
+  w("delegate","v.","มอบหมาย","She delegated tasks to her subordinates.","เธอมอบหมายงานให้ลูกน้อง"),
+  w("designate","v.","กำหนด / แต่งตั้ง","He was designated as the project lead.","เขาได้รับการแต่งตั้งเป็นหัวหน้าโครงการ"),
+  w("directive","n.","คำสั่ง","Follow the new directive on data handling.","ปฏิบัติตามคำสั่งใหม่เกี่ยวกับการจัดการข้อมูล"),
+  w("disclose","v.","เปิดเผย","Companies must disclose financial results quarterly.","บริษัทต้องเปิดเผยผลทางการเงินรายไตรมาส"),
+  w("draft","n./v.","ร่าง / ฉบับร่าง","Draft the proposal before the meeting.","ร่างข้อเสนอก่อนการประชุม"),
+  w("efficiency","n.","ประสิทธิภาพ","Improve efficiency by automating tasks.","ปรับปรุงประสิทธิภาพโดยการทำงานอัตโนมัติ"),
+  w("enforce","v.","บังคับใช้","Management will enforce the new policy.","ฝ่ายบริหารจะบังคับใช้นโยบายใหม่"),
+  w("escalate","v.","ยกระดับ","Please escalate this issue to the director.","กรุณายกระดับเรื่องนี้ถึงผู้อำนวยการ"),
+  w("evaluate","v.","ประเมิน","Evaluate the proposal objectively.","ประเมินข้อเสนออย่างเป็นกลาง"),
+  w("executive","n.","ผู้บริหาร","The executives met to discuss strategy.","ผู้บริหารประชุมเพื่อหารือกลยุทธ์"),
+  w("expedite","v.","เร่ง","Expedite the delivery to meet the deadline.","เร่งการส่งมอบเพื่อให้ทันกำหนด"),
+  w("facilitate","v.","อำนวยความสะดวก","HR facilitates new employee onboarding.","HR อำนวยความสะดวกการรับพนักงานใหม่"),
+  w("feasible","adj.","เป็นไปได้","The proposal is feasible within our budget.","ข้อเสนอนี้เป็นไปได้ในงบประมาณของเรา"),
+  w("finalize","v.","สรุปขั้นสุดท้าย","Please finalize the report by Friday.","กรุณาสรุปรายงานให้เสร็จภายในวันศุกร์"),
+  w("formulate","v.","กำหนด / วางแผน","Formulate a clear strategy for Q3.","กำหนดกลยุทธ์ที่ชัดเจนสำหรับ Q3"),
+  w("framework","n.","กรอบงาน","Use an agile framework for development.","ใช้กรอบงาน Agile ในการพัฒนา"),
+  w("governance","n.","การกำกับดูแล","Good governance builds stakeholder trust.","การกำกับดูแลที่ดีสร้างความเชื่อมั่น"),
+  w("hierarchy","n.","ลำดับชั้น","Understand the organizational hierarchy.","ทำความเข้าใจลำดับชั้นขององค์กร"),
+  w("implement","v.","นำไปปฏิบัติ","We will implement the new system next quarter.","เราจะนำระบบใหม่ไปใช้ไตรมาสหน้า"),
+  w("initiative","n.","ความคิดริเริ่ม","She took the initiative to improve workflow.","เธอริเริ่มปรับปรุงกระบวนการทำงาน"),
+  w("integrate","v.","รวมเข้าด้วยกัน","Integrate the new software with existing tools.","รวมซอฟต์แวร์ใหม่เข้ากับเครื่องมือที่มีอยู่"),
+  w("interim","adj.","ชั่วคราว / รักษาการ","She serves as interim manager.","เธอทำหน้าที่ผู้จัดการรักษาการ"),
+  w("leverage","v.","ใช้ประโยชน์จาก","Leverage your network to find new clients.","ใช้ประโยชน์จากเครือข่ายเพื่อหาลูกค้าใหม่"),
+  w("mandatory","adj.","บังคับ","Attendance at the training is mandatory.","การเข้าอบรมเป็นสิ่งบังคับ"),
+  w("memorandum","n.","บันทึกข้อความ (memo)","Send a memorandum to all department heads.","ส่งบันทึกข้อความถึงหัวหน้าทุกแผนก"),
+  w("milestone","n.","จุดหมายสำคัญ","We hit a major milestone this quarter.","เราบรรลุเป้าหมายสำคัญในไตรมาสนี้"),
+  w("minute","n.","รายงานการประชุม","The minutes were distributed after the meeting.","รายงานการประชุมถูกแจกจ่ายหลังการประชุม"),
+  w("negotiate","v.","เจรจา","We negotiated a better contract with the supplier.","เราเจรจาสัญญาที่ดีกว่ากับซัพพลายเออร์"),
+  w("objective","n.","วัตถุประสงค์","State the project objectives clearly.","ระบุวัตถุประสงค์ของโครงการให้ชัดเจน"),
+  w("optimize","v.","ปรับให้ดีที่สุด","Optimize the workflow to save time.","ปรับกระบวนการทำงานเพื่อประหยัดเวลา"),
+  w("outsource","v.","จ้างภายนอก","The company outsources its IT support.","บริษัทจ้างภายนอกดูแล IT"),
+  w("pending","adj.","รอดำเนินการ","There are three pending approvals.","มีการอนุมัติที่รอดำเนินการสามรายการ"),
+  w("policy","n.","นโยบาย","Review the company policy on remote work.","ตรวจสอบนโยบายบริษัทเกี่ยวกับการทำงานทางไกล"),
+  w("productivity","n.","ผลิตภาพ","Remote work has improved productivity.","การทำงานทางไกลช่วยเพิ่มผลิตภาพ"),
+  w("protocol","n.","ขั้นตอน / มาตรการ","Follow the security protocol at all times.","ปฏิบัติตามขั้นตอนความปลอดภัยตลอดเวลา"),
+  w("provision","n.","บทบัญญัติ / การจัดเตรียม","Make provision for unexpected costs.","เตรียมการสำหรับค่าใช้จ่ายที่ไม่คาดฝัน"),
+  w("quarterly","adj.","รายไตรมาส","Quarterly reviews keep goals on track.","การทบทวนรายไตรมาสช่วยให้เป้าหมายเป็นไปตามแผน"),
+  w("restructure","v.","ปรับโครงสร้าง","The firm plans to restructure its operations.","บริษัทวางแผนปรับโครงสร้างการดำเนินงาน"),
+  w("strategy","n.","กลยุทธ์","Develop a long-term business strategy.","พัฒนากลยุทธ์ธุรกิจระยะยาว"),
+  w("streamline","v.","ทำให้คล่องตัว","Streamline the approval process.","ทำให้กระบวนการอนุมัติคล่องตัวขึ้น"),
+  w("subsidiary","n.","บริษัทในเครือ","The subsidiary operates independently.","บริษัทในเครือดำเนินงานอย่างอิสระ"),
+  w("transparency","n.","ความโปร่งใส","Financial transparency builds investor trust.","ความโปร่งใสทางการเงินสร้างความเชื่อมั่น"),
+  w("undertake","v.","รับดำเนินการ","She undertook the project with enthusiasm.","เธอรับดำเนินโครงการด้วยความกระตือรือร้น"),
+  w("viable","adj.","ทำได้จริง","Is this a viable business model?","นี่เป็นโมเดลธุรกิจที่ทำได้จริงหรือไม่"),
+  w("waive","v.","สละสิทธิ์ / ยกเว้น","The company waived the processing fee.","บริษัทยกเว้นค่าธรรมเนียมการดำเนินการ"),
+  w("workflow","n.","กระบวนการทำงาน","Improve the workflow with better tools.","ปรับปรุงกระบวนการทำงานด้วยเครื่องมือที่ดีขึ้น"),
+  w("workload","n.","ภาระงาน","Distribute the workload fairly across the team.","แบ่งภาระงานอย่างเป็นธรรมในทีม"),
+  w("subordinate","n.","ผู้ใต้บังคับบัญชา","Brief all subordinates before the meeting.","แจ้งผู้ใต้บังคับบัญชาทุกคนก่อนการประชุม"),
+  w("predecessor","n.","ผู้ดำรงตำแหน่งก่อน","Her predecessor left a strong team behind.","ผู้ดำรงตำแหน่งก่อนหน้าเธอทิ้งทีมที่แข็งแกร่งไว้"),
+  w("successor","n.","ผู้สืบทอด","Name a successor before the CEO retires.","ระบุผู้สืบทอดก่อน CEO เกษียณ"),
+  w("verbal","adj.","ด้วยวาจา","A verbal agreement was made over the phone.","มีข้อตกลงด้วยวาจาทางโทรศัพท์"),
+  w("venue","n.","สถานที่","Book the venue for the annual conference.","จองสถานที่สำหรับการประชุมประจำปี"),
+ ]},
+ {id:"u2",num:2,title:"Finance & Accounting",thai:"การเงินและการบัญชี",icon:"💰",col:"#2E7D32",light:"#E8F5E9",words:[
+  w("accrue","v.","สะสม","Interest accrues monthly on savings accounts.","ดอกเบี้ยสะสมรายเดือนในบัญชีออมทรัพย์"),
+  w("amortize","v.","ตัดจำหน่ายทยอย","The loan is amortized over 30 years.","เงินกู้ถูกตัดจำหน่ายทยอยใน 30 ปี"),
+  w("asset","n.","สินทรัพย์","List all current assets on the balance sheet.","ระบุสินทรัพย์หมุนเวียนทั้งหมดในงบดุล"),
+  w("audit","n.","การตรวจสอบบัญชี","The annual audit revealed no discrepancies.","การตรวจสอบประจำปีไม่พบข้อผิดพลาด"),
+  w("balance sheet","n.","งบดุล","Review the balance sheet before the board meeting.","ตรวจสอบงบดุลก่อนประชุมคณะกรรมการ"),
+  w("bear market","n.","ตลาดหุ้นขาลง","Investors are cautious during a bear market.","นักลงทุนระมัดระวังในตลาดขาลง"),
+  w("bond","n.","พันธบัตร","Government bonds are low-risk investments.","พันธบัตรรัฐบาลเป็นการลงทุนความเสี่ยงต่ำ"),
+  w("bookkeeping","n.","การจัดทำบัญชี","Accurate bookkeeping is essential.","การจัดทำบัญชีที่ถูกต้องเป็นสิ่งจำเป็น"),
+  w("break-even","n.","จุดคุ้มทุน","We expect to reach break-even by Q2.","เราคาดว่าจะถึงจุดคุ้มทุนภายใน Q2"),
+  w("budget","n.","งบประมาณ","Stick to the annual budget.","ยึดตามงบประมาณประจำปี"),
+  w("bull market","n.","ตลาดหุ้นขาขึ้น","A bull market encourages more investment.","ตลาดขาขึ้นส่งเสริมการลงทุนมากขึ้น"),
+  w("capital","n.","ทุน","The startup raised capital from investors.","สตาร์ทอัพระดมทุนจากนักลงทุน"),
+  w("cash flow","n.","กระแสเงินสด","Positive cash flow is essential for growth.","กระแสเงินสดบวกสำคัญต่อการเติบโต"),
+  w("collateral","n.","หลักทรัพย์ค้ำประกัน","The property serves as collateral for the loan.","ทรัพย์สินใช้เป็นหลักประกันสำหรับเงินกู้"),
+  w("compound interest","n.","ดอกเบี้ยทบต้น","Compound interest grows wealth over time.","ดอกเบี้ยทบต้นช่วยสร้างความมั่งคั่ง"),
+  w("credit","n.","เครดิต","Apply for a line of credit.","สมัครวงเงินสินเชื่อ"),
+  w("debit","n.","รายจ่าย","Debit the expense to the correct account.","บันทึกค่าใช้จ่ายในบัญชีที่ถูกต้อง"),
+  w("deficit","n.","การขาดดุล","The government reported a budget deficit.","รัฐบาลรายงานการขาดดุลงบประมาณ"),
+  w("depreciation","n.","ค่าเสื่อมราคา","Equipment depreciation reduces taxable income.","ค่าเสื่อมราคาลดรายได้ที่ต้องเสียภาษี"),
+  w("derivative","n.","ตราสารอนุพันธ์","Derivatives are used to hedge risk.","อนุพันธ์ใช้ในการป้องกันความเสี่ยง"),
+  w("disbursement","n.","การเบิกจ่ายเงิน","Approve the disbursement before Friday.","อนุมัติการเบิกจ่ายก่อนวันศุกร์"),
+  w("dividend","n.","เงินปันผล","Shareholders received a quarterly dividend.","ผู้ถือหุ้นได้รับเงินปันผลรายไตรมาส"),
+  w("equity","n.","ส่วนของผู้ถือหุ้น","Equity investors share in profits and losses.","นักลงทุนหุ้นแบ่งปันกำไรและขาดทุน"),
+  w("expenditure","n.","รายจ่าย","Reduce unnecessary expenditure.","ลดรายจ่ายที่ไม่จำเป็น"),
+  w("fiscal","adj.","เกี่ยวกับงบประมาณ","The fiscal year ends on December 31.","ปีงบประมาณสิ้นสุดวันที่ 31 ธันวาคม"),
+  w("forecast","v.","พยากรณ์ / คาดการณ์","Analysts forecast a 5% revenue growth.","นักวิเคราะห์คาดการณ์รายได้เพิ่มขึ้น 5%"),
+  w("gross profit","n.","กำไรขั้นต้น","Gross profit increased by 12% this year.","กำไรขั้นต้นเพิ่มขึ้น 12% ในปีนี้"),
+  w("hedge","v.","ป้องกันความเสี่ยง","Companies hedge against currency fluctuation.","บริษัทป้องกันความเสี่ยงจากความผันผวน"),
+  w("income statement","n.","งบกำไรขาดทุน","Review the income statement monthly.","ตรวจสอบงบกำไรขาดทุนรายเดือน"),
+  w("inflation","n.","เงินเฟ้อ","Inflation has eroded purchasing power.","เงินเฟ้อกัดกร่อนอำนาจซื้อ"),
+  w("insolvency","n.","ภาวะล้มละลาย","Insolvency proceedings were filed last week.","มีการยื่นขอดำเนินคดีล้มละลาย"),
+  w("interest rate","n.","อัตราดอกเบี้ย","The central bank raised interest rates.","ธนาคารกลางขึ้นอัตราดอกเบี้ย"),
+  w("invoice","n.","ใบแจ้งหนี้","Send the invoice after delivery.","ส่งใบแจ้งหนี้หลังการส่งมอบ"),
+  w("journal entry","n.","รายการบันทึกบัญชี","Post journal entries daily.","บันทึกรายการบัญชีทุกวัน"),
+  w("ledger","n.","บัญชีแยกประเภท","Maintain an accurate general ledger.","ดูแลบัญชีแยกประเภทให้ถูกต้อง"),
+  w("liability","n.","หนี้สิน","Long-term liabilities include bonds payable.","หนี้สินระยะยาวรวมถึงหุ้นกู้ที่ต้องชำระ"),
+  w("liquidity","n.","สภาพคล่อง","High liquidity allows quick asset conversion.","สภาพคล่องสูงช่วยแปลงสินทรัพย์ได้รวดเร็ว"),
+  w("margin","n.","ส่วนต่างกำไร","Improve profit margins with cost control.","ปรับปรุงส่วนต่างกำไรด้วยการควบคุมต้นทุน"),
+  w("maturity","n.","วันครบกำหนด","The bond reaches maturity in 2030.","พันธบัตรครบกำหนดในปี 2030"),
+  w("net income","n.","รายได้สุทธิ","Net income rose 8% compared to last quarter.","รายได้สุทธิเพิ่มขึ้น 8% เทียบกับไตรมาสที่แล้ว"),
+  w("overhead","n.","ค่าใช้จ่ายทั่วไป","Rent and utilities are overhead expenses.","ค่าเช่าและสาธารณูปโภคเป็นค่าใช้จ่ายทั่วไป"),
+  w("payable","adj.","ต้องชำระ","The invoice is payable within 30 days.","ใบแจ้งหนี้ต้องชำระภายใน 30 วัน"),
+  w("portfolio","n.","พอร์ตการลงทุน","Diversify your investment portfolio.","กระจายพอร์ตการลงทุนของคุณ"),
+  w("principal","n.","เงินต้น","Repay the principal before the interest.","ชำระเงินต้นก่อนดอกเบี้ย"),
+  w("provision","n.","การตั้งสำรอง","Set aside a provision for bad debts.","ตั้งสำรองสำหรับหนี้เสีย"),
+  w("receipt","n.","ใบเสร็จ","Keep all receipts for tax purposes.","เก็บใบเสร็จทั้งหมดเพื่อวัตถุประสงค์ทางภาษี"),
+  w("reconciliation","n.","การกระทบยอด","Monthly bank reconciliation is required.","ต้องกระทบยอดธนาคารรายเดือน"),
+  w("revenue","n.","รายได้","Total revenue exceeded expectations.","รายได้รวมเกินความคาดหมาย"),
+  w("shareholder","n.","ผู้ถือหุ้น","Shareholders voted on the new proposal.","ผู้ถือหุ้นลงคะแนนเสียงในข้อเสนอใหม่"),
+  w("solvent","adj.","มีความสามารถชำระหนี้","The company remains solvent despite losses.","บริษัทยังคงมีสภาพคล่องแม้จะขาดทุน"),
+  w("subsidy","n.","เงินอุดหนุน","The government provides subsidies for SMEs.","รัฐบาลให้เงินอุดหนุนแก่ SMEs"),
+  w("surplus","n.","ส่วนเกิน","The trade surplus grew this quarter.","การเกินดุลการค้าเพิ่มขึ้นในไตรมาสนี้"),
+  w("tax deduction","n.","การหักภาษี","Maximize your tax deductions legally.","เพิ่มสิทธิหักลดหย่อนภาษีอย่างถูกกฎหมาย"),
+  w("transaction","n.","การทำธุรกรรม","Each transaction is recorded in the ledger.","แต่ละธุรกรรมถูกบันทึกในบัญชีแยกประเภท"),
+  w("valuation","n.","การประเมินมูลค่า","The startup valuation reached $1 billion.","มูลค่าสตาร์ทอัพถึง 1 พันล้านดอลลาร์"),
+  w("variance","n.","ส่วนต่าง","Explain the budget variance in the report.","อธิบายส่วนต่างงบประมาณในรายงาน"),
+  w("working capital","n.","เงินทุนหมุนเวียน","Maintain adequate working capital at all times.","รักษาเงินทุนหมุนเวียนที่เพียงพอตลอดเวลา"),
+  w("write-off","n.","การตัดหนี้สูญ","The bad debt was recorded as a write-off.","หนี้เสียถูกบันทึกเป็นการตัดหนี้สูญ"),
+  w("yield","n.","ผลตอบแทน","This bond offers a 4% annual yield.","พันธบัตรนี้ให้ผลตอบแทน 4% ต่อปี"),
+  w("capital gain","n.","กำไรจากการขายสินทรัพย์","Capital gains are taxable in most countries.","กำไรจากการขายสินทรัพย์ต้องเสียภาษีในส่วนใหญ่"),
+  w("accounts receivable","n.","ลูกหนี้การค้า","Follow up on overdue accounts receivable.","ติดตามลูกหนี้การค้าที่เกินกำหนด"),
+  w("accounts payable","n.","เจ้าหนี้การค้า","Pay accounts payable on time to maintain credit.","ชำระเจ้าหนี้การค้าตรงเวลาเพื่อรักษาเครดิต"),
+  w("return on equity","n.","ผลตอบแทนต่อส่วนผู้ถือหุ้น","ROE improved to 18% this year.","ROE ปรับปรุงขึ้นเป็น 18% ในปีนี้"),
+  w("cost of goods sold","n.","ต้นทุนสินค้าขาย","Reduce cost of goods sold to improve margins.","ลดต้นทุนสินค้าขายเพื่อปรับปรุงส่วนต่าง"),
+ ]},
+ {id:"u3",num:3,title:"Human Resources",thai:"ทรัพยากรบุคคล",icon:"👥",col:"#6A1B9A",light:"#F3E5F5",words:[
+  w("absenteeism","n.","การขาดงานบ่อย","High absenteeism affects team productivity.","การขาดงานบ่อยส่งผลต่อผลผลิตของทีม"),
+  w("appraisal","n.","การประเมินผล","Annual appraisals identify top performers.","การประเมินประจำปีช่วยระบุผู้มีผลงานดีเด่น"),
+  w("attrition","n.","การสูญเสียพนักงาน","High attrition affects company performance.","การสูญเสียพนักงานสูงส่งผลต่อผลงานบริษัท"),
+  w("background check","n.","การตรวจสอบประวัติ","A background check is required for all new hires.","ต้องมีการตรวจสอบประวัติสำหรับพนักงานใหม่ทุกคน"),
+  w("benefits","n.","สวัสดิการ","The job comes with excellent benefits.","งานนี้มีสวัสดิการที่ดีเยี่ยม"),
+  w("bonus","n.","โบนัส","Performance bonuses are paid in December.","โบนัสตามผลงานจ่ายในเดือนธันวาคม"),
+  w("candidate","n.","ผู้สมัคร","Shortlist the top three candidates.","คัดเลือกผู้สมัครสามคนแรก"),
+  w("coaching","n.","การสอนงาน","Regular coaching improves staff performance.","การโค้ชอย่างสม่ำเสมอปรับปรุงผลงานของพนักงาน"),
+  w("compensation","n.","ค่าตอบแทน","Competitive compensation attracts talent.","ค่าตอบแทนที่แข่งขันได้ดึงดูดคนเก่ง"),
+  w("competency","n.","ความสามารถหลัก","Define the core competencies for each role.","กำหนดความสามารถหลักสำหรับแต่ละตำแหน่ง"),
+  w("conflict of interest","n.","ผลประโยชน์ทับซ้อน","Disclose any conflict of interest immediately.","เปิดเผยผลประโยชน์ทับซ้อนทันที"),
+  w("counseling","n.","การให้คำปรึกษา","HR offers counseling to stressed employees.","HR ให้คำปรึกษาแก่พนักงานที่เครียด"),
+  w("cross-training","n.","การฝึกข้ามสายงาน","Cross-training builds a more flexible team.","การฝึกข้ามสายงานสร้างทีมที่ยืดหยุ่นมากขึ้น"),
+  w("delegation","n.","การมอบหมาย","Effective delegation empowers team members.","การมอบหมายที่มีประสิทธิภาพช่วยเสริมศักยภาพสมาชิกทีม"),
+  w("dismissal","n.","การเลิกจ้าง","Dismissal requires documented evidence.","การเลิกจ้างต้องมีหลักฐานที่บันทึกไว้"),
+  w("diversity","n.","ความหลากหลาย","Workplace diversity fosters innovation.","ความหลากหลายในที่ทำงานส่งเสริมนวัตกรรม"),
+  w("eligible","adj.","มีสิทธิ์","Full-time employees are eligible for bonuses.","พนักงานเต็มเวลามีสิทธิ์รับโบนัส"),
+  w("employee engagement","n.","การมีส่วนร่วมของพนักงาน","High engagement leads to better retention.","การมีส่วนร่วมสูงนำไปสู่การรักษาพนักงานที่ดีขึ้น"),
+  w("exit interview","n.","การสัมภาษณ์เมื่อลาออก","Conduct exit interviews to understand turnover.","ทำการสัมภาษณ์ลาออกเพื่อเข้าใจการเปลี่ยนงาน"),
+  w("grievance","n.","ข้อร้องเรียน","Submit a formal grievance to HR.","ยื่นคำร้องเรียนอย่างเป็นทางการต่อ HR"),
+  w("headcount","n.","จำนวนพนักงาน","The headcount grew by 20% last year.","จำนวนพนักงานเพิ่มขึ้น 20% ปีที่แล้ว"),
+  w("incentive","n.","สิ่งจูงใจ","Sales incentives motivate the team.","สิ่งจูงใจด้านการขายกระตุ้นทีม"),
+  w("inclusion","n.","การรวมทุกคน","DEI programs promote inclusion at work.","โปรแกรม DEI ส่งเสริมการรวมทุกคนในที่ทำงาน"),
+  w("induction","n.","การปฐมนิเทศ","New hires attend a two-day induction program.","พนักงานใหม่เข้าร่วมโปรแกรมปฐมนิเทศสองวัน"),
+  w("job description","n.","รายละเอียดงาน","Update the job description before posting.","อัปเดตรายละเอียดงานก่อนประกาศ"),
+  w("job satisfaction","n.","ความพึงพอใจในงาน","Job satisfaction affects retention rates.","ความพึงพอใจในงานส่งผลต่ออัตราการรักษาพนักงาน"),
+  w("KPI","n.","ตัวชี้วัดประสิทธิภาพหลัก","Track KPIs monthly for each department.","ติดตาม KPI รายเดือนสำหรับแต่ละแผนก"),
+  w("layoff","n.","การเลิกจ้างชั่วคราว","The company announced a major layoff.","บริษัทประกาศการเลิกจ้างครั้งใหญ่"),
+  w("leave of absence","n.","การลาพัก","Apply for a leave of absence in writing.","ยื่นคำขอลาพักเป็นลายลักษณ์อักษร"),
+  w("mentor","n.","พี่เลี้ยง / ที่ปรึกษา","A mentor helps junior staff develop skills.","พี่เลี้ยงช่วยพนักงานรุ่นน้องพัฒนาทักษะ"),
+  w("notice period","n.","ระยะเวลาแจ้งล่วงหน้า","Serve a 30-day notice period when resigning.","ให้แจ้งล่วงหน้า 30 วันเมื่อลาออก"),
+  w("onboarding","n.","กระบวนการรับพนักงานใหม่","Effective onboarding reduces turnover.","การรับพนักงานใหม่ที่มีประสิทธิภาพลดการลาออก"),
+  w("overtime","n.","การทำงานล่วงเวลา","Overtime pay is 1.5 times the regular rate.","ค่าล่วงเวลาเป็น 1.5 เท่าของอัตราปกติ"),
+  w("payroll","n.","เงินเดือน / บัญชีเงินเดือน","Payroll is processed on the 28th.","เงินเดือนจัดการในวันที่ 28"),
+  w("performance review","n.","การทบทวนผลการปฏิบัติงาน","Schedule performance reviews quarterly.","กำหนดการทบทวนผลงานรายไตรมาส"),
+  w("probation","n.","การทดลองงาน","New employees serve a 3-month probation.","พนักงานใหม่ทดลองงาน 3 เดือน"),
+  w("promotion","n.","การเลื่อนตำแหน่ง","She received a promotion to senior manager.","เธอได้รับการเลื่อนตำแหน่งเป็นผู้จัดการอาวุโส"),
+  w("recruit","v.","สรรหา / รับสมัคร","We are recruiting experienced engineers.","เรากำลังสรรหาวิศวกรที่มีประสบการณ์"),
+  w("redundancy","n.","การเลิกจ้างเนื่องจากงานลดลง","Redundancy packages include severance pay.","แพ็กเกจเลิกจ้างรวมถึงค่าชดเชย"),
+  w("remuneration","n.","ค่าตอบแทน","Remuneration is reviewed every January.","ค่าตอบแทนได้รับการทบทวนทุกเดือนมกราคม"),
+  w("resignation","n.","การลาออก","Submit a resignation letter two weeks in advance.","ยื่นจดหมายลาออกล่วงหน้าสองสัปดาห์"),
+  w("retention","n.","การรักษาพนักงาน","Retention strategies reduce hiring costs.","กลยุทธ์การรักษาพนักงานลดต้นทุนการจ้างใหม่"),
+  w("roster","n.","ตารางกะ","Check the weekly roster for your shift.","ตรวจสอบตารางกะรายสัปดาห์ของคุณ"),
+  w("severance","n.","ค่าชดเชยเลิกจ้าง","Severance is calculated based on years of service.","ค่าชดเชยคำนวณจากอายุงาน"),
+  w("skill gap","n.","ช่องว่างทักษะ","Identify skill gaps through assessments.","ระบุช่องว่างทักษะผ่านการประเมิน"),
+  w("stipend","n.","เบี้ยเลี้ยง","Interns receive a monthly stipend.","นักศึกษาฝึกงานได้รับเบี้ยเลี้ยงรายเดือน"),
+  w("succession planning","n.","การวางแผนผู้สืบทอด","Succession planning ensures business continuity.","การวางแผนผู้สืบทอดรับรองความต่อเนื่องทางธุรกิจ"),
+  w("talent management","n.","การบริหารความสามารถ","Invest in talent management programs.","ลงทุนในโปรแกรมบริหารความสามารถ"),
+  w("termination","n.","การสิ้นสุดสัญญา","Termination requires a 30-day notice.","การสิ้นสุดสัญญาต้องแจ้งล่วงหน้า 30 วัน"),
+  w("training","n.","การฝึกอบรม","Provide regular training opportunities.","จัดฝึกอบรมอย่างสม่ำเสมอ"),
+  w("turnover rate","n.","อัตราการลาออก","Monitor the turnover rate monthly.","ติดตามอัตราการลาออกรายเดือน"),
+  w("vacancy","n.","ตำแหน่งว่าง","We have a vacancy in the finance department.","เรามีตำแหน่งว่างในแผนกการเงิน"),
+  w("welfare","n.","สวัสดิการ","Employee welfare programs boost morale.","โปรแกรมสวัสดิการพนักงานช่วยเสริมขวัญกำลังใจ"),
+  w("work-life balance","n.","ความสมดุลชีวิตการทำงาน","Promote work-life balance to retain staff.","ส่งเสริมความสมดุลชีวิตการทำงานเพื่อรักษาพนักงาน"),
+  w("workforce","n.","กำลังแรงงาน","Upskill your workforce for digital transformation.","พัฒนาทักษะกำลังแรงงานสำหรับการเปลี่ยนแปลงดิจิทัล"),
+ ]},
+ {id:"u4",num:4,title:"Marketing & Sales",thai:"การตลาดและการขาย",icon:"📊",col:"#E65100",light:"#FFF3E0",words:[
+  w("A/B testing","n.","การทดสอบ A/B","Use A/B testing to optimize landing pages.","ใช้การทดสอบ A/B เพื่อปรับแต่ง landing page"),
+  w("affiliate","n.","พันธมิตร / บริษัทในเครือ","Join the affiliate marketing program.","เข้าร่วมโปรแกรมการตลาดแบบ Affiliate"),
+  w("awareness","n.","การรับรู้","Brand awareness campaigns drive recognition.","แคมเปญสร้างการรับรู้แบรนด์ขับเคลื่อนการจดจำ"),
+  w("brand equity","n.","มูลค่าของแบรนด์","Strong brand equity supports premium pricing.","มูลค่าแบรนด์สูงช่วยสนับสนุนการตั้งราคาพรีเมียม"),
+  w("brand loyalty","n.","ความภักดีต่อแบรนด์","Reward programs increase brand loyalty.","โปรแกรมรางวัลเพิ่มความภักดีต่อแบรนด์"),
+  w("call to action","n.","คำกระตุ้นการกระทำ","Every ad needs a clear call to action.","โฆษณาทุกชิ้นต้องมีคำกระตุ้นการกระทำที่ชัดเจน"),
+  w("campaign","n.","แคมเปญ","The ad campaign reached 5 million viewers.","แคมเปญโฆษณาเข้าถึงผู้ชม 5 ล้านคน"),
+  w("channel","n.","ช่องทาง","Social media is a key marketing channel.","โซเชียลมีเดียเป็นช่องทางการตลาดสำคัญ"),
+  w("churn rate","n.","อัตราการสูญเสียลูกค้า","Reduce churn rate with loyalty programs.","ลดอัตราการสูญเสียลูกค้าด้วยโปรแกรมความภักดี"),
+  w("click-through rate","n.","อัตราการคลิก","Improve the click-through rate with better copy.","ปรับปรุงอัตราการคลิกด้วยข้อความที่ดีขึ้น"),
+  w("competitive advantage","n.","ความได้เปรียบทางการแข่งขัน","Innovation is our key competitive advantage.","นวัตกรรมคือความได้เปรียบทางการแข่งขันหลักของเรา"),
+  w("content marketing","n.","การตลาดผ่านเนื้อหา","Content marketing builds long-term audience trust.","การตลาดผ่านเนื้อหาสร้างความเชื่อมั่นของผู้ชม"),
+  w("conversion","n.","การเปลี่ยนลูกค้า","Improve conversion rates with A/B testing.","ปรับปรุงอัตรา Conversion ด้วยการทดสอบ A/B"),
+  w("copywriting","n.","การเขียนโฆษณา","Strong copywriting drives more sales.","การเขียนโฆษณาที่ดีสร้างยอดขายมากขึ้น"),
+  w("cross-selling","n.","การขายสินค้าเสริม","Train staff in cross-selling techniques.","ฝึกพนักงานในเทคนิคการขายสินค้าเสริม"),
+  w("customer journey","n.","เส้นทางของลูกค้า","Map the customer journey from awareness to purchase.","วางแผนเส้นทางของลูกค้าตั้งแต่การรับรู้ถึงการซื้อ"),
+  w("demographic","n.","กลุ่มประชากร","The target demographic is aged 25–40.","กลุ่มเป้าหมายอายุ 25-40 ปี"),
+  w("differentiate","v.","สร้างความแตกต่าง","Differentiate your product from competitors.","สร้างความแตกต่างผลิตภัณฑ์จากคู่แข่ง"),
+  w("digital marketing","n.","การตลาดดิจิทัล","Digital marketing is essential in 2026.","การตลาดดิจิทัลเป็นสิ่งจำเป็นในปี 2026"),
+  w("endorsement","n.","การรับรอง / พรีเซนเตอร์","Celebrity endorsements boost brand visibility.","การรับรองจากคนดังเพิ่มการมองเห็นแบรนด์"),
+  w("engagement rate","n.","อัตราการมีส่วนร่วม","Track engagement rate on all social platforms.","ติดตามอัตราการมีส่วนร่วมบนแพลตฟอร์มโซเชียล"),
+  w("funnel","n.","ช่องทางการขาย","The sales funnel tracks the customer journey.","ช่องทางการขายติดตามเส้นทางของลูกค้า"),
+  w("influencer","n.","ผู้มีอิทธิพลในโซเชียล","Partner with micro-influencers for authenticity.","ร่วมมือกับ micro-influencer เพื่อความน่าเชื่อถือ"),
+  w("landing page","n.","หน้าเว็บเป้าหมาย","Optimize the landing page for conversions.","ปรับปรุง landing page เพื่อเพิ่ม conversion"),
+  w("lead generation","n.","การสร้างลูกค้าเป้าหมาย","Lead generation is the first step in sales.","การสร้างลูกค้าเป้าหมายเป็นขั้นตอนแรกในการขาย"),
+  w("market research","n.","การวิจัยตลาด","Conduct market research before product launch.","ดำเนินการวิจัยตลาดก่อนเปิดตัวสินค้า"),
+  w("market share","n.","ส่วนแบ่งตลาด","We aim to increase market share by 10%.","เราตั้งเป้าเพิ่มส่วนแบ่งตลาด 10%"),
+  w("niche","n.","ตลาดเฉพาะกลุ่ม","Target a niche market for better margins.","มุ่งเป้าตลาดเฉพาะกลุ่มเพื่อกำไรที่ดีกว่า"),
+  w("omnichannel","adj.","หลายช่องทางแบบบูรณาการ","Adopt an omnichannel strategy for consistency.","ใช้กลยุทธ์ omnichannel เพื่อความสอดคล้อง"),
+  w("penetration","n.","การเจาะตลาด","Market penetration requires competitive pricing.","การเจาะตลาดต้องการราคาที่แข่งขันได้"),
+  w("positioning","n.","การวางตำแหน่งสินค้า","Clear positioning differentiates your brand.","การวางตำแหน่งที่ชัดเจนสร้างความแตกต่างให้แบรนด์"),
+  w("press release","n.","ข่าวประชาสัมพันธ์","Issue a press release about the new product.","ออกข่าวประชาสัมพันธ์เกี่ยวกับผลิตภัณฑ์ใหม่"),
+  w("prospect","n.","ลูกค้าที่มีแนวโน้ม","Follow up with every prospect within 24 hours.","ติดตามลูกค้าที่มีแนวโน้มภายใน 24 ชั่วโมง"),
+  w("public relations","n.","การประชาสัมพันธ์","PR campaigns build a positive brand image.","แคมเปญ PR สร้างภาพลักษณ์แบรนด์ที่ดี"),
+  w("quota","n.","โควตา / เป้าหมายการขาย","The sales team exceeded their monthly quota.","ทีมขายบรรลุโควตารายเดือนเกินกว่าเป้า"),
+  w("referral","n.","การแนะนำ","Referral programs generate loyal customers.","โปรแกรมแนะนำสร้างลูกค้าที่ภักดี"),
+  w("remarketing","n.","การทำการตลาดซ้ำ","Remarketing targets previous website visitors.","Remarketing มุ่งเป้าผู้เคยเข้าเว็บไซต์"),
+  w("retention rate","n.","อัตราการรักษาลูกค้า","A high retention rate indicates loyalty.","อัตราการรักษาลูกค้าสูงบ่งบอกความภักดี"),
+  w("ROI","n.","ผลตอบแทนจากการลงทุน","Calculate ROI before launching a campaign.","คำนวณ ROI ก่อนเปิดตัวแคมเปญ"),
+  w("segmentation","n.","การแบ่งกลุ่มตลาด","Segmentation helps tailor marketing messages.","การแบ่งกลุ่มตลาดช่วยปรับแต่งข้อความ"),
+  w("SEO","n.","การปรับแต่งเพื่อเครื่องมือค้นหา","Invest in SEO to drive organic traffic.","ลงทุนใน SEO เพื่อเพิ่ม traffic แบบ organic"),
+  w("target audience","n.","กลุ่มเป้าหมาย","Define your target audience precisely.","กำหนดกลุ่มเป้าหมายอย่างแม่นยำ"),
+  w("upsell","v.","เสนอสินค้าที่แพงกว่า","Train staff to upsell premium products.","ฝึกพนักงานให้เสนอสินค้าพรีเมียม"),
+  w("value proposition","n.","คุณค่าที่นำเสนอ","Clarify your value proposition on the homepage.","ชี้แจงคุณค่าที่นำเสนอบนหน้าแรก"),
+  w("viral","adj.","แพร่กระจายเร็วมาก","The video went viral overnight.","วิดีโอแพร่กระจายอย่างรวดเร็วภายในคืนเดียว"),
+  w("whitepaper","n.","รายงานเชิงวิชาการ","Download our whitepaper on industry trends.","ดาวน์โหลดไวท์เปเปอร์เกี่ยวกับแนวโน้มอุตสาหกรรม"),
+  w("brand ambassador","n.","ทูตแบรนด์","Hire brand ambassadors on campus.","จ้างทูตแบรนด์ในมหาวิทยาลัย"),
+ ]},
+ {id:"u5",num:5,title:"Technology & Digital",thai:"เทคโนโลยีและดิจิทัล",icon:"💻",col:"#0288D1",light:"#E0F7FA",words:[
+  w("agile","adj./n.","คล่องตัว / วิธีพัฒนาซอฟต์แวร์","Agile methodology improves delivery speed.","วิธีการ Agile ช่วยเพิ่มความเร็วในการส่งมอบ"),
+  w("AI","n.","ปัญญาประดิษฐ์","AI automates complex analytical tasks.","AI ทำให้งานวิเคราะห์ที่ซับซ้อนเป็นอัตโนมัติ"),
+  w("algorithm","n.","อัลกอริทึม","The AI algorithm improves over time.","อัลกอริทึม AI ดีขึ้นเรื่อยๆ"),
+  w("API","n.","ส่วนเชื่อมต่อโปรแกรม","Integrate third-party services via API.","รวมบริการจากภายนอกผ่าน API"),
+  w("authentication","n.","การยืนยันตัวตน","Two-factor authentication secures accounts.","การยืนยันตัวตนสองขั้นตอนรักษาความปลอดภัยบัญชี"),
+  w("automation","n.","ระบบอัตโนมัติ","Automation reduces repetitive tasks.","ระบบอัตโนมัติลดงานซ้ำซาก"),
+  w("backup","n.","การสำรองข้อมูล","Schedule automatic backups daily.","กำหนดการสำรองข้อมูลอัตโนมัติทุกวัน"),
+  w("bandwidth","n.","แบนด์วิดท์","Increase bandwidth to support more users.","เพิ่มแบนด์วิดท์เพื่อรองรับผู้ใช้มากขึ้น"),
+  w("blockchain","n.","บล็อกเชน","Blockchain ensures transaction transparency.","Blockchain รับรองความโปร่งใสของธุรกรรม"),
+  w("bug","n.","ข้อผิดพลาดในโปรแกรม","Fix all critical bugs before release.","แก้ไขบักสำคัญทั้งหมดก่อนเปิดตัว"),
+  w("cache","n.","แคช","Enable caching to speed up page load.","เปิดใช้ cache เพื่อเร่งการโหลดหน้า"),
+  w("chatbot","n.","แชตบอต","Deploy a chatbot for 24/7 customer support.","ใช้แชตบอตสำหรับการสนับสนุนลูกค้าตลอด 24 ชั่วโมง"),
+  w("CI/CD","n.","การรวมและส่งมอบต่อเนื่อง","CI/CD pipelines automate testing and deployment.","CI/CD pipeline ทำให้การทดสอบและ deploy เป็นอัตโนมัติ"),
+  w("cloud-based","adj.","บนคลาวด์","Our system is fully cloud-based.","ระบบของเราอยู่บนคลาวด์ทั้งหมด"),
+  w("container","n.","คอนเทนเนอร์ (Docker)","Use containers for consistent deployment.","ใช้ container เพื่อการ deploy ที่สม่ำเสมอ"),
+  w("cybersecurity","n.","ความปลอดภัยทางไซเบอร์","Invest in cybersecurity to protect data.","ลงทุนด้านความปลอดภัยทางไซเบอร์เพื่อปกป้องข้อมูล"),
+  w("data breach","n.","การรั่วไหลของข้อมูล","A data breach can damage customer trust.","การรั่วไหลของข้อมูลทำลายความเชื่อมั่นของลูกค้า"),
+  w("database","n.","ฐานข้อมูล","Back up the database every 24 hours.","สำรองข้อมูลฐานข้อมูลทุก 24 ชั่วโมง"),
+  w("deploy","v.","ติดตั้ง / นำออกใช้งาน","We will deploy the update on Friday.","เราจะนำอัปเดตออกใช้งานในวันศุกร์"),
+  w("DevOps","n.","การพัฒนาและปฏิบัติการร่วม","DevOps speeds up software delivery cycles.","DevOps เร่งรอบการส่งมอบซอฟต์แวร์"),
+  w("downtime","n.","เวลาที่ระบบหยุดทำงาน","Minimize downtime with redundant systems.","ลด downtime ด้วยระบบสำรอง"),
+  w("encryption","n.","การเข้ารหัส","End-to-end encryption protects messages.","การเข้ารหัสครบวงจรปกป้องข้อความ"),
+  w("endpoint","n.","จุดปลายทาง (API)","Secure all API endpoints with authentication.","รักษาความปลอดภัย API endpoint ทั้งหมด"),
+  w("firewall","n.","ไฟร์วอลล์","Install a firewall to block unauthorized access.","ติดตั้งไฟร์วอลล์เพื่อป้องกันการเข้าถึง"),
+  w("GenAI","n.","AI สร้างสรรค์เนื้อหา","GenAI tools are transforming content creation.","เครื่องมือ GenAI เปลี่ยนแปลงการสร้างเนื้อหา"),
+  w("infrastructure","n.","โครงสร้างพื้นฐาน","Upgrade the IT infrastructure to support growth.","อัปเกรดโครงสร้างพื้นฐาน IT เพื่อรองรับการเติบโต"),
+  w("interface","n.","ส่วนติดต่อผู้ใช้","The user interface must be intuitive.","ส่วนติดต่อผู้ใช้ต้องใช้งานง่าย"),
+  w("IoT","n.","อินเทอร์เน็ตของสรรพสิ่ง","IoT devices collect real-time data.","อุปกรณ์ IoT เก็บข้อมูลแบบเรียลไทม์"),
+  w("latency","n.","ความหน่วง","Low latency is critical for real-time apps.","ความหน่วงต่ำสำคัญสำหรับแอปแบบเรียลไทม์"),
+  w("load balancer","n.","ตัวปรับสมดุลโหลด","A load balancer distributes traffic evenly.","ตัวปรับสมดุลโหลดกระจายทราฟฟิกอย่างสม่ำเสมอ"),
+  w("machine learning","n.","การเรียนรู้ของเครื่อง","Machine learning powers recommendation engines.","การเรียนรู้ของเครื่องขับเคลื่อนเอนจินแนะนำ"),
+  w("microservice","n.","ไมโครเซอร์วิส","Break the monolith into microservices.","แบ่งระบบขนาดใหญ่เป็น microservices"),
+  w("migration","n.","การย้ายระบบ","The server migration is scheduled for Sunday.","การย้ายเซิร์ฟเวอร์กำหนดไว้ในวันอาทิตย์"),
+  w("open source","adj.","โอเพนซอร์ส","Use open-source tools to reduce costs.","ใช้เครื่องมือโอเพนซอร์สเพื่อลดต้นทุน"),
+  w("patch","n.","แพตช์ / อัปเดตแก้ไข","Apply the security patch immediately.","ติดตั้งแพตช์ความปลอดภัยทันที"),
+  w("phishing","n.","การหลอกลวงออนไลน์","Train staff to recognize phishing emails.","ฝึกพนักงานให้รู้จักอีเมลฟิชชิ่ง"),
+  w("prototype","n.","ต้นแบบ","Build a prototype before full development.","สร้างต้นแบบก่อนพัฒนาเต็มรูปแบบ"),
+  w("repository","n.","คลังเก็บโค้ด","Push your changes to the repository.","Push การเปลี่ยนแปลงไปยัง repository"),
+  w("scalable","adj.","ขยายได้","Build a scalable architecture from day one.","สร้างสถาปัตยกรรมที่ขยายได้ตั้งแต่เริ่มต้น"),
+  w("SLA","n.","ข้อตกลงระดับการให้บริการ","Define SLA requirements in the contract.","กำหนดข้อกำหนด SLA ในสัญญา"),
+  w("sprint","n.","รอบการพัฒนา (Agile)","Each sprint lasts two weeks.","แต่ละ sprint ใช้เวลาสองสัปดาห์"),
+  w("subscription","n.","การสมัครสมาชิก","Switch to a monthly subscription model.","เปลี่ยนเป็นโมเดลสมัครสมาชิกรายเดือน"),
+  w("tech stack","n.","ชุดเทคโนโลยีที่ใช้","Define your tech stack early in the project.","กำหนด tech stack แต่เนิ่นๆ ในโครงการ"),
+  w("troubleshoot","v.","แก้ไขปัญหา","Troubleshoot the network connection issue.","แก้ไขปัญหาการเชื่อมต่อเครือข่าย"),
+  w("UI/UX","n.","ส่วนต่อประสาน / ประสบการณ์ผู้ใช้","Invest in UI/UX design for better engagement.","ลงทุนใน UI/UX เพื่อการมีส่วนร่วมที่ดีขึ้น"),
+  w("uptime","n.","เวลาที่ระบบทำงานได้","We guarantee 99.9% uptime.","เรารับประกัน uptime 99.9%"),
+  w("version control","n.","การควบคุมเวอร์ชัน","Use Git for version control.","ใช้ Git สำหรับการควบคุมเวอร์ชัน"),
+  w("virtualization","n.","การจำลองเสมือน","Virtualization reduces hardware costs.","การจำลองเสมือนลดต้นทุนฮาร์ดแวร์"),
+  w("vulnerability","n.","ช่องโหว่","Scan systems for vulnerabilities regularly.","ตรวจสอบระบบหาช่องโหว่เป็นประจำ"),
+  w("webhook","n.","เว็บฮุก","Set up a webhook for real-time notifications.","ตั้งค่า webhook สำหรับการแจ้งเตือนแบบเรียลไทม์"),
+ ]},
+ {id:"u6",num:6,title:"Travel & Transportation",thai:"การเดินทางและการขนส่ง",icon:"✈️",col:"#00695C",light:"#E0F2F1",words:[
+  w("accommodation","n.","ที่พัก","Book accommodation in advance during peak season.","จองที่พักล่วงหน้าในช่วงไฮซีซั่น"),
+  w("baggage allowance","n.","น้ำหนักกระเป๋าที่อนุญาต","Check the baggage allowance before packing.","ตรวจสอบน้ำหนักกระเป๋าที่อนุญาตก่อนแพ็กกระเป๋า"),
+  w("baggage claim","n.","จุดรับกระเป๋า","Proceed to baggage claim after customs.","ไปยังจุดรับกระเป๋าหลังผ่านศุลกากร"),
+  w("boarding pass","n.","บัตรผ่านขึ้นเครื่อง","Show your boarding pass at the gate.","แสดงบัตรผ่านขึ้นเครื่องที่เกต"),
+  w("business trip","n.","การเดินทางเพื่อธุรกิจ","Submit expenses after every business trip.","ยื่นใบค่าใช้จ่ายหลังการเดินทางทุกครั้ง"),
+  w("cancellation","n.","การยกเลิก","Request a full refund upon cancellation.","ขอเงินคืนเต็มจำนวนเมื่อยกเลิก"),
+  w("cargo","n.","สินค้า / ของขนส่ง","The cargo must clear customs within 48 hours.","สินค้าต้องผ่านศุลกากรภายใน 48 ชั่วโมง"),
+  w("charter","v.","เช่าเหมาลำ","They chartered a private jet for the trip.","พวกเขาเช่าเหมาเครื่องบินส่วนตัว"),
+  w("check-in","v.","เช็คอิน","Online check-in opens 24 hours before departure.","เช็คอินออนไลน์เปิดให้บริการ 24 ชั่วโมงก่อนออกเดินทาง"),
+  w("commute","v.","เดินทางไปกลับ","She commutes to the office by train.","เธอเดินทางไปสำนักงานด้วยรถไฟ"),
+  w("confirmation","n.","การยืนยัน","Send the booking confirmation to the client.","ส่งการยืนยันการจองให้ลูกค้า"),
+  w("connecting flight","n.","เที่ยวบินต่อ","My connecting flight departs in 90 minutes.","เที่ยวบินต่อของฉันออกใน 90 นาที"),
+  w("customs","n.","ศุลกากร","Declare all goods at customs.","ประกาศสินค้าทั้งหมดที่ศุลกากร"),
+  w("departure","n.","การออกเดินทาง","Departure is from Terminal 2.","การออกเดินทางจากอาคาร 2"),
+  w("duty-free","adj.","ปลอดภาษี","Shop duty-free at the airport.","ช้อปสินค้าปลอดภาษีที่สนามบิน"),
+  w("economy class","n.","ชั้นประหยัด","Economy class seats have less legroom.","ที่นั่งชั้นประหยัดมีพื้นที่สำหรับขาน้อยกว่า"),
+  w("excess baggage","n.","น้ำหนักกระเป๋าเกิน","Pay excess baggage fees at check-in.","ชำระค่าน้ำหนักกระเป๋าเกินที่เคาน์เตอร์เช็คอิน"),
+  w("freight","n.","การขนส่งสินค้า","Air freight is faster but more expensive.","การขนส่งทางอากาศเร็วกว่าแต่แพงกว่า"),
+  w("gate","n.","ประตูขึ้นเครื่อง","Boarding begins at gate B12.","การขึ้นเครื่องเริ่มที่ประตู B12"),
+  w("ground transportation","n.","การขนส่งทางบก","Arrange ground transportation from the airport.","จัดการขนส่งทางบกจากสนามบิน"),
+  w("immigration","n.","การตรวจคนเข้าเมือง","Queue at the immigration counter.","ต่อคิวที่เคาน์เตอร์ตรวจคนเข้าเมือง"),
+  w("itinerary","n.","แผนการเดินทาง","Share your itinerary with the travel agent.","แชร์แผนการเดินทางกับตัวแทนท่องเที่ยว"),
+  w("jet lag","n.","อาการเพลียจากการบิน","Drink water to reduce jet lag.","ดื่มน้ำเพื่อลดอาการเพลียจากการบิน"),
+  w("layover","n.","การแวะพักระหว่างเที่ยวบิน","We have a 3-hour layover in Dubai.","เรามีแวะพัก 3 ชั่วโมงที่ดูไบ"),
+  w("logistics","n.","โลจิสติกส์","Efficient logistics reduce delivery time.","โลจิสติกส์ที่มีประสิทธิภาพลดเวลาจัดส่ง"),
+  w("manifest","n.","รายการสินค้า / ผู้โดยสาร","The cargo manifest must be filed in advance.","รายการสินค้าต้องยื่นล่วงหน้า"),
+  w("mileage","n.","ระยะทาง / คะแนนสะสม","Earn mileage points on every flight.","สะสมคะแนนไมล์จากทุกเที่ยวบิน"),
+  w("oversold","adj.","ขายที่นั่งเกิน","The flight was oversold, causing delays.","เที่ยวบินขายที่นั่งเกินทำให้เกิดความล่าช้า"),
+  w("passport","n.","หนังสือเดินทาง","Ensure your passport is valid for 6 months.","ตรวจสอบให้แน่ใจว่าหนังสือเดินทางมีอายุ 6 เดือน"),
+  w("per diem","n.","เบี้ยเลี้ยงรายวัน","The company pays a $100 per diem for travel.","บริษัทจ่ายเบี้ยเลี้ยง $100 ต่อวันสำหรับการเดินทาง"),
+  w("round-trip","adj.","ไป-กลับ","A round-trip ticket is cheaper if booked early.","ตั๋วไป-กลับถูกกว่าหากจองล่วงหน้า"),
+  w("security check","n.","การตรวจความปลอดภัย","Allow extra time for the security check.","เผื่อเวลาพิเศษสำหรับการตรวจความปลอดภัย"),
+  w("shipment","n.","การขนส่ง / สินค้าที่ขนส่ง","Track your shipment online.","ติดตามการขนส่งของคุณออนไลน์"),
+  w("terminal","n.","อาคารผู้โดยสาร","International departures are from Terminal A.","เที่ยวบินระหว่างประเทศออกจากอาคาร A"),
+  w("transit","n.","การผ่านแดน","Passengers in transit do not need a visa.","ผู้โดยสารผ่านแดนไม่ต้องมีวีซ่า"),
+  w("travel insurance","n.","ประกันการเดินทาง","Always buy travel insurance before a trip.","ซื้อประกันการเดินทางก่อนออกเดินทางเสมอ"),
+  w("upgrade","v.","อัพเกรด","She was upgraded to business class.","เธอได้รับการอัพเกรดเป็นชั้นธุรกิจ"),
+  w("visa","n.","วีซ่า","Apply for a visa at least 4 weeks ahead.","ยื่นขอวีซ่าล่วงหน้าอย่างน้อย 4 สัปดาห์"),
+  w("voucher","n.","คูปอง / ใบเบิก","Use the voucher for a discounted hotel rate.","ใช้คูปองสำหรับราคาโรงแรมที่ลดราคา"),
+  w("waybill","n.","ใบส่งสินค้า","Attach the waybill to the shipment.","แนบใบส่งสินค้ากับการขนส่ง"),
+ ]},
+ {id:"u7",num:7,title:"Health & Safety",thai:"สุขภาพและความปลอดภัย",icon:"🏥",col:"#C62828",light:"#FFEBEE",words:[
+  w("allergy","n.","ภูมิแพ้","Disclose any food allergies to the caterer.","แจ้งภูมิแพ้อาหารใดๆ ให้ผู้จัดเลี้ยง"),
+  w("biohazard","n.","อันตรายจากสารชีวภาพ","Label all biohazard materials clearly.","ติดฉลากวัสดุอันตรายจากสารชีวภาพให้ชัดเจน"),
+  w("contamination","n.","การปนเปื้อน","Prevent food contamination in the workplace.","ป้องกันการปนเปื้อนอาหารในที่ทำงาน"),
+  w("dehydration","n.","ภาวะขาดน้ำ","Drink water regularly to prevent dehydration.","ดื่มน้ำสม่ำเสมอเพื่อป้องกันภาวะขาดน้ำ"),
+  w("diagnosis","n.","การวินิจฉัยโรค","Early diagnosis improves treatment outcomes.","การวินิจฉัยเนิ่นๆ ปรับปรุงผลการรักษา"),
+  w("disability","n.","ความพิการ","The office is accessible for employees with disabilities.","สำนักงานรองรับพนักงานที่มีความพิการ"),
+  w("emergency exit","n.","ทางออกฉุกเฉิน","Know the location of every emergency exit.","รู้ตำแหน่งทางออกฉุกเฉินทุกแห่ง"),
+  w("ergonomic","adj.","เกี่ยวกับการออกแบบเพื่อสุขภาพ","Ergonomic chairs prevent back pain.","เก้าอี้เออร์กอนอมิกป้องกันอาการปวดหลัง"),
+  w("evacuation","n.","การอพยพ","Follow the evacuation plan in emergencies.","ปฏิบัติตามแผนอพยพในกรณีฉุกเฉิน"),
+  w("fire extinguisher","n.","เครื่องดับเพลิง","Ensure fire extinguishers are accessible.","ตรวจสอบให้เข้าถึงเครื่องดับเพลิงได้ง่าย"),
+  w("first aid","n.","การปฐมพยาบาล","All staff should know basic first aid.","พนักงานทุกคนควรรู้การปฐมพยาบาลเบื้องต้น"),
+  w("flammable","adj.","ติดไฟได้ง่าย","Store flammable materials in a safe area.","เก็บวัสดุที่ติดไฟได้ง่ายในบริเวณที่ปลอดภัย"),
+  w("hazard","n.","อันตราย / ความเสี่ยง","Identify all workplace hazards.","ระบุอันตรายทั้งหมดในสถานที่ทำงาน"),
+  w("hygiene","n.","สุขอนามัย","Maintain proper hygiene to prevent illness.","รักษาสุขอนามัยที่ดีเพื่อป้องกันการเจ็บป่วย"),
+  w("incident report","n.","รายงานเหตุการณ์","File an incident report within 24 hours.","ยื่นรายงานเหตุการณ์ภายใน 24 ชั่วโมง"),
+  w("injury","n.","การบาดเจ็บ","Report any workplace injury immediately.","รายงานการบาดเจ็บในที่ทำงานทันที"),
+  w("insurance","n.","ประกันภัย","Health insurance is part of the benefits package.","ประกันสุขภาพเป็นส่วนหนึ่งของสวัสดิการ"),
+  w("medical leave","n.","ลาป่วย","Apply for medical leave with a doctor's note.","ยื่นใบลาป่วยพร้อมใบรับรองแพทย์"),
+  w("mental health","n.","สุขภาพจิต","Promote mental health awareness at work.","ส่งเสริมการรับรู้สุขภาพจิตในที่ทำงาน"),
+  w("pandemic","n.","โรคระบาดทั่วโลก","The pandemic reshaped remote work policies.","การระบาดใหญ่เปลี่ยนแปลงนโยบายทำงานทางไกล"),
+  w("PPE","n.","อุปกรณ์ป้องกันส่วนบุคคล","Always wear PPE in the production area.","สวมใส่ PPE ในพื้นที่ผลิตตลอดเวลา"),
+  w("prevention","n.","การป้องกัน","Prevention is better than cure.","การป้องกันดีกว่าการรักษา"),
+  w("quarantine","n.","การกักกัน","Quarantine is required after international travel.","ต้องกักกันหลังการเดินทางระหว่างประเทศ"),
+  w("rehabilitation","n.","การฟื้นฟูสมรรถภาพ","Physical rehabilitation aids recovery after injury.","การฟื้นฟูสมรรถภาพช่วยให้ฟื้นตัวหลังบาดเจ็บ"),
+  w("risk assessment","n.","การประเมินความเสี่ยง","Complete a risk assessment before each project.","ทำการประเมินความเสี่ยงก่อนแต่ละโครงการ"),
+  w("safety drill","n.","การซ้อมความปลอดภัย","Conduct a fire safety drill every quarter.","ดำเนินการซ้อมดับเพลิงทุกไตรมาส"),
+  w("sanitation","n.","การสุขาภิบาล","Sanitation standards must meet health codes.","มาตรฐานสุขาภิบาลต้องเป็นไปตามกฎสุขภาพ"),
+  w("stress","n.","ความเครียด","Workplace stress reduces productivity.","ความเครียดในที่ทำงานลดผลิตภาพ"),
+  w("vaccination","n.","การฉีดวัคซีน","Offer free flu vaccination to all employees.","เสนอการฉีดวัคซีนไข้หวัดฟรีแก่พนักงานทุกคน"),
+  w("wellness","n.","สุขภาวะ","Wellness programs reduce employee sick days.","โปรแกรมสุขภาวะลดวันลาป่วยของพนักงาน"),
+ ]},
+ {id:"u8",num:8,title:"Legal & Contracts",thai:"กฎหมายและสัญญา",icon:"⚖️",col:"#4A148C",light:"#EDE7F6",words:[
+  w("affidavit","n.","คำให้การเป็นลายลักษณ์อักษร","An affidavit was submitted as evidence.","คำให้การเป็นลายลักษณ์อักษรถูกยื่นเป็นหลักฐาน"),
+  w("arbitration","n.","การอนุญาโตตุลาการ","Disputes are settled through arbitration.","ข้อพิพาทได้รับการแก้ไขผ่านการอนุญาโตตุลาการ"),
+  w("breach","n.","การละเมิดสัญญา","A contract breach may result in penalties.","การละเมิดสัญญาอาจส่งผลให้ถูกปรับ"),
+  w("clause","n.","ข้อกำหนดในสัญญา","Read every clause before signing.","อ่านทุกข้อกำหนดก่อนลงนาม"),
+  w("compliance","n.","การปฏิบัติตามกฎ","Ensure compliance with all regulations.","ให้แน่ใจว่าปฏิบัติตามกฎระเบียบทั้งหมด"),
+  w("confidentiality agreement","n.","ข้อตกลงรักษาความลับ","Both parties signed a confidentiality agreement.","ทั้งสองฝ่ายลงนามข้อตกลงรักษาความลับ"),
+  w("contract","n.","สัญญา","Sign the contract before starting work.","ลงนามสัญญาก่อนเริ่มงาน"),
+  w("copyright","n.","ลิขสิทธิ์","Register copyright for original content.","จดทะเบียนลิขสิทธิ์สำหรับเนื้อหาต้นฉบับ"),
+  w("damages","n.","ค่าเสียหาย","Claim damages for breach of contract.","เรียกร้องค่าเสียหายจากการละเมิดสัญญา"),
+  w("defendant","n.","จำเลย","The defendant denied all charges.","จำเลยปฏิเสธข้อกล่าวหาทั้งหมด"),
+  w("dispute","n.","ข้อพิพาท","Resolve the dispute through mediation.","แก้ไขข้อพิพาทผ่านการไกล่เกลี่ย"),
+  w("due diligence","n.","การตรวจสอบอย่างรอบคอบ","Perform due diligence before any acquisition.","ทำการตรวจสอบอย่างรอบคอบก่อนการเข้าซื้อกิจการ"),
+  w("enforceable","adj.","บังคับใช้ได้","The contract must be legally enforceable.","สัญญาต้องบังคับใช้ได้ตามกฎหมาย"),
+  w("escrow","n.","บัญชีพักเงิน","Funds are held in escrow until conditions are met.","เงินถูกพักในบัญชีจนกว่าจะเป็นไปตามเงื่อนไข"),
+  w("force majeure","n.","เหตุสุดวิสัย","The delay was covered by a force majeure clause.","ความล่าช้าถูกครอบคลุมโดยข้อกำหนดเหตุสุดวิสัย"),
+  w("indemnify","v.","ชดใช้ / ค้ำประกัน","The vendor must indemnify us against losses.","ผู้ขายต้องชดใช้ความสูญเสียให้เรา"),
+  w("injunction","n.","คำสั่งห้าม","The court issued an injunction against the company.","ศาลออกคำสั่งห้ามบริษัท"),
+  w("intellectual property","n.","ทรัพย์สินทางปัญญา","Protect your intellectual property with patents.","ปกป้องทรัพย์สินทางปัญญาด้วยสิทธิบัตร"),
+  w("jurisdiction","n.","เขตอำนาจ","This case falls under local jurisdiction.","คดีนี้อยู่ภายใต้เขตอำนาจท้องถิ่น"),
+  w("lease","n.","สัญญาเช่า","Sign a 2-year lease for the office space.","ลงนามสัญญาเช่า 2 ปีสำหรับพื้นที่สำนักงาน"),
+  w("liability","n.","ความรับผิดชอบทางกฎหมาย","Limit liability with an insurance policy.","จำกัดความรับผิดด้วยกรมธรรม์ประกัน"),
+  w("litigation","n.","การฟ้องร้อง","Both parties want to avoid litigation.","ทั้งสองฝ่ายต้องการหลีกเลี่ยงการฟ้องร้อง"),
+  w("mediation","n.","การไกล่เกลี่ย","Mediation is faster and cheaper than court.","การไกล่เกลี่ยเร็วและถูกกว่าการขึ้นศาล"),
+  w("nondisclosure","n.","การไม่เปิดเผยข้อมูล","Sign the NDA before the presentation.","ลงนามใน NDA ก่อนการนำเสนอ"),
+  w("notarize","v.","รับรองเอกสาร","Notarize the document before submission.","รับรองเอกสารก่อนยื่น"),
+  w("obligation","n.","พันธกรณี","List all contractual obligations clearly.","ระบุพันธกรณีตามสัญญาอย่างชัดเจน"),
+  w("patent","n.","สิทธิบัตร","File a patent for the new invention.","ยื่นสิทธิบัตรสำหรับสิ่งประดิษฐ์ใหม่"),
+  w("penalty","n.","บทลงโทษ","A late penalty applies after the due date.","มีค่าปรับล่าช้าหลังจากวันครบกำหนด"),
+  w("plaintiff","n.","โจทก์","The plaintiff filed a lawsuit last month.","โจทก์ยื่นฟ้องร้องเดือนที่แล้ว"),
+  w("remedy","n.","การเยียวยา","Seek a legal remedy for the dispute.","ขอการเยียวยาทางกฎหมายสำหรับข้อพิพาท"),
+  w("statute","n.","กฎหมายบัญญัติ","The statute protects consumer rights.","กฎหมายบัญญัติคุ้มครองสิทธิผู้บริโภค"),
+  w("termination clause","n.","ข้อกำหนดการสิ้นสุดสัญญา","Review the termination clause carefully.","ตรวจสอบข้อกำหนดการสิ้นสุดสัญญาอย่างรอบคอบ"),
+  w("trademark","n.","เครื่องหมายการค้า","Register your trademark in all markets.","จดทะเบียนเครื่องหมายการค้าในทุกตลาด"),
+  w("waiver","n.","การสละสิทธิ์","Sign the waiver before the event.","ลงนามการสละสิทธิ์ก่อนงาน"),
+ ]},
+ {id:"u9",num:9,title:"Customer Service",thai:"การบริการลูกค้า",icon:"🎧",col:"#00838F",light:"#E0F7FA",words:[
+  w("acknowledge","v.","รับทราบ","Acknowledge the customer's complaint promptly.","รับทราบข้อร้องเรียนของลูกค้าอย่างรวดเร็ว"),
+  w("after-sales service","n.","การบริการหลังการขาย","Good after-sales service builds loyalty.","การบริการหลังการขายที่ดีสร้างความภักดี"),
+  w("assistance","n.","การช่วยเหลือ","Please call for assistance at the help desk.","โปรดติดต่อขอความช่วยเหลือที่เดสก์"),
+  w("assurance","n.","การรับรอง","Provide quality assurance to all clients.","ให้การรับรองคุณภาพแก่ลูกค้าทุกคน"),
+  w("callback","n.","การโทรกลับ","Schedule a callback within 2 hours.","กำหนดการโทรกลับภายใน 2 ชั่วโมง"),
+  w("chatbot","n.","แชตบอต","Use a chatbot for first-line support.","ใช้แชตบอตสำหรับการสนับสนุนขั้นแรก"),
+  w("complaint","n.","ข้อร้องเรียน","Handle every complaint professionally.","จัดการทุกข้อร้องเรียนอย่างเป็นมืออาชีพ"),
+  w("compensation","n.","การชดเชย","Offer compensation for the inconvenience.","เสนอการชดเชยสำหรับความไม่สะดวก"),
+  w("CRM","n.","ระบบจัดการลูกค้าสัมพันธ์","Use CRM to track all customer interactions.","ใช้ CRM เพื่อติดตามการโต้ตอบกับลูกค้าทั้งหมด"),
+  w("customer feedback","n.","ข้อเสนอแนะจากลูกค้า","Collect customer feedback after every purchase.","เก็บรวบรวมข้อเสนอแนะหลังการซื้อทุกครั้ง"),
+  w("customer loyalty","n.","ความภักดีของลูกค้า","Reward programs increase customer loyalty.","โปรแกรมรางวัลเพิ่มความภักดีของลูกค้า"),
+  w("customer satisfaction","n.","ความพึงพอใจของลูกค้า","Measure customer satisfaction with CSAT scores.","วัดความพึงพอใจของลูกค้าด้วยคะแนน CSAT"),
+  w("defect","n.","ข้อบกพร่อง","Report the product defect to quality control.","รายงานข้อบกพร่องของผลิตภัณฑ์ให้ฝ่ายควบคุมคุณภาพ"),
+  w("delay","n.","การล่าช้า","Apologize for any delay in delivery.","ขอโทษสำหรับการล่าช้าในการจัดส่ง"),
+  w("empathy","n.","ความเข้าอกเข้าใจ","Show empathy when handling complaints.","แสดงความเข้าอกเข้าใจเมื่อจัดการข้อร้องเรียน"),
+  w("FAQ","n.","คำถามที่พบบ่อย","Check the FAQ section for quick answers.","ตรวจสอบส่วน FAQ สำหรับคำตอบด่วน"),
+  w("follow-up","n.","การติดตาม","Send a follow-up email after the call.","ส่งอีเมลติดตามหลังการโทร"),
+  w("guarantee","n.","การรับประกัน","This product comes with a 2-year guarantee.","ผลิตภัณฑ์นี้มีการรับประกัน 2 ปี"),
+  w("helpdesk","n.","ฝ่ายช่วยเหลือ","Contact the helpdesk for technical support.","ติดต่อฝ่ายช่วยเหลือสำหรับการสนับสนุนทางเทคนิค"),
+  w("inquiry","n.","การสอบถาม","Respond to all inquiries within 24 hours.","ตอบสนองคำถามทั้งหมดภายใน 24 ชั่วโมง"),
+  w("loyalty program","n.","โปรแกรมความภักดี","Join our loyalty program for exclusive benefits.","เข้าร่วมโปรแกรมความภักดีเพื่อสิทธิพิเศษ"),
+  w("NPS","n.","คะแนนความพึงพอใจลูกค้า","Track your Net Promoter Score monthly.","ติดตาม Net Promoter Score รายเดือน"),
+  w("ombudsman","n.","ผู้ตรวจการ","Escalate serious complaints to the ombudsman.","ยกระดับข้อร้องเรียนสำคัญถึงผู้ตรวจการ"),
+  w("point of contact","n.","ผู้ติดต่อหลัก","Assign a single point of contact to each client.","มอบหมายผู้ติดต่อหลักคนเดียวให้แต่ละลูกค้า"),
+  w("priority","n.","ลำดับความสำคัญ","High-priority cases are handled first.","กรณีสำคัญสูงได้รับการจัดการก่อน"),
+  w("proactive","adj.","เชิงรุก","Be proactive in solving customer problems.","เป็นเชิงรุกในการแก้ปัญหาของลูกค้า"),
+  w("refund","n.","การคืนเงิน","Process the refund within 3 business days.","ดำเนินการคืนเงินภายใน 3 วันทำการ"),
+  w("resolution","n.","การแก้ไข","Aim for first-call resolution.","มุ่งหวังการแก้ไขในครั้งแรก"),
+  w("response time","n.","เวลาตอบสนอง","The target response time is 1 hour.","เป้าหมายเวลาตอบสนองคือ 1 ชั่วโมง"),
+  w("return policy","n.","นโยบายการคืนสินค้า","Review the return policy before purchase.","ตรวจสอบนโยบายการคืนสินค้าก่อนซื้อ"),
+  w("satisfaction survey","n.","แบบสำรวจความพึงพอใจ","Send a satisfaction survey after service.","ส่งแบบสำรวจความพึงพอใจหลังการบริการ"),
+  w("service level","n.","ระดับการบริการ","Maintain a high service level consistently.","รักษาระดับการบริการสูงอย่างสม่ำเสมอ"),
+  w("testimonial","n.","คำรับรองจากลูกค้า","Publish testimonials on the website.","เผยแพร่คำรับรองบนเว็บไซต์"),
+  w("ticket","n.","ตั๋วสนับสนุน (CRM)","Open a support ticket for your issue.","เปิด ticket สนับสนุนสำหรับปัญหาของคุณ"),
+  w("warranty","n.","การรับประกัน","Claim warranty service within the coverage period.","เรียกร้องบริการประกันภายในระยะเวลาคุ้มครอง"),
+ ]},
+ {id:"u10",num:10,title:"Manufacturing & Supply Chain",thai:"การผลิตและห่วงโซ่อุปทาน",icon:"🏭",col:"#37474F",light:"#ECEFF1",words:[
+  w("assembly line","n.","สายการประกอบ","Speed up the assembly line to meet demand.","เร่งสายการประกอบเพื่อตอบสนองความต้องการ"),
+  w("batch production","n.","การผลิตแบบกลุ่ม","Batch production reduces changeover time.","การผลิตแบบกลุ่มลดเวลาการเปลี่ยนรุ่น"),
+  w("bottleneck","n.","จุดคอขวด","Identify and eliminate production bottlenecks.","ระบุและกำจัดจุดคอขวดการผลิต"),
+  w("capacity planning","n.","การวางแผนกำลังการผลิต","Capacity planning ensures on-time delivery.","การวางแผนกำลังการผลิตรับรองการส่งมอบตรงเวลา"),
+  w("defect rate","n.","อัตราของเสีย","Reduce the defect rate below 0.5%.","ลดอัตราของเสียให้ต่ำกว่า 0.5%"),
+  w("dispatch","v.","จัดส่ง","Dispatch all orders before 3 PM.","จัดส่งทุกออร์เดอร์ก่อน 15:00 น."),
+  w("distribution","n.","การจัดจำหน่าย","Expand distribution channels in Asia.","ขยายช่องทางการจัดจำหน่ายในเอเชีย"),
+  w("downtime","n.","เวลาหยุดการผลิต","Track and reduce unplanned downtime.","ติดตามและลดเวลาหยุดที่ไม่ได้วางแผน"),
+  w("export","v.","ส่งออก","Export goods to Southeast Asian markets.","ส่งออกสินค้าสู่ตลาดเอเชียตะวันออกเฉียงใต้"),
+  w("import","v.","นำเข้า","Import raw materials from overseas suppliers.","นำเข้าวัตถุดิบจากซัพพลายเออร์ต่างประเทศ"),
+  w("inventory","n.","สินค้าคงคลัง","Conduct monthly inventory checks.","ตรวจสอบสินค้าคงคลังรายเดือน"),
+  w("ISO","n.","มาตรฐานสากล","Obtain ISO 9001 certification.","ขอรับการรับรอง ISO 9001"),
+  w("just-in-time","adj.","ระบบทันเวลาพอดี","Just-in-time manufacturing reduces waste.","การผลิตแบบทันเวลาพอดีลดของเสีย"),
+  w("kanban","n.","ระบบการจัดการการผลิต","Use kanban boards to visualize workflow.","ใช้บอร์ด Kanban เพื่อมองเห็นกระบวนการ"),
+  w("lead time","n.","ระยะเวลานำ","Reduce lead time to stay competitive.","ลดระยะเวลานำเพื่อความสามารถในการแข่งขัน"),
+  w("lean manufacturing","n.","การผลิตแบบ Lean","Lean manufacturing eliminates waste.","การผลิตแบบ Lean กำจัดของเสีย"),
+  w("logistics","n.","โลจิสติกส์","Optimize logistics for cost reduction.","ปรับโลจิสติกส์เพื่อลดต้นทุน"),
+  w("maintenance","n.","การบำรุงรักษา","Schedule preventive maintenance monthly.","กำหนดการบำรุงรักษาเชิงป้องกันรายเดือน"),
+  w("OEM","n.","ผู้ผลิตอุปกรณ์ดั้งเดิม","We partner with an OEM for components.","เราร่วมมือกับ OEM สำหรับชิ้นส่วน"),
+  w("on-time delivery","n.","การส่งมอบตรงเวลา","Maintain a 98% on-time delivery rate.","รักษาอัตราการส่งมอบตรงเวลา 98%"),
+  w("order fulfillment","n.","การปฏิบัติตามคำสั่งซื้อ","Streamline order fulfillment processes.","ทำให้กระบวนการปฏิบัติตามคำสั่งซื้อคล่องตัว"),
+  w("outsourcing","n.","การจ้างภายนอก","Outsourcing non-core activities saves cost.","การจ้างภายนอกสำหรับกิจกรรมที่ไม่ใช่หลัก"),
+  w("packaging","n.","การบรรจุภัณฑ์","Use eco-friendly packaging to attract green consumers.","ใช้บรรจุภัณฑ์ที่เป็นมิตรกับสิ่งแวดล้อม"),
+  w("procurement","n.","การจัดซื้อ","Procurement must follow the bidding process.","การจัดซื้อต้องปฏิบัติตามกระบวนการประมูล"),
+  w("quality assurance","n.","การประกันคุณภาพ","QA testing prevents defective products.","การทดสอบ QA ป้องกันผลิตภัณฑ์ที่มีข้อบกพร่อง"),
+  w("quality control","n.","การควบคุมคุณภาพ","Quality control checks happen at every stage.","การตรวจสอบควบคุมคุณภาพเกิดขึ้นทุกขั้นตอน"),
+  w("raw material","n.","วัตถุดิบ","Raw material prices affect production costs.","ราคาวัตถุดิบส่งผลต่อต้นทุนการผลิต"),
+  w("reorder point","n.","จุดสั่งซื้อใหม่","Set a reorder point to avoid stockouts.","กำหนดจุดสั่งซื้อใหม่เพื่อหลีกเลี่ยงสินค้าหมด"),
+  w("safety stock","n.","สินค้าสำรองฉุกเฉิน","Maintain safety stock for peak seasons.","รักษาสินค้าสำรองสำหรับช่วงพีค"),
+  w("six sigma","n.","หกซิกม่า","Implement Six Sigma to reduce defects.","นำ Six Sigma มาใช้เพื่อลดของเสีย"),
+  w("stockout","n.","สินค้าหมด","Avoid stockouts with accurate demand forecasting.","หลีกเลี่ยงสินค้าหมดด้วยการพยากรณ์ที่แม่นยำ"),
+  w("supplier","n.","ซัพพลายเออร์","Evaluate suppliers annually.","ประเมินซัพพลายเออร์เป็นประจำทุกปี"),
+  w("supply chain","n.","ห่วงโซ่อุปทาน","A disrupted supply chain affects delivery.","ห่วงโซ่อุปทานที่หยุดชะงักส่งผลต่อการจัดส่ง"),
+  w("throughput","n.","ปริมาณงานที่ผ่านกระบวนการ","Increase throughput to meet growing demand.","เพิ่มปริมาณงานเพื่อตอบสนองความต้องการที่เพิ่มขึ้น"),
+  w("traceability","n.","การตรวจสอบย้อนกลับ","Food traceability is required by law.","การตรวจสอบย้อนกลับอาหารเป็นข้อกำหนดของกฎหมาย"),
+  w("vendor","n.","ผู้ขาย / ซัพพลายเออร์","Negotiate better terms with your vendor.","เจรจาเงื่อนไขที่ดีกว่ากับผู้ขายของคุณ"),
+  w("warehouse","n.","คลังสินค้า","The warehouse operates 24/7.","คลังสินค้าดำเนินการตลอด 24 ชั่วโมง"),
+  w("waste reduction","n.","การลดของเสีย","Waste reduction lowers production costs.","การลดของเสียช่วยลดต้นทุนการผลิต"),
+  w("yield","n.","ผลผลิต","Increase yield without raising costs.","เพิ่มผลผลิตโดยไม่เพิ่มต้นทุน"),
+  w("fabrication","n.","การผลิต / ประกอบชิ้นส่วน","Metal fabrication requires skilled workers.","การผลิตโลหะต้องการแรงงานที่มีทักษะ"),
+ ]},
+ {id:"u11",num:11,title:"Banking & Investment",thai:"ธนาคารและการลงทุน",icon:"🏦",col:"#283593",light:"#E8EAF6",words:[
+  w("accredited investor","n.","นักลงทุนที่ได้รับการรับรอง","Only accredited investors can join the fund.","เฉพาะนักลงทุนที่ได้รับการรับรองเท่านั้นที่เข้าร่วมกองทุนได้"),
+  w("asset allocation","n.","การจัดสรรสินทรัพย์","Adjust asset allocation based on risk tolerance.","ปรับการจัดสรรสินทรัพย์ตามความเสี่ยงที่ยอมรับได้"),
+  w("bank statement","n.","ใบแจ้งยอดบัญชี","Request a bank statement for visa purposes.","ขอใบแจ้งยอดบัญชีเพื่อวัตถุประสงค์วีซ่า"),
+  w("benchmark rate","n.","อัตราอ้างอิง","The loan rate is pegged to the benchmark rate.","อัตราเงินกู้ผูกกับอัตราอ้างอิง"),
+  w("brokerage","n.","นายหน้าหลักทรัพย์","Choose a reputable brokerage for investments.","เลือกนายหน้าหลักทรัพย์ที่มีชื่อเสียง"),
+  w("capital gain","n.","กำไรจากการขายสินทรัพย์","Capital gains are taxable in most countries.","กำไรจากการขายสินทรัพย์ต้องเสียภาษีในส่วนใหญ่"),
+  w("collateral","n.","หลักทรัพย์ค้ำประกัน","The bank requires collateral for the loan.","ธนาคารต้องการหลักทรัพย์ค้ำประกันสำหรับเงินกู้"),
+  w("credit line","n.","วงเงินสินเชื่อ","Increase the credit line for business growth.","เพิ่มวงเงินสินเชื่อเพื่อการเติบโตทางธุรกิจ"),
+  w("credit rating","n.","อันดับเครดิต","A high credit rating reduces borrowing costs.","อันดับเครดิตสูงช่วยลดต้นทุนการกู้ยืม"),
+  w("currency exchange","n.","การแลกเปลี่ยนสกุลเงิน","Currency exchange rates fluctuate daily.","อัตราแลกเปลี่ยนสกุลเงินผันผวนทุกวัน"),
+  w("default","n.","การผิดนัดชำระ","A default on the loan triggers penalties.","การผิดนัดชำระเงินกู้ก่อให้เกิดบทลงโทษ"),
+  w("diversification","n.","การกระจายความเสี่ยง","Diversification minimizes portfolio risk.","การกระจายความเสี่ยงลดความเสี่ยงของพอร์ต"),
+  w("ETF","n.","กองทุนซื้อขายในตลาดหุ้น","ETFs offer diversification at low cost.","ETF ให้การกระจายความเสี่ยงในต้นทุนต่ำ"),
+  w("exchange rate","n.","อัตราแลกเปลี่ยน","Monitor the exchange rate before transferring.","ติดตามอัตราแลกเปลี่ยนก่อนโอน"),
+  w("financial advisor","n.","ที่ปรึกษาทางการเงิน","Consult a financial advisor for investment planning.","ปรึกษาที่ปรึกษาทางการเงินสำหรับการวางแผนการลงทุน"),
+  w("fixed income","n.","รายได้คงที่","Fixed income investments provide stable returns.","การลงทุนรายได้คงที่ให้ผลตอบแทนที่มั่นคง"),
+  w("fund manager","n.","ผู้จัดการกองทุน","The fund manager outperformed the market.","ผู้จัดการกองทุนทำผลงานดีกว่าตลาด"),
+  w("hedge fund","n.","กองทุนเฮดจ์ฟันด์","Hedge funds use leverage to amplify returns.","กองทุนเฮดจ์ฟันด์ใช้เลเวอเรจเพื่อขยายผลตอบแทน"),
+  w("index fund","n.","กองทุนดัชนี","Index funds track market performance passively.","กองทุนดัชนีติดตามผลตลาดแบบ passive"),
+  w("interest","n.","ดอกเบี้ย","The interest on the loan is 6% per year.","ดอกเบี้ยเงินกู้คือ 6% ต่อปี"),
+  w("IPO","n.","การออกหุ้นครั้งแรก","The company's IPO raised $500 million.","การออกหุ้นครั้งแรกของบริษัทระดมทุนได้ 500 ล้านดอลลาร์"),
+  w("liquidity risk","n.","ความเสี่ยงด้านสภาพคล่อง","Manage liquidity risk with diversified assets.","บริหารความเสี่ยงด้านสภาพคล่องด้วยสินทรัพย์ที่หลากหลาย"),
+  w("loan","n.","เงินกู้","Apply for a business loan at the bank.","สมัครขอสินเชื่อธุรกิจที่ธนาคาร"),
+  w("margin trading","n.","การซื้อขายด้วยมาร์จิน","Margin trading amplifies both gains and losses.","การซื้อขายด้วยมาร์จินขยายทั้งกำไรและขาดทุน"),
+  w("maturity date","n.","วันครบกำหนดไถ่ถอน","The bond's maturity date is June 2030.","วันครบกำหนดของพันธบัตรคือมิถุนายน 2030"),
+  w("mutual fund","n.","กองทุนรวม","Invest in a diversified mutual fund.","ลงทุนในกองทุนรวมที่กระจายความเสี่ยง"),
+  w("overdraft","n.","การเบิกเกินบัญชี","An overdraft facility covers short-term needs.","สิ่งอำนวยความสะดวกเงินเบิกเกินบัญชีครอบคลุมความต้องการระยะสั้น"),
+  w("portfolio","n.","พอร์ตการลงทุน","Rebalance your portfolio every quarter.","ปรับพอร์ตการลงทุนใหม่ทุกไตรมาส"),
+  w("prime rate","n.","อัตราดอกเบี้ยขั้นต่ำ","Prime rate affects all lending rates.","อัตราดอกเบี้ยขั้นต่ำส่งผลต่ออัตราการให้กู้ยืมทั้งหมด"),
+  w("risk management","n.","การบริหารความเสี่ยง","Risk management protects the investment.","การบริหารความเสี่ยงปกป้องการลงทุน"),
+  w("securities","n.","หลักทรัพย์","Trade securities through a licensed broker.","ซื้อขายหลักทรัพย์ผ่านนายหน้าที่ได้รับอนุญาต"),
+  w("speculation","n.","การเก็งกำไร","Speculation in volatile markets is risky.","การเก็งกำไรในตลาดที่ผันผวนมีความเสี่ยง"),
+  w("stock","n.","หุ้น","Buy stocks in a growing sector.","ซื้อหุ้นในภาคที่เติบโต"),
+  w("wire transfer","n.","การโอนเงินผ่านระบบ","Send a wire transfer for the payment.","ส่งการโอนเงินสำหรับการชำระเงิน"),
+  w("yield curve","n.","เส้นโค้งผลตอบแทน","An inverted yield curve signals recession.","เส้นโค้งผลตอบแทนคว่ำส่งสัญญาณเศรษฐกิจถดถอย"),
+ ]},
+ {id:"u12",num:12,title:"Real Estate & Property",thai:"อสังหาริมทรัพย์",icon:"🏘️",col:"#4E342E",light:"#EFEBE9",words:[
+  w("amenity","n.","สิ่งอำนวยความสะดวก","The building offers premium amenities.","อาคารมีสิ่งอำนวยความสะดวกระดับพรีเมียม"),
+  w("appraisal","n.","การประเมินมูลค่าทรัพย์สิน","Get a property appraisal before selling.","ประเมินมูลค่าทรัพย์สินก่อนขาย"),
+  w("appreciation","n.","การเพิ่มขึ้นของมูลค่า","Property appreciation has been strong this year.","มูลค่าทรัพย์สินเพิ่มขึ้นอย่างแข็งแกร่งในปีนี้"),
+  w("broker","n.","นายหน้า","Hire a licensed broker for the transaction.","จ้างนายหน้าที่ได้รับอนุญาตสำหรับธุรกรรม"),
+  w("commercial property","n.","อสังหาริมทรัพย์เชิงพาณิชย์","Commercial property prices rose 8% last year.","ราคาอสังหาริมทรัพย์เชิงพาณิชย์เพิ่มขึ้น 8% ปีที่แล้ว"),
+  w("common area","n.","พื้นที่ส่วนกลาง","Common areas are cleaned twice daily.","พื้นที่ส่วนกลางทำความสะอาดสองครั้งต่อวัน"),
+  w("conveyance","n.","การโอนกรรมสิทธิ์","Conveyance is handled by the solicitor.","การโอนกรรมสิทธิ์ดำเนินการโดยทนายความ"),
+  w("deed","n.","โฉนด / ตราสารสิทธิ์","Register the deed at the land office.","จดทะเบียนโฉนดที่สำนักงานที่ดิน"),
+  w("deposit","n.","เงินมัดจำ","Pay a 10% deposit to reserve the unit.","ชำระเงินมัดจำ 10% เพื่อจองยูนิต"),
+  w("down payment","n.","เงินดาวน์","A 20% down payment is required.","ต้องชำระเงินดาวน์ 20%"),
+  w("equity","n.","ส่วนได้เสียในทรัพย์สิน","Build equity by paying down the mortgage.","สร้างส่วนได้เสียโดยชำระเงินกู้ซื้อบ้าน"),
+  w("escrow","n.","บัญชีพักเงินในการซื้อขาย","Funds are held in escrow during the sale.","เงินถูกพักในบัญชีระหว่างการขาย"),
+  w("floor plan","n.","แปลนพื้น","Review the floor plan before signing.","ตรวจสอบแปลนพื้นก่อนลงนาม"),
+  w("foreclose","v.","ยึดทรัพย์","The bank threatened to foreclose on the property.","ธนาคารขู่จะยึดทรัพย์สิน"),
+  w("landlord","n.","เจ้าของบ้าน / ผู้ให้เช่า","The landlord agreed to renew the lease.","เจ้าของบ้านตกลงต่อสัญญาเช่า"),
+  w("lease","n.","สัญญาเช่า","The lease expires in December.","สัญญาเช่าหมดอายุในเดือนธันวาคม"),
+  w("listing","n.","รายการอสังหาริมทรัพย์","Browse listings on the property portal.","เรียกดูรายการในพอร์ทัลอสังหาริมทรัพย์"),
+  w("maintenance fee","n.","ค่าส่วนกลาง","Pay the monthly maintenance fee on time.","ชำระค่าส่วนกลางรายเดือนตรงเวลา"),
+  w("mortgage","n.","สินเชื่อบ้าน / จำนอง","Apply for a 30-year mortgage.","สมัครสินเชื่อบ้าน 30 ปี"),
+  w("occupancy","n.","อัตราการเข้าพัก","The building reached 95% occupancy.","อาคารมีอัตราการเข้าพัก 95%"),
+  w("premises","n.","สถานที่ / อาคาร","No smoking on the premises.","ห้ามสูบบุหรี่ในบริเวณอาคาร"),
+  w("property tax","n.","ภาษีที่ดินและสิ่งปลูกสร้าง","Property tax is due by April 30.","ภาษีที่ดินต้องชำระภายวันที่ 30 เมษายน"),
+  w("renovation","n.","การปรับปรุง","Budget for renovation before renting out.","วางงบสำหรับการปรับปรุงก่อนให้เช่า"),
+  w("rental yield","n.","ผลตอบแทนจากการเช่า","The rental yield is 5% per annum.","ผลตอบแทนจากการเช่าคือ 5% ต่อปี"),
+  w("sublease","v.","ให้เช่าช่วง","Permission is required to sublease.","ต้องได้รับอนุญาตก่อนให้เช่าช่วง"),
+  w("tenant","n.","ผู้เช่า","The tenant signed a 2-year lease.","ผู้เช่าลงนามสัญญาเช่า 2 ปี"),
+  w("title deed","n.","โฉนดที่ดิน","Verify the title deed before purchasing.","ตรวจสอบโฉนดที่ดินก่อนซื้อ"),
+  w("vacancy rate","n.","อัตราห้องว่าง","Low vacancy rates indicate high demand.","อัตราห้องว่างต่ำบ่งบอกความต้องการสูง"),
+  w("valuation","n.","การประเมินมูลค่า","An independent valuation is recommended.","แนะนำการประเมินมูลค่าโดยอิสระ"),
+  w("zoning","n.","การแบ่งเขต","Check zoning laws before development.","ตรวจสอบกฎหมายการแบ่งเขตก่อนพัฒนา"),
+ ]},
+];
+
+// ═══════════════════════════════════════════════════════════════════════
+// RENDER FUNCTIONS
+// ═══════════════════════════════════════════════════════════════════════
+
+function renderTips(){
+  const g=document.getElementById('tipsGrid');
+  g.innerHTML=TIPS.map(t=>`
+    <div class="tip-card">
+      <div class="tip-card-head" style="background:${t.col}">
+        <div><div class="part">${t.part}</div><div class="name">${t.name}</div></div>
+      </div>
+      <div class="tip-card-body"><ul style="list-style:none;padding:0">
+        ${t.tips.map(tip=>`<li>${tip}</li>`).join('')}
+      </ul></div>
+    </div>`).join('');
+}
+
+function renderUnit(u){
+  const rows=u.words.map((wd,i)=>`
+    <tr class="${i%2===0?'row-even':''}">
+      <td class="word-cell">${esc(wd.w)}</td>
+      <td class="pos-cell">${esc(wd.p)}</td>
+      <td class="thai-cell">${esc(wd.t)}</td>
+      <td class="eng-cell">${esc(wd.e)}</td>
+      <td class="th2-cell">${esc(wd.x)}</td>
+    </tr>`).join('');
+  return `
+  <div id="${u.id}" class="section scroll-target">
+    <div class="section-header" style="border-color:${u.col}">
+      <div class="section-icon" style="background:${u.light};font-size:22px">${u.icon}</div>
+      <div>
+        <div class="section-title">Unit ${u.num}: ${esc(u.title)}</div>
+        <div class="section-thai">หมวด: ${esc(u.thai)}</div>
+      </div>
+      <div class="word-count-badge">${u.words.length} คำ</div>
+    </div>
+    <div class="vocab-table-wrap">
+      <table class="vocab-table">
+        <thead style="background:${u.col}">
+          <tr>
+            <th style="color:#fff">คำศัพท์</th>
+            <th style="color:#fff">ชนิด</th>
+            <th style="color:#fff">ความหมาย (TH)</th>
+            <th style="color:#fff">ตัวอย่างประโยค (EN)</th>
+            <th style="color:#fff">คำแปล (TH)</th>
+          </tr>
+        </thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>
+  </div>`;
+}
+
+function renderWF(){
+  document.getElementById('wfBody').innerHTML=WF.map((r,i)=>`
+    <tr${i%2===0?' style="background:#f5faf5"':''}>
+      <td class="wf-verb">${esc(r[0])}</td>
+      <td class="wf-noun">${esc(r[1])}</td>
+      <td class="wf-adj">${esc(r[2])}</td>
+      <td class="wf-adv">${esc(r[3])}</td>
+      <td class="wf-thai">${esc(r[4])}</td>
+    </tr>`).join('');
+}
+
+function renderColl(){
+  document.getElementById('collGrid').innerHTML=COLL.map(c=>`
+    <div class="coll-card">
+      <div class="coll-verb">${esc(c[0])}</div>
+      <div class="coll-noun">${esc(c[1])}</div>
+      <div class="coll-thai">${esc(c[2])}</div>
+    </div>`).join('');
+}
+
+function renderPV(){
+  document.getElementById('pvBody').innerHTML=PV.map((r,i)=>`
+    <tr${i%2===0?' style="background:#fff8f4"':''}>
+      <td class="pv-phrase">${esc(r[0])}</td>
+      <td class="pv-thai">${esc(r[1])}</td>
+      <td class="pv-ex">${esc(r[2])}</td>
+    </tr>`).join('');
+}
+
+function renderIndex(){
+  const all=[];
+  UNITS.forEach(u=>u.words.forEach(wd=>all.push({w:wd.w,t:wd.t,u:'U'+u.num,id:u.id})));
+  PV.forEach(r=>all.push({w:r[0],t:r[1],u:'PV',id:'pv'}));
+  all.sort((a,b)=>a.w.localeCompare(b.w));
+  document.getElementById('indexGrid').innerHTML=all.map(a=>`
+    <div class="index-item" onclick="goTo('${a.id}')">
+      <span class="index-word">${esc(a.w)}</span>
+      <span class="index-thai">${esc(a.t)}</span>
+      <span class="index-unit">${a.u}</span>
+    </div>`).join('');
+}
+
+function esc(s){return s?s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'):''}
+
+// ═══════════════════════════════════════════════════════════════════════
+// NAVIGATION
+// ═══════════════════════════════════════════════════════════════════════
+function goTo(id){
+  document.getElementById('searchResults').style.display='none';
+  document.getElementById('unitsContainer').style.display='';
+  document.querySelectorAll('.section').forEach(s=>s.style.display='');
+
+  const el=document.getElementById(id);
+  if(el){
+    el.scrollIntoView({behavior:'smooth',block:'start'});
+    // update active
+    document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+    const items=[...document.querySelectorAll('.nav-item')];
+    const match=items.find(n=>n.getAttribute('onclick')&&n.getAttribute('onclick').includes("'"+id+"'"));
+    if(match)match.classList.add('active');
+    // update topbar
+    const labels={cover:'Cover',score:'Score Guide',tips:'TOEIC Tips',wf:'Word Families',coll:'Collocations',pv:'Phrasal Verbs',idx:'Quick Index A–Z'};
+    const u=UNITS.find(u=>u.id===id);
+    document.getElementById('topbarLabel').textContent= u? `Unit ${u.num}: ${u.title}` : (labels[id]||id.toUpperCase());
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+// SEARCH
+// ═══════════════════════════════════════════════════════════════════════
+function doSearch(q){
+  q=q.trim().toLowerCase();
+  if(!q){
+    document.getElementById('searchResults').style.display='none';
+    return;
+  }
+  const sr=document.getElementById('searchResults');
+  const all=[];
+  UNITS.forEach(u=>u.words.forEach(wd=>{
+    if(wd.w.toLowerCase().includes(q)||wd.t.includes(q)||wd.e.toLowerCase().includes(q)||wd.x.includes(q))
+      all.push({...wd,unit:`Unit ${u.num}: ${u.title}`,unitId:u.id,col:u.col});
+  }));
+  document.getElementById('searchTerm').textContent=q;
+  if(all.length===0){
+    document.getElementById('searchTable').innerHTML='<p style="color:var(--muted)">ไม่พบคำศัพท์ที่ตรงกัน</p>';
+  } else {
+    document.getElementById('searchTable').innerHTML=`
+      <div class="vocab-table-wrap">
+        <table class="vocab-table">
+          <thead style="background:#1a1a2e"><tr>
+            <th style="color:#fff">คำศัพท์</th><th style="color:#fff">ชนิด</th>
+            <th style="color:#fff">ความหมาย</th><th style="color:#fff">ตัวอย่าง</th>
+            <th style="color:#fff">หมวด</th>
+          </tr></thead>
+          <tbody>${all.map((r,i)=>`
+            <tr class="${i%2===0?'row-even':''}" style="cursor:pointer" onclick="goTo('${r.unitId}')">
+              <td class="word-cell">${esc(r.w)}</td>
+              <td class="pos-cell">${esc(r.p)}</td>
+              <td class="thai-cell">${esc(r.t)}</td>
+              <td class="eng-cell">${esc(r.e)}</td>
+              <td style="font-size:12px;color:${r.col};font-weight:600">${esc(r.unit)}</td>
+            </tr>`).join('')}
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:8px;font-size:12px;color:var(--muted)">พบ ${all.length} คำ — คลิกเพื่อไปยังหมวดนั้น</p>`;
+  }
+  sr.style.display='block';
+  sr.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════════════════════════════
+(function init(){
+  renderTips();
+  const c=document.getElementById('unitsContainer');
+  c.innerHTML=UNITS.map(renderUnit).join('');
+  renderWF();
+  renderColl();
+  renderPV();
+  renderIndex();
+
+  // count stats
+  const total=UNITS.reduce((s,u)=>s+u.words.length,0)+PV.length+WF.length+COLL.length;
+  document.querySelector('.stat-pill').textContent=total.toLocaleString()+'+ คำ';
+
+  // scroll spy
+  const main=document.getElementById('main');
+  const targets=[...document.querySelectorAll('.scroll-target')];
+  const navItems=[...document.querySelectorAll('.nav-item')];
+  main.addEventListener('scroll',()=>{
+    const sr=document.getElementById('searchResults');
+    if(sr.style.display==='block')return;
+    let cur='cover';
+    targets.forEach(el=>{
+      if(el.getBoundingClientRect().top<150)cur=el.id;
+    });
+    const labels={cover:'Cover',score:'Score Guide',tips:'TOEIC Tips — All 7 Parts',wf:'Word Families',coll:'Business Collocations',pv:'Essential Phrasal Verbs',idx:'Quick Reference Index A–Z'};
+    const u=UNITS.find(u=>u.id===cur);
+    document.getElementById('topbarLabel').textContent= u? `Unit ${u.num}: ${u.title}` : (labels[cur]||cur);
+    navItems.forEach(n=>{
+      n.classList.toggle('active',n.getAttribute('onclick')&&n.getAttribute('onclick').includes("'"+cur+"'"));
+    });
+  },{passive:true});
+})();
+
+// ═══════════════════════════════════════════════════════════════════════
+// MOBILE MENU
+// ═══════════════════════════════════════════════════════════════════════
+function toggleMenu(){
+  const s=document.getElementById('sidebar');
+  const o=document.getElementById('overlay');
+  s.classList.toggle('open');
+  o.classList.toggle('show');
+}
+// Auto-close sidebar on nav click (mobile)
+document.querySelectorAll('.nav-item').forEach(n=>{
+  const orig=n.getAttribute('onclick');
+  n.setAttribute('onclick',orig+';if(window.innerWidth<=768){toggleMenu();}');
+});
+
+// ═══════════════════════════════════════════════════════════════════════
+// QUIZ ENGINE
+// ═══════════════════════════════════════════════════════════════════════
+let QZ={pool:[],idx:0,correct:0,total:20,answered:false,history:[]};
+
+function getPool(unitId){
+  if(unitId==='all') return UNITS.flatMap(u=>u.words.map(w=>({...w,unitTitle:u.title,unitId:u.id})));
+  const u=UNITS.find(u=>u.id===unitId);
+  return u?u.words.map(w=>({...w,unitTitle:u.title,unitId:u.id})):[];
+}
+
+function shuffle(arr){return arr.sort(()=>Math.random()-.5)}
+
+function pickDistractors(correct,pool,key,n=3){
+  const others=pool.filter(w=>w[key]!==correct[key]);
+  return shuffle(others).slice(0,n).map(w=>w[key]);
+}
+
+function buildQuestion(word,pool,mode){
+  const modes=['th2en','en2th','fill','sentence'];
+  if(mode==='mixed') mode=modes[Math.floor(Math.random()*modes.length)];
+
+  if(mode==='en2th'){
+    const opts=shuffle([word.t,...pickDistractors(word,pool,'t')]);
+    return {type:'EN → Thai',q:`"${word.w}" หมายความว่าอะไร?`,opts,answer:word.t,word};
+  }
+  if(mode==='th2en'){
+    const opts=shuffle([word.w,...pickDistractors(word,pool,'w')]);
+    return {type:'Thai → EN',q:`"${word.t}" ตรงกับคำภาษาอังกฤษใด?`,opts,answer:word.w,word};
+  }
+  if(mode==='sentence'){
+    const blank=word.e.replace(new RegExp('\\b'+word.w.replace(/[-\/\^$*+?.()|[\]{}]/g,'\\$&')+'\\b','i'),'_______');
+    const opts=shuffle([word.w,...pickDistractors(word,pool,'w')]);
+    return {type:'Sentence Completion',q:`เติมคำที่หายไปในประโยค:\n"${blank}"`,opts,answer:word.w,word};
+  }
+  // fill = definition to word
+  const opts=shuffle([word.w,...pickDistractors(word,pool,'w')]);
+  return {type:'Definition → Word',q:`คำใดมีความหมายว่า "${word.t}"?\n\n(${word.p})`,opts,answer:word.w,word};
+}
+
+function launchQuiz(){
+  const unitId=document.getElementById('quizTypeSelect').value;
+  const mode=document.getElementById('quizModeSelect').value;
+  const pool=getPool(unitId);
+  if(pool.length<8){alert('กรุณาเลือกหมวดที่มีคำศัพท์มากกว่า 8 คำ');return;}
+
+  const selected=shuffle([...pool]).slice(0,Math.min(QZ.total,pool.length));
+  QZ={pool,idx:0,correct:0,total:selected.length,answered:false,history:[],mode,
+      questions:selected.map(w=>buildQuestion(w,pool,mode))};
+
+  document.getElementById('quizModal').classList.add('show');
+  renderQuizQuestion();
+}
+
+function closeQuiz(){
+  document.getElementById('quizModal').classList.remove('show');
+}
+
+function renderQuizQuestion(){
+  const q=QZ.questions[QZ.idx];
+  const pct=Math.round((QZ.idx/QZ.total)*100);
+  document.getElementById('quizInner').innerHTML=`
+    <div class="quiz-progress-wrap">
+      <div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width:${pct}%"></div></div>
+      <div class="quiz-progress-text">ข้อ ${QZ.idx+1} / ${QZ.total} &nbsp;•&nbsp; ถูก ${QZ.correct} ข้อ</div>
+    </div>
+    <div class="quiz-body">
+      <div class="quiz-q-type">${q.type}</div>
+      <div class="quiz-question">${q.q.replace(/\n/g,'<br>')}</div>
+      <div class="quiz-opts" id="quizOpts">
+        ${q.opts.map((o,i)=>`<button class="quiz-opt" onclick="answerQuiz(this,'${esc(o)}','${esc(q.answer)}')">${String.fromCharCode(65+i)}. ${esc(o)}</button>`).join('')}
+      </div>
+      <div class="quiz-explain" id="quizExplain">
+        <span class="exp-word">${esc(q.word.w)}</span> (${esc(q.word.p)}) = <span class="exp-thai">${esc(q.word.t)}</span><br>
+        <i>${esc(q.word.e)}</i><br>
+        <small style="color:#888">${esc(q.word.x)}</small>
+      </div>
+    </div>
+    <div class="quiz-actions">
+      <button class="quiz-btn quiz-btn-skip" onclick="skipQuiz()">ข้ามข้อ →</button>
+      <button class="quiz-btn quiz-btn-next" id="nextBtn" style="display:none" onclick="nextQuiz()">ข้อถัดไป →</button>
+    </div>`;
+  QZ.answered=false;
+}
+
+function answerQuiz(btn,chosen,answer){
+  if(QZ.answered)return;
+  QZ.answered=true;
+  const opts=document.querySelectorAll('.quiz-opt');
+  opts.forEach(o=>o.disabled=true);
+  if(chosen===answer){
+    btn.classList.add('correct');
+    QZ.correct++;
+    QZ.history.push({result:'correct'});
+  } else {
+    btn.classList.add('wrong');
+    QZ.history.push({result:'wrong'});
+    opts.forEach(o=>{if(o.textContent.includes(answer))o.classList.add('show-answer');});
+  }
+  document.getElementById('quizExplain').classList.add('show');
+  document.getElementById('nextBtn').style.display='flex';
+  document.querySelector('.quiz-btn-skip').style.display='none';
+}
+
+function skipQuiz(){
+  QZ.history.push({result:'skip'});
+  nextQuiz();
+}
+
+function nextQuiz(){
+  QZ.idx++;
+  if(QZ.idx>=QZ.total){showResult();return;}
+  renderQuizQuestion();
+}
+
+function showResult(){
+  const pct=Math.round((QZ.correct/QZ.total)*100);
+  let grade,msg,col;
+  if(pct>=85){grade='ยอดเยี่ยม! 🏆';msg='คุณพร้อมสำหรับ TOEIC 785+';col='#2E7D32';}
+  else if(pct>=70){grade='ดีมาก! 👍';msg='ระดับ TOEIC 600-785 แนะนำให้ทบทวนคำที่ตอบผิด';col='#1565C0';}
+  else if(pct>=50){grade='พอใช้ 📚';msg='ควรทบทวนเพิ่มเติม เป้าหมาย TOEIC 600+';col='#F57F17';}
+  else{grade='ต้องฝึกเพิ่ม 💪';msg='ทบทวนคำศัพท์และลองใหม่อีกครั้ง';col='#C62828';}
+
+  const wrongs=QZ.history.filter(h=>h.result!=='correct').length;
+  document.getElementById('quizInner').innerHTML=`
+    <div class="quiz-result show">
+      <div class="quiz-score-circle" style="background:linear-gradient(135deg,${col},${col}cc)">
+        ${pct}<small>%</small>
+      </div>
+      <h3>${grade}</h3>
+      <p>${msg}</p>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 0 20px">
+        <div style="background:#E8F5E9;border-radius:8px;padding:12px;text-align:center">
+          <div style="font-size:24px;font-weight:800;color:#2E7D32">${QZ.correct}</div>
+          <div style="font-size:11px;color:#666">ถูก</div>
+        </div>
+        <div style="background:#FFEBEE;border-radius:8px;padding:12px;text-align:center">
+          <div style="font-size:24px;font-weight:800;color:#C62828">${wrongs}</div>
+          <div style="font-size:11px;color:#666">ผิด/ข้าม</div>
+        </div>
+        <div style="background:#E3F2FD;border-radius:8px;padding:12px;text-align:center">
+          <div style="font-size:24px;font-weight:800;color:#1565C0">${QZ.total}</div>
+          <div style="font-size:11px;color:#666">ทั้งหมด</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+        <button class="quiz-restart-btn" onclick="launchQuiz()" style="background:var(--navy)">🔄 ทำซ้ำ</button>
+        <button class="quiz-restart-btn" onclick="closeQuiz()" style="background:#666">✕ ปิด</button>
+      </div>
+    </div>`;
+}
+</script>
+</body>
+</html>
