@@ -239,9 +239,78 @@ body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:var(--bg
   .quiz-question{font-size:14px}
   .quiz-opt{font-size:13px;padding:10px 12px}
 }
+
+/* ── FLOATING TOC ── */
+#floatToc{position:fixed;bottom:24px;right:20px;z-index:300;display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+#tocToggleBtn{width:48px;height:48px;border-radius:50%;background:var(--navy);color:#FFD54F;border:none;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.25);transition:transform .2s,background .2s;flex-shrink:0}
+#tocToggleBtn:hover{background:#1565C0;transform:scale(1.08)}
+#tocPanel{display:none;background:#fff;border:1px solid #dee2e6;border-radius:14px;box-shadow:0 8px 32px rgba(0,0,0,.18);padding:8px 0;min-width:210px;max-height:70vh;overflow-y:auto}
+#tocPanel::-webkit-scrollbar{width:3px}
+#tocPanel::-webkit-scrollbar-thumb{background:#ccc;border-radius:2px}
+#tocPanel.open{display:block}
+.toc-item{display:flex;align-items:center;gap:8px;padding:7px 14px;cursor:pointer;font-size:12.5px;color:#333;border-left:3px solid transparent;transition:all .12s;white-space:nowrap}
+.toc-item:hover{background:#f0f4ff;color:#1565C0}
+.toc-item.toc-active{color:#1565C0;border-left-color:#1565C0;background:#e8f0fe;font-weight:600}
+.toc-item .toc-icon{font-size:14px;flex-shrink:0}
+.toc-sep{height:1px;background:#f0f0f0;margin:4px 0}
+.toc-label{font-size:10px;text-transform:uppercase;letter-spacing:.8px;color:#999;padding:4px 14px 2px;font-weight:600}
+#tocProgress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#1565C0,#0288D1);z-index:999;transition:width .2s;pointer-events:none}
+
+/* ── QUIZ EXPLAIN ENHANCED ── */
+.quiz-explain{margin-top:14px;padding:14px 16px;background:#FFF9C4;border-radius:10px;font-size:13px;color:#555;border-left:4px solid #F9A825;display:none}
+.quiz-explain.show{display:block}
+.quiz-explain-wrong{background:#FFF3F3;border-left-color:#E53935}
+.quiz-explain-correct{background:#F1F8E9;border-left-color:#43A047}
+.exp-word{font-weight:700;color:#1565C0;font-size:14px}
+.exp-thai{color:#2E7D32;font-weight:600}
+.exp-reason{display:flex;align-items:flex-start;gap:6px;margin-bottom:8px;padding:8px 10px;border-radius:6px;font-size:13px;font-weight:500}
+.exp-reason-wrong{background:#FFEBEE;color:#C62828}
+.exp-reason-correct{background:#E8F5E9;color:#2E7D32}
+.exp-reason-icon{font-size:15px;flex-shrink:0;margin-top:1px}
+.exp-detail{font-size:12.5px;color:#555;line-height:1.6;margin-top:6px}
+.exp-section{margin-top:8px;padding-top:8px;border-top:1px dashed #e0e0e0}
+.exp-section-label{font-size:10px;text-transform:uppercase;letter-spacing:.6px;color:#999;margin-bottom:4px;font-weight:600}
+.exp-sentence{font-style:italic;color:#444;font-size:12.5px;line-height:1.5}
+.exp-sentence-th{color:#7B4F2E;font-size:12px;margin-top:2px}
+.exp-why-wrong{background:#FFF3CD;border:1px solid #FFE082;border-radius:6px;padding:8px 10px;margin-top:8px;font-size:12.5px;color:#5D4037}
+.exp-why-wrong strong{color:#E65100}
+.quiz-opt.correct::after{content:' ✓';font-weight:700}
+.quiz-opt.wrong::after{content:' ✗';font-weight:700}
+
+/* ── PDF BUTTON ── */
+#pdfBtn{display:inline-flex;align-items:center;gap:7px;background:#E65100;color:#fff;border:none;border-radius:8px;padding:9px 16px;font-size:13px;font-weight:600;cursor:pointer;transition:background .15s,transform .1s;white-space:nowrap}
+#pdfBtn:hover{background:#BF360C;transform:translateY(-1px)}
+#pdfBtn svg{width:16px;height:16px;fill:#fff;flex-shrink:0}
+#pdfToast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#333;color:#fff;padding:10px 20px;border-radius:8px;font-size:13px;z-index:9999;display:none;box-shadow:0 4px 14px rgba(0,0,0,.3)}
+#pdfToast.show{display:block}
+
+/* ── MOBILE QUIZ IMPROVEMENTS ── */
+@media(max-width:600px){
+  .quiz-opts{gap:6px}
+  .quiz-opt{padding:11px 13px;font-size:13.5px}
+  .quiz-explain{font-size:12.5px}
+  #floatToc{bottom:16px;right:12px}
+  #tocToggleBtn{width:44px;height:44px;font-size:18px}
+  #tocPanel{min-width:190px;max-height:60vh}
+  .toc-item{font-size:12px;padding:7px 12px}
+}
+/* ── TOPBAR PDF BTN ── */
+.topbar-actions{display:flex;align-items:center;gap:8px;margin-left:auto;flex-shrink:0}
 </style>
 </head>
 <body>
+
+<!-- READING PROGRESS BAR -->
+<div id="tocProgress" style="width:0%"></div>
+
+<!-- FLOATING TOC -->
+<div id="floatToc" aria-label="Table of contents">
+  <div id="tocPanel" role="navigation" aria-label="Page sections"></div>
+  <button id="tocToggleBtn" onclick="toggleFloatToc()" aria-label="Toggle table of contents" title="สารบัญ">☰</button>
+</div>
+
+<!-- PDF TOAST -->
+<div id="pdfToast">📄 กำลังสร้าง PDF...</div>
 
 <!-- ═══════════════ SIDEBAR ═══════════════ -->
 <nav id="sidebar">
@@ -306,6 +375,12 @@ body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:var(--bg
     <span></span><span></span><span></span>
   </button>
   <span>TOEIC Vocabulary 2026</span> &rsaquo; <span id="topbarLabel">Cover</span>
+  <div class="topbar-actions">
+    <button id="pdfBtn" onclick="downloadPDF()" title="ดาวน์โหลด PDF">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM12 17l-4-4h2.5v-4h3v4H16l-4 4z"/></svg>
+      <span class="pdf-label">PDF</span>
+    </button>
+  </div>
 </div>
 <div id="overlay" onclick="toggleMenu()"></div>
 
@@ -1312,6 +1387,116 @@ function doSearch(q){
   },{passive:true});
 })();
 
+// ══════════════════════════════════════════════════════════════════════
+// FLOATING TABLE OF CONTENTS
+// ══════════════════════════════════════════════════════════════════════
+const TOC_ITEMS=[
+  {id:'cover',icon:'📖',label:'Cover'},
+  {id:'score',icon:'🎯',label:'Score Guide'},
+  {id:'tips',icon:'💡',label:'TOEIC Tips'},
+  {sep:true},
+  {id:'u1',icon:'🏢',label:'U1 Business'},
+  {id:'u2',icon:'💰',label:'U2 Finance'},
+  {id:'u3',icon:'👥',label:'U3 HR'},
+  {id:'u4',icon:'📊',label:'U4 Marketing'},
+  {id:'u5',icon:'💻',label:'U5 Technology'},
+  {id:'u6',icon:'✈️',label:'U6 Travel'},
+  {id:'u7',icon:'🏥',label:'U7 Health'},
+  {id:'u8',icon:'⚖️',label:'U8 Legal'},
+  {id:'u9',icon:'🎧',label:'U9 Customer Svc'},
+  {id:'u10',icon:'🏭',label:'U10 Manufacturing'},
+  {id:'u11',icon:'🏦',label:'U11 Banking'},
+  {id:'u12',icon:'🏘️',label:'U12 Real Estate'},
+  {sep:true},
+  {id:'wf',icon:'🔤',label:'Word Families'},
+  {id:'coll',icon:'🔗',label:'Collocations'},
+  {id:'pv',icon:'➡️',label:'Phrasal Verbs'},
+  {id:'idx',icon:'📑',label:'Index A–Z'},
+];
+
+function buildFloatToc(){
+  const p=document.getElementById('tocPanel');
+  p.innerHTML='<div class="toc-label">สารบัญ</div>'+TOC_ITEMS.map(item=>{
+    if(item.sep) return '<div class="toc-sep"></div>';
+    return `<div class="toc-item" id="toc-${item.id}" onclick="goTo('${item.id}');closeFloatToc()"><span class="toc-icon">${item.icon}</span>${item.label}</div>`;
+  }).join('');
+}
+
+function toggleFloatToc(){
+  const p=document.getElementById('tocPanel');
+  p.classList.toggle('open');
+}
+function closeFloatToc(){
+  document.getElementById('tocPanel').classList.remove('open');
+}
+// Close toc when clicking outside
+document.addEventListener('click',function(e){
+  const toc=document.getElementById('floatToc');
+  if(!toc.contains(e.target)) closeFloatToc();
+});
+
+// Update active toc item + reading progress bar
+function updateTocActive(){
+  const main=document.getElementById('main');
+  if(!main) return;
+  const scrollTop=main.scrollTop;
+  const scrollH=main.scrollHeight-main.clientHeight;
+  const pct=scrollH>0?Math.round((scrollTop/scrollH)*100):0;
+  document.getElementById('tocProgress').style.width=pct+'%';
+
+  const targets=[...document.querySelectorAll('.scroll-target')];
+  let cur='cover';
+  targets.forEach(el=>{
+    const rect=el.getBoundingClientRect();
+    if(rect.top<160) cur=el.id;
+  });
+  document.querySelectorAll('.toc-item').forEach(n=>{
+    n.classList.toggle('toc-active',n.id==='toc-'+cur);
+  });
+}
+
+// ══════════════════════════════════════════════════════════════════════
+// PDF DOWNLOAD — uses window.print with print-specific CSS
+// ══════════════════════════════════════════════════════════════════════
+function downloadPDF(){
+  const toast=document.getElementById('pdfToast');
+  toast.classList.add('show');
+  // Inject print CSS if not already there
+  if(!document.getElementById('printStyle')){
+    const s=document.createElement('style');
+    s.id='printStyle';
+    s.innerHTML=`
+@media print{
+  *{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important}
+  body{display:block !important;background:#fff !important}
+  #sidebar,#menuBtn,#floatToc,#tocProgress,.topbar,.quiz-launch-bar,#quizModal,#pdfToast{display:none !important}
+  #main{overflow:visible !important;height:auto !important}
+  .section{padding:16px 20px !important;page-break-inside:avoid}
+  #cover{min-height:auto !important;padding:30px 20px !important;page-break-after:always}
+  .vocab-table{font-size:11px !important}
+  .vocab-table td{padding:5px 7px !important}
+  h1{font-size:28px !important}
+  .section-title{font-size:16px !important}
+  .cover-stats{grid-template-columns:repeat(4,1fr) !important}
+  a[href]:after{content:none !important}
+}`;
+    document.head.appendChild(s);
+  }
+  setTimeout(()=>{
+    toast.classList.remove('show');
+    window.print();
+  },600);
+}
+
+buildFloatToc();
+// Hook scroll for TOC update
+setTimeout(()=>{
+  const m=document.getElementById('main');
+  if(m) m.addEventListener('scroll',updateTocActive,{passive:true});
+  updateTocActive();
+},500);
+
+
 // ═══════════════════════════════════════════════════════════════════════
 // MOBILE MENU
 // ═══════════════════════════════════════════════════════════════════════
@@ -1415,18 +1600,63 @@ function renderQuizQuestion(){
 function answerQuiz(btn,chosen,answer){
   if(QZ.answered)return;
   QZ.answered=true;
+  const q=QZ.questions[QZ.idx];
   const opts=document.querySelectorAll('.quiz-opt');
   opts.forEach(o=>o.disabled=true);
-  if(chosen===answer){
+  const isCorrect=(chosen===answer);
+
+  if(isCorrect){
     btn.classList.add('correct');
     QZ.correct++;
-    QZ.history.push({result:'correct'});
+    QZ.history.push({result:'correct',word:q.word,chosen});
   } else {
     btn.classList.add('wrong');
-    QZ.history.push({result:'wrong'});
-    opts.forEach(o=>{if(o.textContent.includes(answer))o.classList.add('show-answer');});
+    QZ.history.push({result:'wrong',word:q.word,chosen,answer});
+    opts.forEach(o=>{
+      const txt=o.textContent.slice(3).trim();
+      if(txt===answer)o.classList.add('show-answer');
+    });
   }
-  document.getElementById('quizExplain').classList.add('show');
+
+  // Build enhanced explanation
+  const w=q.word;
+  const expEl=document.getElementById('quizExplain');
+  expEl.className='quiz-explain show '+(isCorrect?'quiz-explain-correct':'quiz-explain-wrong');
+
+  let whyWrong='';
+  if(!isCorrect){
+    let reason='';
+    if(q.type==='EN → Thai'){
+      reason=`คุณเลือก "<strong>${esc(chosen)}</strong>" แต่ความหมายที่ถูกต้องของ "<strong>${esc(w.w)}</strong>" คือ "<strong>${esc(answer)}</strong>"`;
+    } else if(q.type==='Thai → EN'){
+      reason=`คุณเลือก "<strong>${esc(chosen)}</strong>" แต่คำภาษาอังกฤษที่ตรงกับ "<strong>${esc(w.t)}</strong>" คือ "<strong>${esc(answer)}</strong>"`;
+    } else if(q.type==='Sentence Completion'){
+      reason=`คุณเลือก "<strong>${esc(chosen)}</strong>" ซึ่งไม่เหมาะกับบริบทของประโยค คำที่ถูกต้องคือ "<strong>${esc(answer)}</strong>"`;
+    } else {
+      reason=`คุณเลือก "<strong>${esc(chosen)}</strong>" แต่นิยามนี้ตรงกับ "<strong>${esc(answer)}</strong>"`;
+    }
+    whyWrong=`<div class="exp-why-wrong"><strong>⚠ ทำไมตอบผิด?</strong><br>${reason}</div>`;
+  }
+
+  expEl.innerHTML=`
+    <div class="exp-reason ${isCorrect?'exp-reason-correct':'exp-reason-wrong'}">
+      <span class="exp-reason-icon">${isCorrect?'✅':'❌'}</span>
+      <span>${isCorrect?'ถูกต้อง! คำนี้คุณจำได้แล้ว':'ยังไม่ถูกต้อง — ลองจำไว้นะ'}</span>
+    </div>
+    ${whyWrong}
+    <div class="exp-section">
+      <div class="exp-section-label">คำศัพท์</div>
+      <span class="exp-word">${esc(w.w)}</span>
+      <span style="color:#666;font-size:12px;margin-left:4px">(${esc(w.p)})</span>
+      &nbsp;=&nbsp;
+      <span class="exp-thai">${esc(w.t)}</span>
+    </div>
+    <div class="exp-section">
+      <div class="exp-section-label">ตัวอย่างประโยค</div>
+      <div class="exp-sentence">${esc(w.e)}</div>
+      <div class="exp-sentence-th">${esc(w.x)}</div>
+    </div>`;
+
   document.getElementById('nextBtn').style.display='flex';
   document.querySelector('.quiz-btn-skip').style.display='none';
 }
@@ -1450,7 +1680,37 @@ function showResult(){
   else if(pct>=50){grade='พอใช้ 📚';msg='ควรทบทวนเพิ่มเติม เป้าหมาย TOEIC 600+';col='#F57F17';}
   else{grade='ต้องฝึกเพิ่ม 💪';msg='ทบทวนคำศัพท์และลองใหม่อีกครั้ง';col='#C62828';}
 
-  const wrongs=QZ.history.filter(h=>h.result!=='correct').length;
+  const wrongItems=QZ.history.filter(h=>h.result==='wrong');
+  const skipItems=QZ.history.filter(h=>h.result==='skip');
+  const wrongs=wrongItems.length+skipItems.length;
+
+  // Build wrong-word review table
+  let reviewHtml='';
+  if(wrongItems.length>0){
+    const rows=wrongItems.map(h=>{
+      const w=h.word;
+      return `<tr style="border-bottom:1px solid #f0f0f0">
+        <td style="padding:7px 8px;font-weight:600;color:#C62828;font-size:12.5px">${esc(w.w)}</td>
+        <td style="padding:7px 8px;font-size:12px;color:#2E7D32;font-weight:600">${esc(w.t)}</td>
+        <td style="padding:7px 8px;font-size:11.5px;color:#555;font-style:italic">${esc(w.e)}</td>
+      </tr>`;
+    }).join('');
+    reviewHtml=`
+      <div style="margin-top:16px;text-align:left">
+        <div style="font-size:13px;font-weight:600;color:#C62828;margin-bottom:8px">📌 คำที่ตอบผิด — ต้องทบทวน</div>
+        <div style="overflow-x:auto;border:1px solid #ffcdd2;border-radius:8px">
+          <table style="width:100%;border-collapse:collapse;font-family:inherit">
+            <thead><tr style="background:#ffebee">
+              <th style="padding:7px 8px;text-align:left;font-size:11px;color:#b71c1c;font-weight:600">คำศัพท์</th>
+              <th style="padding:7px 8px;text-align:left;font-size:11px;color:#b71c1c;font-weight:600">ความหมาย</th>
+              <th style="padding:7px 8px;text-align:left;font-size:11px;color:#b71c1c;font-weight:600">ตัวอย่าง</th>
+            </tr></thead>
+            <tbody>${rows}</tbody>
+          </table>
+        </div>
+      </div>`;
+  }
+
   document.getElementById('quizInner').innerHTML=`
     <div class="quiz-result show">
       <div class="quiz-score-circle" style="background:linear-gradient(135deg,${col},${col}cc)">
@@ -1458,7 +1718,7 @@ function showResult(){
       </div>
       <h3>${grade}</h3>
       <p>${msg}</p>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 0 20px">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 0 16px">
         <div style="background:#E8F5E9;border-radius:8px;padding:12px;text-align:center">
           <div style="font-size:24px;font-weight:800;color:#2E7D32">${QZ.correct}</div>
           <div style="font-size:11px;color:#666">ถูก</div>
@@ -1472,7 +1732,8 @@ function showResult(){
           <div style="font-size:11px;color:#666">ทั้งหมด</div>
         </div>
       </div>
-      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+      ${reviewHtml}
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px">
         <button class="quiz-restart-btn" onclick="launchQuiz()" style="background:var(--navy)">🔄 ทำซ้ำ</button>
         <button class="quiz-restart-btn" onclick="closeQuiz()" style="background:#666">✕ ปิด</button>
       </div>
