@@ -57,18 +57,72 @@ body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:var(--bg
 .word-count-badge{margin-left:auto;background:var(--bg);border:1px solid var(--border);border-radius:20px;padding:4px 14px;font-size:12px;color:var(--muted);white-space:nowrap}
 
 /* ── VOCAB TABLE ── */
-.vocab-table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:10px}
-.vocab-table{width:100%;border-collapse:collapse;font-size:13.5px}
+.vocab-table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:10px;-webkit-overflow-scrolling:touch}
+.table-responsive-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:10px;-webkit-overflow-scrolling:touch}
+.vocab-table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:500px}
 .vocab-table thead th{padding:10px 14px;text-align:left;font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.5px;white-space:nowrap}
 .vocab-table tbody tr{border-top:1px solid var(--border);transition:background .1s}
 .vocab-table tbody tr:hover{background:#f0f4ff}
 .vocab-table td{padding:10px 14px;vertical-align:top;line-height:1.5}
-.word-cell{font-weight:700;color:#1565C0;min-width:130px}
-.pos-cell{color:var(--muted);font-style:italic;font-size:12px;min-width:60px;padding-top:12px}
-.thai-cell{color:#2E7D32;font-weight:600;min-width:160px}
-.eng-cell{min-width:220px;color:#333}
-.th2-cell{color:#7B4F2E;font-size:12px;min-width:200px}
+.word-cell{font-weight:700;color:#1565C0;min-width:110px}
+.pos-cell{color:var(--muted);font-style:italic;font-size:12px;min-width:55px;padding-top:12px}
+.thai-cell{color:#2E7D32;font-weight:600;min-width:140px}
+.eng-cell{min-width:180px;color:#333}
+.th2-cell{color:#7B4F2E;font-size:12px;min-width:160px}
 .row-even{background:#fafafa}
+/* ── SCORE TABLE RESPONSIVE ── */
+.score-table{width:100%;border-collapse:collapse;font-size:13.5px;border:1px solid var(--border);border-radius:10px;overflow:hidden;min-width:400px}
+.score-table-wrap{overflow-x:auto;border-radius:10px;-webkit-overflow-scrolling:touch}
+/* ── WF TABLE RESPONSIVE ── */
+.wf-table{width:100%;border-collapse:collapse;font-size:13px;border:1px solid var(--border);overflow:hidden;min-width:600px}
+/* ── PV TABLE RESPONSIVE ── */
+.pv-table{width:100%;border-collapse:collapse;font-size:13.5px;border:1px solid var(--border);border-radius:10px;overflow:hidden;min-width:400px}
+.pv-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--border);border-radius:10px}
+/* ── MOBILE CARD VIEW for vocab tables ── */
+@media(max-width:600px){
+  .vocab-table{min-width:0;font-size:12px}
+  .vocab-table thead{display:none}
+  .vocab-table tbody tr{display:block;border:1px solid var(--border);border-radius:10px;margin-bottom:10px;padding:10px 12px;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+  .vocab-table tbody tr.row-even{background:#fafbff}
+  .vocab-table td{display:block;padding:3px 0;border:none;min-width:0}
+  .vocab-table td::before{font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:#999;font-weight:600;display:block;margin-bottom:1px}
+  .word-cell::before{content:"คำศัพท์"}
+  .pos-cell::before{content:"ชนิด"}
+  .thai-cell::before{content:"ความหมาย"}
+  .eng-cell::before{content:"ตัวอย่าง EN"}
+  .th2-cell::before{content:"ตัวอย่าง TH"}
+  .pos-cell{padding-top:3px}
+  .score-table{min-width:0;font-size:12px}
+  .score-table thead{display:none}
+  .score-table tbody tr{display:block;border:1px solid var(--border);border-radius:8px;margin-bottom:8px;padding:10px 12px;background:#fff}
+  .score-table td{display:flex;justify-content:space-between;align-items:center;padding:4px 0;border:none;font-size:12.5px}
+  .score-table td::before{font-size:10px;color:#999;font-weight:600}
+  .score-table td:nth-child(1)::before{content:"Score: "}
+  .score-table td:nth-child(2)::before{content:"Grade: "}
+  .score-table td:nth-child(3)::before{content:"Level: "}
+  .score-table td:nth-child(4)::before{content:"ระดับ: "}
+  .score-table td:nth-child(5)::before{content:"งาน: "}
+  .wf-table{min-width:0;font-size:11.5px}
+  .wf-table thead{display:none}
+  .wf-table tbody tr{display:grid;grid-template-columns:1fr 1fr;gap:4px 8px;border:1px solid var(--border);border-radius:8px;margin-bottom:8px;padding:10px 12px;background:#fff}
+  .wf-table td{display:block;padding:2px 0;border:none;font-size:11.5px}
+  .wf-table td:nth-child(1)::before{content:"V: ";color:#1565C0;font-weight:600}
+  .wf-table td:nth-child(2)::before{content:"N: ";color:#E65100;font-weight:600}
+  .wf-table td:nth-child(3)::before{content:"Adj: ";color:#6A1B9A;font-weight:600}
+  .wf-table td:nth-child(4)::before{content:"Adv: ";color:#00695C;font-weight:600}
+  .wf-table td:nth-child(5){grid-column:1/3;font-size:12px;font-weight:600;color:#333;padding-top:4px;border-top:1px dashed #eee;margin-top:2px}
+  .wf-table td:nth-child(6){grid-column:1/3;font-size:11px;color:#7B4F2E;font-style:italic}
+  .wf-table td:nth-child(7){grid-column:1/3}
+  .pv-table{min-width:0}
+  .pv-table thead{display:none}
+  .pv-table tbody tr{display:block;border:1px solid var(--border);border-radius:8px;margin-bottom:8px;padding:10px 12px;background:#fff}
+  .pv-table td{display:block;padding:3px 0;border:none}
+  .pv-table td:nth-child(1){font-size:14px;font-weight:700;color:#E65100}
+  .pv-table td:nth-child(2){font-size:12.5px;color:#2E7D32;font-weight:600}
+  .pv-table td:nth-child(3){font-size:11.5px;color:#555;font-style:italic}
+  .index-grid{grid-template-columns:1fr 1fr}
+  .index-item{font-size:11px;padding:4px 8px}
+}
 
 /* ── TIPS ── */
 .tips-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
@@ -495,12 +549,25 @@ body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:var(--bg
 <div id="wf" class="section scroll-target">
   <div class="section-header" style="border-color:#2E7D32">
     <div class="section-icon" style="background:#E8F5E9;font-size:22px">🔤</div>
-    <div><div class="section-title">Word Families</div><div class="section-thai">ตระกูลคำ — เรียนหนึ่งรู้สี่</div></div>
+    <div>
+      <div class="section-title">Word Families — จำง่ายด้วย Mnemonic</div>
+      <div class="section-thai">56 ตระกูลคำ สำหรับ 400+ · ดูรูปแบบ suffix เรียนหนึ่งรู้สี่</div>
+    </div>
+    <div class="word-count-badge">56 families</div>
   </div>
-  <table class="wf-table">
-    <thead><tr><th>Verb</th><th>Noun</th><th>Adjective</th><th>Adverb</th><th>ความหมาย</th></tr></thead>
-    <tbody id="wfBody"></tbody>
-  </table>
+  <div style="display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap">
+    <div style="padding:8px 14px;background:#E3F2FD;border-radius:8px;font-size:12px;color:#1565C0;font-weight:600">🎯 Score 400+ = รูปแบบ suffix พื้นฐาน เช่น -ment, -tion, -ial</div>
+    <div style="padding:8px 14px;background:#E8F5E9;border-radius:8px;font-size:12px;color:#2E7D32;font-weight:600">🚀 Score 500+ = Confusables & Complex suffix เช่น -sion, -ance</div>
+  </div>
+  <div class="table-responsive-wrap">
+    <table class="wf-table">
+      <thead><tr>
+        <th>Verb 🔵</th><th>Noun 🟠</th><th>Adjective 🟣</th><th>Adverb 🟢</th>
+        <th>ความหมาย</th><th>Mnemonic (จำง่าย)</th><th>Band</th>
+      </tr></thead>
+      <tbody id="wfBody"></tbody>
+    </table>
+  </div>
 </div>
 
 <!-- ── COLLOCATIONS ── -->
@@ -555,26 +622,63 @@ const TIPS=[
 ];
 
 const WF=[
-  ["analyze","analysis","analytical","analytically","วิเคราะห์"],
-  ["compete","competition","competitive","competitively","แข่งขัน"],
-  ["distribute","distribution","distributive","distributively","จัดจำหน่าย"],
-  ["finance","financial","financially","—","การเงิน"],
-  ["manage","management","managerial","managerially","จัดการ"],
-  ["negotiate","negotiation","negotiable","—","เจรจา"],
-  ["organize","organization","organizational","organizationally","จัดระเบียบ"],
-  ["produce","production","productive","productively","ผลิต"],
-  ["regulate","regulation","regulatory","—","ควบคุม"],
-  ["supervise","supervision","supervisory","—","ดูแล"],
-  ["invest","investment","investable","—","ลงทุน"],
-  ["communicate","communication","communicative","communicatively","สื่อสาร"],
-  ["collaborate","collaboration","collaborative","collaboratively","ร่วมมือ"],
-  ["innovate","innovation","innovative","innovatively","สร้างนวัตกรรม"],
-  ["implement","implementation","implementable","—","ดำเนินการ"],
-  ["evaluate","evaluation","evaluative","—","ประเมิน"],
-  ["authorize","authorization","authorized","—","อนุญาต"],
-  ["customize","customization","customizable","—","ปรับแต่ง"],
-  ["document","documentation","documentary","—","จัดทำเอกสาร"],
-  ["optimize","optimization","optimal","optimally","ปรับให้ดีที่สุด"],
+  // [verb, noun, adjective, adverb, thai, mnemonic, band]
+  ["analyze","analysis","analytical","analytically","วิเคราะห์","ANALYZE→ANALYSIS คำลงท้าย -ysis","400+"],
+  ["compete","competition","competitive","competitively","แข่งขัน","COMPETE→COMPETITION เพิ่ม -ition","400+"],
+  ["distribute","distribution","distributive","distributively","จัดจำหน่าย","DISTRIB+UTION","400+"],
+  ["finance","financial","financially","—","การเงิน","FINANCE→FINANCIAL เพิ่ม -ial","400+"],
+  ["manage","management","managerial","managerially","จัดการ","MANAGE→MANAGEMENT เพิ่ม -ment","400+"],
+  ["negotiate","negotiation","negotiable","—","เจรจา","NEGOTIATE→NEGOTIATION","400+"],
+  ["organize","organization","organizational","organizationally","จัดระเบียบ","ORGAN+IZE/IZATION","400+"],
+  ["produce","production","productive","productively","ผลิต","PRODUCE→PRODUCT→PRODUCTION","400+"],
+  ["regulate","regulation","regulatory","—","ควบคุม","REGULATE→REGULATION","400+"],
+  ["supervise","supervision","supervisory","—","ดูแล","SUPER(เหนือ)+VISE(ดู)","400+"],
+  ["invest","investment","investable","—","ลงทุน","INVEST→INVESTMENT เพิ่ม -ment","400+"],
+  ["communicate","communication","communicative","communicatively","สื่อสาร","COMMUN(ร่วม)+ICATE","400+"],
+  ["collaborate","collaboration","collaborative","collaboratively","ร่วมมือ","CO(ร่วม)+LABOR(งาน)","400+"],
+  ["innovate","innovation","innovative","innovatively","สร้างนวัตกรรม","IN+NOV(ใหม่)+ATE","500+"],
+  ["implement","implementation","implementable","—","ดำเนินการ","IMPLEMENT→IMPLEMENTATION","400+"],
+  ["evaluate","evaluation","evaluative","—","ประเมิน","E+VALUE+ATE→EVALUATION","400+"],
+  ["authorize","authorization","authorized","—","อนุญาต","AUTHOR+IZE→IZATION","400+"],
+  ["customize","customization","customizable","—","ปรับแต่ง","CUSTOM+IZE→IZATION","400+"],
+  ["optimize","optimization","optimal","optimally","ปรับให้ดีที่สุด","OPTIM(ดีที่สุด)+IZE","500+"],
+  ["document","documentation","documentary","—","จัดทำเอกสาร","DOCUMENT→DOCUMENTATION","400+"],
+  ["approve","approval","approved","—","อนุมัติ","APPROVE→APPROVAL ตัด e+al","400+"],
+  ["employ","employment","employable","—","จ้างงาน","EMPLOY→EMPLOYMENT เพิ่ม -ment","400+"],
+  ["require","requirement","required","—","ต้องการ","REQUIRE→REQUIREMENT","400+"],
+  ["achieve","achievement","achievable","—","บรรลุ","ACHIEVE→ACHIEVEMENT","400+"],
+  ["develop","development","developmental","developmentally","พัฒนา","DEVELOP→DEVELOPMENT","400+"],
+  ["establish","establishment","established","—","ก่อตั้ง","ESTABLISH→ESTABLISHMENT","400+"],
+  ["maintain","maintenance","maintainable","—","บำรุงรักษา","MAINTAIN→MAINTENANCE ตัด n+ance","400+"],
+  ["promote","promotion","promotional","promotionally","ส่งเสริม/เลื่อน","PROMOTE→PROMOTION ตัด e+ion","500+"],
+  ["reduce","reduction","reducible","—","ลดลง","REDUCE→REDUCTION ตัด ce+tion","400+"],
+  ["replace","replacement","replaceable","—","แทนที่","REPLACE→REPLACEMENT เพิ่ม -ment","400+"],
+  ["resolve","resolution","resolvable","—","แก้ปัญหา","RESOLVE→RESOLUTION ตัด ve+ution","500+"],
+  ["respond","response","responsive","responsively","ตอบสนอง","RESPOND→RESPONSE→RESPONSIVE","400+"],
+  ["satisfy","satisfaction","satisfactory","satisfactorily","ทำให้พอใจ","SATISFY→SATISFACTION ตัด y+action","400+"],
+  ["improve","improvement","improved","—","ปรับปรุง","IMPROVE→IMPROVEMENT เพิ่ม -ment","400+"],
+  ["expand","expansion","expandable","—","ขยาย","EXPAND→EXPANSION ตัด d+sion","500+"],
+  ["notify","notification","notable","notably","แจ้งเตือน","NOT+IFY→IFICATION","400+"],
+  ["qualify","qualification","qualified","—","มีคุณสมบัติ","QUAL+IFY→IFICATION","400+"],
+  ["confirm","confirmation","confirmed","—","ยืนยัน","CONFIRM→CONFIRMATION เพิ่ม -ation","400+"],
+  ["cancel","cancellation","cancelled","—","ยกเลิก","CANCEL→CANCELLATION เพิ่ม l+ation","400+"],
+  ["assign","assignment","assignable","—","มอบหมาย","ASSIGN→ASSIGNMENT เพิ่ม -ment","400+"],
+  ["apply","application","applicable","applicably","สมัคร/ใช้งาน","APPLY→APPLICATION ตัด y+ication","400+"],
+  ["certify","certification","certified","—","รับรอง","CERT(แน่ใจ)+IFY→IFICATION","500+"],
+  ["recruit","recruitment","recruited","—","สรรหา","RECRUIT→RECRUITMENT เพิ่ม -ment","400+"],
+  ["present","presentation","presentable","—","นำเสนอ","PRESENT→PRESENTATION","400+"],
+  ["terminate","termination","terminal","—","สิ้นสุด","TERM(จุดสิ้นสุด)+INATE","500+"],
+  ["proceed","procedure","procedural","procedurally","ดำเนินการ","PRO(ไปข้างหน้า)+CEED/CEDURE","500+"],
+  ["commit","commitment","committed","—","มุ่งมั่น","COMMIT→COMMITMENT เพิ่ม -ment","400+"],
+  ["affect","effect","effective","effectively","ผลกระทบ","AFFECT(v กริยา) vs EFFECT(n คำนาม)","400+"],
+  ["advise","advice","advisable","advisably","ให้คำแนะนำ","ADVISE(v) vs ADVICE(n)","400+"],
+  ["extend","extension","extensive","extensively","ขยายออก","EXTEND→EXTENSION ตัด d+sion","400+"],
+  ["comply","compliance","compliant","—","ปฏิบัติตาม","COMPLY→COMPLIANCE ตัด y+ance","500+"],
+  ["intend","intention","intentional","intentionally","ตั้งใจ","INTEND→INTENTION ตัด d+tion","500+"],
+  ["occupy","occupation","occupied","—","ครอบครอง","OCCUP+Y/ATION","400+"],
+  ["permit","permission","permissible","—","อนุญาต","PERMIT→PERMISSION ตัด t+ssion","500+"],
+  ["increase","increase","increased","increasingly","เพิ่มขึ้น","IN+CREASE (n และ v)","400+"],
+  ["decline","decline","declining","—","ลดลง/ปฏิเสธ","DE+CLINE (n และ v)","400+"],
 ];
 
 const COLL=[
@@ -1241,14 +1345,29 @@ function renderUnit(u){
 }
 
 function renderWF(){
-  document.getElementById('wfBody').innerHTML=WF.map((r,i)=>`
-    <tr${i%2===0?' style="background:#f5faf5"':''}>
-      <td class="wf-verb">${esc(r[0])}</td>
-      <td class="wf-noun">${esc(r[1])}</td>
-      <td class="wf-adj">${esc(r[2])}</td>
-      <td class="wf-adv">${esc(r[3])}</td>
-      <td class="wf-thai">${esc(r[4])}</td>
-    </tr>`).join('');
+  const bands={};
+  WF.forEach(r=>{const b=r[6]||'400+';if(!bands[b])bands[b]=[];bands[b].push(r);});
+  const bandOrder=['400+','500+'];
+  const bandColor={'400+':'#1565C0','500+':'#2E7D32'};
+  const bandLabel={'400+':'🎯 Score 400+ Core','500+':'🚀 Score 500+ Advanced'};
+  let html='';
+  bandOrder.forEach(band=>{
+    if(!bands[band])return;
+    html+=`<tr><td colspan="7" style="background:${bandColor[band]};color:#fff;font-size:11px;font-weight:700;padding:6px 12px;text-transform:uppercase;letter-spacing:.5px">${bandLabel[band]}</td></tr>`;
+    bands[band].forEach((r,i)=>{
+      const bg=i%2===0?'background:#f5faf5':'';
+      html+=`<tr style="${bg}">
+        <td class="wf-verb" style="font-size:13px">${esc(r[0])}</td>
+        <td class="wf-noun" style="font-size:13px">${esc(r[1])}</td>
+        <td class="wf-adj" style="font-size:13px">${esc(r[2])}</td>
+        <td class="wf-adv" style="font-size:13px">${esc(r[3])}</td>
+        <td class="wf-thai" style="font-size:12px">${esc(r[4])}</td>
+        <td style="font-size:11px;color:#7B4F2E;font-style:italic;max-width:180px">${esc(r[5]||'')}</td>
+        <td><span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;background:${bandColor[r[6]||'400+']}22;color:${bandColor[r[6]||'400+']};border:1px solid ${bandColor[r[6]||'400+']}44">${esc(r[6]||'400+')}</span></td>
+      </tr>`;
+    });
+  });
+  document.getElementById('wfBody').innerHTML=html;
 }
 
 function renderColl(){
