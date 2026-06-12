@@ -350,6 +350,106 @@ body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:var(--bg
 }
 /* ── TOPBAR PDF BTN ── */
 .topbar-actions{display:flex;align-items:center;gap:8px;margin-left:auto;flex-shrink:0}
+
+/* ══════════════════════════════════════
+   FLASHCARD MODE
+══════════════════════════════════════ */
+#flashModal{display:none;position:fixed;inset:0;z-index:500;background:#0D1B2A;flex-direction:column;overflow:hidden}
+#flashModal.show{display:flex}
+
+/* top bar */
+.flash-topbar{display:flex;align-items:center;gap:10px;padding:12px 16px;background:#0D1B2A;border-bottom:1px solid rgba(255,255,255,.1);flex-shrink:0}
+.flash-topbar h2{font-size:15px;font-weight:700;color:#FFD54F;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.flash-close{background:rgba(255,255,255,.1);border:none;color:#fff;width:36px;height:36px;border-radius:50%;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s}
+.flash-close:hover{background:rgba(255,255,255,.2)}
+.flash-unit-sel{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;padding:6px 10px;border-radius:8px;font-size:12px;cursor:pointer;max-width:160px}
+.flash-unit-sel option{background:#0D1B2A}
+
+/* progress */
+.flash-prog-wrap{padding:8px 16px 0;flex-shrink:0}
+.flash-prog-bg{height:5px;background:rgba(255,255,255,.12);border-radius:3px;overflow:hidden}
+.flash-prog-fill{height:100%;background:linear-gradient(90deg,#FFD54F,#FFC107);border-radius:3px;transition:width .4s}
+.flash-prog-text{font-size:11px;color:rgba(255,255,255,.5);margin-top:5px;text-align:center}
+
+/* card arena */
+.flash-arena{flex:1;display:flex;align-items:center;justify-content:center;padding:16px;position:relative;overflow:hidden}
+
+/* the card */
+.flash-card-wrap{width:100%;max-width:500px;perspective:1000px;cursor:pointer}
+.flash-card{position:relative;width:100%;padding-top:65%;transform-style:preserve-3d;transition:transform .5s cubic-bezier(.4,0,.2,1)}
+.flash-card.flipped{transform:rotateY(180deg)}
+.flash-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:20px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px 24px;text-align:center;box-shadow:0 16px 48px rgba(0,0,0,.4)}
+.flash-front{background:linear-gradient(145deg,#1E3A5F,#1565C0)}
+.flash-back{background:linear-gradient(145deg,#1B4332,#2E7D32);transform:rotateY(180deg)}
+
+/* front content */
+.flash-unit-badge{font-size:10px;font-weight:600;padding:3px 10px;border-radius:10px;background:rgba(255,255,255,.12);color:rgba(255,255,255,.7);margin-bottom:14px;text-transform:uppercase;letter-spacing:.5px}
+.flash-word{font-size:clamp(22px,5vw,36px);font-weight:800;color:#fff;margin-bottom:8px;line-height:1.2}
+.flash-pos{font-size:13px;color:rgba(255,255,255,.55);font-style:italic;margin-bottom:16px}
+.flash-tap-hint{font-size:12px;color:rgba(255,255,255,.35);margin-top:auto;padding-top:12px}
+
+/* back content */
+.flash-meaning{font-size:clamp(18px,4vw,28px);font-weight:700;color:#fff;margin-bottom:10px;line-height:1.3}
+.flash-sentence-en{font-size:clamp(12px,2.5vw,14px);color:rgba(255,255,255,.75);font-style:italic;line-height:1.6;margin-bottom:6px}
+.flash-sentence-th{font-size:clamp(11px,2.3vw,13px);color:rgba(255,255,255,.5);line-height:1.5}
+
+/* bottom action bar */
+.flash-actions{display:flex;gap:10px;padding:14px 16px 20px;flex-shrink:0;justify-content:center}
+.flash-btn{flex:1;max-width:160px;padding:14px 10px;border:none;border-radius:14px;font-size:14px;font-weight:700;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px;transition:transform .12s,opacity .12s;-webkit-tap-highlight-color:transparent}
+.flash-btn:active{transform:scale(.96);opacity:.85}
+.flash-btn-again{background:#C62828;color:#fff}
+.flash-btn-hard{background:#E65100;color:#fff}
+.flash-btn-good{background:#1565C0;color:#fff}
+.flash-btn-easy{background:#2E7D32;color:#fff}
+.flash-btn .btn-label{font-size:11px;font-weight:400;opacity:.8}
+.flash-btn .btn-days{font-size:10px;opacity:.6}
+
+/* swipe hint overlay */
+.swipe-hint-left{position:absolute;left:20px;top:50%;transform:translateY(-50%);font-size:40px;opacity:0;transition:opacity .15s;pointer-events:none;color:#C62828}
+.swipe-hint-right{position:absolute;right:20px;top:50%;transform:translateY(-50%);font-size:40px;opacity:0;transition:opacity .15s;pointer-events:none;color:#2E7D32}
+
+/* stats ribbon */
+.flash-stats{display:flex;gap:6px;padding:6px 16px;flex-shrink:0;flex-wrap:wrap;justify-content:center}
+.flash-stat-pill{font-size:11px;padding:4px 10px;border-radius:20px;font-weight:600;white-space:nowrap}
+.fs-new{background:rgba(255,255,255,.1);color:rgba(255,255,255,.7)}
+.fs-good{background:rgba(46,125,50,.3);color:#81C784}
+.fs-hard{background:rgba(198,40,40,.3);color:#EF9A9A}
+
+/* result screen */
+.flash-result{display:none;flex-direction:column;align-items:center;justify-content:center;flex:1;padding:24px;text-align:center}
+.flash-result.show{display:flex}
+.flash-result-circle{width:110px;height:110px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;margin-bottom:20px;font-size:36px;font-weight:800;color:#fff}
+.flash-result h3{font-size:22px;font-weight:700;color:#FFD54F;margin-bottom:8px}
+.flash-result p{font-size:14px;color:rgba(255,255,255,.6);margin-bottom:24px;line-height:1.6}
+.flash-result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;width:100%;max-width:360px;margin-bottom:24px}
+.flash-result-grid div{background:rgba(255,255,255,.07);border-radius:10px;padding:12px 8px;text-align:center}
+.flash-result-grid .rnum{font-size:26px;font-weight:800;color:#fff;display:block}
+.flash-result-grid .rlbl{font-size:11px;color:rgba(255,255,255,.5);margin-top:2px}
+.flash-result-btns{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.flash-res-btn{padding:12px 24px;border-radius:10px;border:none;font-size:14px;font-weight:700;cursor:pointer}
+
+/* launch bar button */
+.flash-launch-btn{background:#FFD54F;color:#0D1B2A;border:none;border-radius:8px;padding:10px 18px;font-size:13px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:all .15s;white-space:nowrap}
+.flash-launch-btn:hover{background:#FFC107;transform:translateY(-1px)}
+
+/* nav item button */
+.nav-flash-btn{background:linear-gradient(90deg,#FFD54F22,transparent);border-left-color:#FFD54F!important}
+
+/* progress dots on card face */
+.flash-dots{display:flex;gap:4px;margin-bottom:14px;justify-content:center}
+.flash-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.2)}
+.flash-dot.done{background:#FFD54F}
+.flash-dot.current{background:#fff;transform:scale(1.2)}
+
+/* mobile tweaks */
+@media(max-width:480px){
+  .flash-face{padding:20px 16px}
+  .flash-btn{padding:12px 6px;font-size:13px}
+  .flash-actions{gap:6px;padding:10px 10px 16px}
+  .flash-topbar{padding:10px 12px}
+  .flash-card{padding-top:70%}
+}
+
 </style>
 </head>
 <body>
@@ -411,6 +511,13 @@ body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:var(--bg
     <div class="nav-item" onclick="goTo('u12')"><span class="icon" style="background:#EFEBE9">🏘️</span> Real Estate <span class="cnt">30</span></div>
   </div>
 
+  <div class="nav-section">
+    <div class="nav-label">โหมดเรียน</div>
+    <div class="nav-item nav-flash-btn" onclick="openFlash('all');if(window.innerWidth<=768){toggleMenu();}">
+      <span class="icon" style="background:#FFF9C4">🃏</span> Flashcard Mode
+      <span class="cnt" style="background:#FFD54F22;color:#FFD54F">NEW</span>
+    </div>
+  </div>
   <div class="nav-section">
     <div class="nav-label">ส่วนเสริม</div>
     <div class="nav-item" onclick="goTo('wf')"><span class="icon">🔤</span> Word Families <span class="cnt">20</span></div>
@@ -484,6 +591,7 @@ body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:var(--bg
     <option value="sentence">Sentence Completion</option>
   </select>
   <button class="quiz-launch-btn" onclick="launchQuiz()">▶ เริ่ม Quiz (20 ข้อ)</button>
+  <button class="flash-launch-btn" onclick="openFlash(document.getElementById('quizTypeSelect').value)">🃏 Flashcard</button>
 </div>
 
 <!-- ── COVER ── -->
@@ -599,6 +707,103 @@ body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:var(--bg
   </div>
   <div class="index-grid" id="indexGrid"></div>
 </div>
+
+<!-- ══════════════ FLASHCARD MODAL ══════════════ -->
+<div id="flashModal" role="dialog" aria-modal="true" aria-label="Flashcard Mode">
+
+  <!-- Top bar -->
+  <div class="flash-topbar">
+    <button class="flash-close" onclick="closeFlash()" aria-label="Close">✕</button>
+    <h2 id="flashTitle">🃏 Flashcard Mode</h2>
+    <select class="flash-unit-sel" id="flashUnitSel" onchange="changeFlashUnit(this.value)">
+      <option value="all">ทุกหมวด</option>
+      <option value="u1">U1 Business</option>
+      <option value="u2">U2 Finance</option>
+      <option value="u3">U3 HR</option>
+      <option value="u4">U4 Marketing</option>
+      <option value="u5">U5 Technology</option>
+      <option value="u6">U6 Travel</option>
+      <option value="u7">U7 Health</option>
+      <option value="u8">U8 Legal</option>
+      <option value="u9">U9 Customer Svc</option>
+      <option value="u10">U10 Manufacturing</option>
+      <option value="u11">U11 Banking</option>
+      <option value="u12">U12 Real Estate</option>
+    </select>
+  </div>
+
+  <!-- Progress bar -->
+  <div class="flash-prog-wrap">
+    <div class="flash-prog-bg"><div class="flash-prog-fill" id="flashProgFill" style="width:0%"></div></div>
+    <div class="flash-prog-text" id="flashProgText">Loading…</div>
+  </div>
+
+  <!-- Stats ribbon -->
+  <div class="flash-stats">
+    <span class="flash-stat-pill fs-new" id="fStatNew">🆕 Remaining: —</span>
+    <span class="flash-stat-pill fs-good" id="fStatGood">✅ Known: 0</span>
+    <span class="flash-stat-pill fs-hard" id="fStatHard">🔁 Review: 0</span>
+  </div>
+
+  <!-- Card arena -->
+  <div class="flash-arena" id="flashArena">
+    <div class="swipe-hint-left" id="swipeLeft">✕</div>
+    <div class="swipe-hint-right" id="swipeRight">✓</div>
+
+    <div class="flash-card-wrap" id="flashCardWrap">
+      <div class="flash-card" id="flashCard" onclick="flipCard()">
+
+        <!-- FRONT -->
+        <div class="flash-face flash-front">
+          <div class="flash-dots" id="flashDots"></div>
+          <div class="flash-unit-badge" id="fBadge">Unit 1</div>
+          <div class="flash-word" id="fWord">—</div>
+          <div class="flash-pos" id="fPos">—</div>
+          <div class="flash-tap-hint">👆 แตะเพื่อดูความหมาย</div>
+        </div>
+
+        <!-- BACK -->
+        <div class="flash-face flash-back">
+          <div class="flash-dots" id="flashDots2"></div>
+          <div class="flash-meaning" id="fMeaning">—</div>
+          <div class="flash-sentence-en" id="fSentEn">—</div>
+          <div class="flash-sentence-th" id="fSentTh">—</div>
+        </div>
+
+      </div><!-- /flash-card -->
+    </div><!-- /flash-card-wrap -->
+  </div><!-- /flash-arena -->
+
+  <!-- Result screen (shown when deck finished) -->
+  <div class="flash-result" id="flashResult">
+    <div class="flash-result-circle" id="fResCircle">🎉</div>
+    <h3 id="fResTitle">ครบแล้ว!</h3>
+    <p id="fResMsg">—</p>
+    <div class="flash-result-grid" id="fResGrid"></div>
+    <div class="flash-result-btns">
+      <button class="flash-res-btn" style="background:#FFD54F;color:#0D1B2A" onclick="restartFlash()">🔄 เล่นใหม่</button>
+      <button class="flash-res-btn" style="background:rgba(255,255,255,.1);color:#fff" onclick="reviewHardCards()">🔁 ทบทวนยาก</button>
+      <button class="flash-res-btn" style="background:rgba(255,255,255,.1);color:#fff" onclick="closeFlash()">✕ ปิด</button>
+    </div>
+  </div>
+
+  <!-- Action buttons (shown after flip) -->
+  <div class="flash-actions" id="flashActions" style="display:none">
+    <button class="flash-btn flash-btn-again" onclick="rateCard('again')" aria-label="Again">
+      <span>🔁</span><span class="btn-label">Again</span><span class="btn-days">ผิด</span>
+    </button>
+    <button class="flash-btn flash-btn-hard" onclick="rateCard('hard')" aria-label="Hard">
+      <span>😓</span><span class="btn-label">Hard</span><span class="btn-days">ยาก</span>
+    </button>
+    <button class="flash-btn flash-btn-good" onclick="rateCard('good')" aria-label="Good">
+      <span>👍</span><span class="btn-label">Good</span><span class="btn-days">ได้</span>
+    </button>
+    <button class="flash-btn flash-btn-easy" onclick="rateCard('easy')" aria-label="Easy">
+      <span>⚡</span><span class="btn-label">Easy</span><span class="btn-days">จำได้</span>
+    </button>
+  </div>
+
+</div><!-- /flashModal -->
 
 <!-- ── FOOTER ── -->
 <div style="background:var(--navy);color:rgba(255,255,255,.5);text-align:center;padding:24px;font-size:12px">
@@ -1505,6 +1710,327 @@ function doSearch(q){
     });
   },{passive:true});
 })();
+
+// ══════════════════════════════════════════════════════════════════
+// FLASHCARD ENGINE  — Progress Tracker + SRS + Swipe
+// ══════════════════════════════════════════════════════════════════
+const FC = {
+  deck:[],        // current shuffled deck
+  original:[],    // original deck before shuffle
+  idx:0,          // current card index
+  flipped:false,
+  known:0,
+  hard:0,
+  hardCards:[],   // cards rated again/hard
+  unitId:'all',
+  // SRS localStorage key
+  SRS_KEY:'toeic_srs_2026',
+  PROG_KEY:'toeic_prog_2026',
+};
+
+/* ── helpers ─────────────────────────────────────────────── */
+function fcShuffle(arr){
+  const a=[...arr];
+  for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}
+  return a;
+}
+function fcEsc(s){return s?String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'):''}
+
+function loadSRS(){
+  try{return JSON.parse(localStorage.getItem(FC.SRS_KEY)||'{}')}catch(e){return{}}
+}
+function saveSRS(data){
+  try{localStorage.setItem(FC.SRS_KEY,JSON.stringify(data))}catch(e){}
+}
+function loadProg(){
+  try{return JSON.parse(localStorage.getItem(FC.PROG_KEY)||'{}')}catch(e){return{}}
+}
+function saveProg(data){
+  try{localStorage.setItem(FC.PROG_KEY,JSON.stringify(data))}catch(e){}
+}
+
+/* ── SRS next-review calculator ─────────────────────────── */
+function srsNextReview(rec, rating){
+  const now = Date.now();
+  const intervals = { again:0, hard:1, good:3, easy:7 }; // days
+  const correct_bonus = { again:-2, hard:0, good:1, easy:2 };
+  rec = rec || { correct:0, wrong:0, interval:1, easeFactor:2.5 };
+  if(rating==='again'){
+    rec.wrong = (rec.wrong||0)+1;
+    rec.correct = Math.max(0,(rec.correct||0)-1);
+    rec.interval = 0.5; // review in 12h
+  } else if(rating==='hard'){
+    rec.wrong = (rec.wrong||0)+1;
+    rec.interval = Math.max(1, (rec.interval||1)*0.8);
+    rec.easeFactor = Math.max(1.3,(rec.easeFactor||2.5)-0.15);
+  } else if(rating==='good'){
+    rec.correct = (rec.correct||0)+1;
+    rec.interval = Math.ceil((rec.interval||1)*(rec.easeFactor||2.5));
+  } else if(rating==='easy'){
+    rec.correct = (rec.correct||0)+1;
+    rec.interval = Math.ceil((rec.interval||1)*(rec.easeFactor||2.5)*1.3);
+    rec.easeFactor = Math.min(3.5,(rec.easeFactor||2.5)+0.15);
+  }
+  rec.nextReview = now + (rec.interval||1)*24*60*60*1000;
+  rec.lastSeen = now;
+  // stage
+  const c = rec.correct||0;
+  rec.stage = c>=8?'mastered':c>=5?'review':c>=3?'learning':'new';
+  return rec;
+}
+
+/* ── build deck from UNITS ─────────────────────────────── */
+function buildDeck(unitId){
+  let pool=[];
+  const srs=loadSRS();
+  const now=Date.now();
+  UNITS.forEach(u=>{
+    if(unitId!=='all'&&u.id!==unitId) return;
+    u.words.forEach(wd=>{
+      const key=wd.w+'__'+u.id;
+      const rec=srs[key]||null;
+      // Sort: due cards first, then new
+      const isDue=!rec||!rec.nextReview||rec.nextReview<=now;
+      pool.push({...wd, unitId:u.id, unitTitle:u.title, unitCol:u.col, srsKey:key, rec, isDue});
+    });
+  });
+  // Prioritise due cards, then new, then not-due
+  const due=pool.filter(w=>w.isDue);
+  const notDue=pool.filter(w=>!w.isDue);
+  return [...fcShuffle(due), ...fcShuffle(notDue)];
+}
+
+/* ── open / close ─────────────────────────────────────── */
+function openFlash(unitId='all'){
+  FC.unitId = unitId;
+  document.getElementById('flashUnitSel').value=unitId;
+  startFlashDeck(unitId);
+  document.getElementById('flashModal').classList.add('show');
+  document.body.style.overflow='hidden';
+}
+function closeFlash(){
+  document.getElementById('flashModal').classList.remove('show');
+  document.body.style.overflow='';
+}
+function changeFlashUnit(val){
+  FC.unitId=val;
+  startFlashDeck(val);
+}
+
+/* ── start / restart ──────────────────────────────────── */
+function startFlashDeck(unitId){
+  FC.deck = buildDeck(unitId);
+  FC.original = [...FC.deck];
+  FC.idx=0; FC.flipped=false; FC.known=0; FC.hard=0; FC.hardCards=[];
+  document.getElementById('flashResult').classList.remove('show');
+  document.getElementById('flashArena').style.display='';
+  document.getElementById('flashActions').style.display='none';
+  showFlashCard();
+  updateFlashStats();
+}
+function restartFlash(){
+  startFlashDeck(FC.unitId);
+}
+function reviewHardCards(){
+  if(!FC.hardCards.length){alert('ไม่มีการ์ดยากในรอบนี้');return;}
+  FC.deck=[...fcShuffle(FC.hardCards)];
+  FC.idx=0;FC.flipped=false;FC.known=0;FC.hard=0;FC.hardCards=[];
+  document.getElementById('flashResult').classList.remove('show');
+  document.getElementById('flashArena').style.display='';
+  document.getElementById('flashActions').style.display='none';
+  showFlashCard();
+  updateFlashStats();
+}
+
+/* ── render card ──────────────────────────────────────── */
+function showFlashCard(){
+  if(FC.idx>=FC.deck.length){showFlashResult();return;}
+  const w=FC.deck[FC.idx];
+  FC.flipped=false;
+
+  // Reset card flip
+  const card=document.getElementById('flashCard');
+  card.classList.remove('flipped');
+
+  // Dots (show up to 10)
+  const total=Math.min(FC.deck.length,10);
+  const cur=Math.min(FC.idx,9);
+  const dotHtml=Array.from({length:total},(_,i)=>
+    `<div class="flash-dot${i<FC.idx&&i<10?' done':i===cur?' current':''}"></div>`
+  ).join('');
+  document.getElementById('flashDots').innerHTML=dotHtml;
+  document.getElementById('flashDots2').innerHTML=dotHtml;
+
+  // Front
+  document.getElementById('fBadge').textContent=w.unitTitle||'';
+  document.getElementById('fBadge').style.background='rgba(255,255,255,.12)';
+  document.getElementById('fWord').textContent=w.w||'';
+  document.getElementById('fPos').textContent=w.p||'';
+
+  // Back
+  document.getElementById('fMeaning').textContent=w.t||'';
+  document.getElementById('fSentEn').textContent=w.e||'';
+  document.getElementById('fSentTh').textContent=w.x||'';
+
+  // Progress
+  const pct=Math.round((FC.idx/FC.deck.length)*100);
+  document.getElementById('flashProgFill').style.width=pct+'%';
+  document.getElementById('flashProgText').textContent=
+    `${FC.idx+1} / ${FC.deck.length} การ์ด · ${pct}%`;
+
+  // Title
+  const u=UNITS.find(u=>u.id===FC.unitId);
+  document.getElementById('flashTitle').textContent=
+    '🃏 '+(FC.unitId==='all'?'All Units':(u?u.title:''));
+
+  document.getElementById('flashActions').style.display='none';
+  updateFlashStats();
+}
+
+/* ── flip card ────────────────────────────────────────── */
+function flipCard(){
+  if(FC.flipped) return;
+  FC.flipped=true;
+  document.getElementById('flashCard').classList.add('flipped');
+  setTimeout(()=>{
+    document.getElementById('flashActions').style.display='flex';
+  },260);
+  // Mark word as "seen" in progress tracker
+  const w=FC.deck[FC.idx];
+  const prog=loadProg();
+  if(!prog[w.srsKey]) prog[w.srsKey]={seen:0,date:null};
+  prog[w.srsKey].seen=(prog[w.srsKey].seen||0)+1;
+  prog[w.srsKey].date=new Date().toISOString().slice(0,10);
+  saveProg(prog);
+}
+
+/* ── rate card ────────────────────────────────────────── */
+function rateCard(rating){
+  const w=FC.deck[FC.idx];
+  // Update SRS
+  const srs=loadSRS();
+  srs[w.srsKey]=srsNextReview(srs[w.srsKey],rating);
+  saveSRS(srs);
+  // Update stats
+  if(rating==='good'||rating==='easy'){
+    FC.known++;
+  } else {
+    FC.hard++;
+    FC.hardCards.push(w);
+  }
+  // Next card
+  FC.idx++;
+  showFlashCard();
+}
+
+/* ── stats ribbon ─────────────────────────────────────── */
+function updateFlashStats(){
+  const rem=Math.max(0,FC.deck.length-FC.idx);
+  document.getElementById('fStatNew').textContent=`🆕 เหลือ: ${rem}`;
+  document.getElementById('fStatGood').textContent=`✅ จำได้: ${FC.known}`;
+  document.getElementById('fStatHard').textContent=`🔁 ยาก: ${FC.hard}`;
+}
+
+/* ── result screen ───────────────────────────────────── */
+function showFlashResult(){
+  document.getElementById('flashArena').style.display='none';
+  document.getElementById('flashActions').style.display='none';
+  const res=document.getElementById('flashResult');
+  res.classList.add('show');
+  const total=FC.deck.length;
+  const pct=total?Math.round((FC.known/total)*100):0;
+  let emoji,title,msg,col;
+  if(pct>=80){emoji='🏆';title='ยอดเยี่ยม!';msg='จำได้มากกว่า 80% นี่คือระดับ TOEIC 650+';col='#2E7D32';}
+  else if(pct>=60){emoji='👍';title='ดีมาก!';msg='จำได้ 60%+ ทบทวนการ์ดยากอีกรอบ';col='#1565C0';}
+  else if(pct>=40){emoji='📚';title='พอใช้';msg='ควรทบทวนใหม่ กด "ทบทวนยาก" ด้านล่าง';col='#E65100';}
+  else{emoji='💪';title='ฝึกเพิ่ม!';msg='เริ่มต้นดีแล้ว ลองอีกครั้งนะ';col='#C62828';}
+  document.getElementById('fResCircle').textContent=emoji;
+  document.getElementById('fResCircle').style.background=col+'cc';
+  document.getElementById('fResTitle').textContent=title;
+  document.getElementById('fResMsg').textContent=msg;
+  document.getElementById('fResGrid').innerHTML=`
+    <div><span class="rnum" style="color:#4FC3F7">${total}</span><div class="rlbl">การ์ดทั้งหมด</div></div>
+    <div><span class="rnum" style="color:#81C784">${FC.known}</span><div class="rlbl">จำได้ ✅</div></div>
+    <div><span class="rnum" style="color:#EF9A9A">${FC.hard}</span><div class="rlbl">ยาก 🔁</div></div>`;
+}
+
+/* ── SWIPE SUPPORT ───────────────────────────────────── */
+(function initSwipe(){
+  let sx=0,sy=0,dragging=false;
+  const arena=()=>document.getElementById('flashCardWrap');
+
+  function onStart(e){
+    const t=e.touches?e.touches[0]:e;
+    sx=t.clientX;sy=t.clientY;dragging=true;
+  }
+  function onMove(e){
+    if(!dragging||!FC.flipped) return;
+    const t=e.touches?e.touches[0]:e;
+    const dx=t.clientX-sx;
+    const L=document.getElementById('swipeLeft');
+    const R=document.getElementById('swipeRight');
+    if(Math.abs(dx)>30){
+      L.style.opacity=dx<0?Math.min(1,Math.abs(dx)/100):0;
+      R.style.opacity=dx>0?Math.min(1,dx/100):0;
+      arena().style.transform=`translateX(${dx*0.3}px) rotate(${dx*0.03}deg)`;
+    }
+  }
+  function onEnd(e){
+    if(!dragging) return;
+    dragging=false;
+    const t=e.changedTouches?e.changedTouches[0]:e;
+    const dx=t.clientX-sx;
+    const dy=t.clientY-sy;
+    document.getElementById('swipeLeft').style.opacity=0;
+    document.getElementById('swipeRight').style.opacity=0;
+    arena().style.transform='';
+    arena().style.transition='transform .3s';
+    setTimeout(()=>{arena().style.transition='';},300);
+
+    if(!FC.flipped&&Math.abs(dx)<10&&Math.abs(dy)<10){
+      flipCard(); return;
+    }
+    if(FC.flipped&&Math.abs(dx)>60){
+      if(dx<0) rateCard('again');
+      else rateCard('easy');
+    }
+  }
+
+  document.addEventListener('touchstart',e=>{
+    if(document.getElementById('flashModal').classList.contains('show'))onStart(e);
+  },{passive:true});
+  document.addEventListener('touchmove',e=>{
+    if(document.getElementById('flashModal').classList.contains('show'))onMove(e);
+  },{passive:true});
+  document.addEventListener('touchend',e=>{
+    if(document.getElementById('flashModal').classList.contains('show'))onEnd(e);
+  });
+
+  // Mouse drag for desktop
+  document.getElementById('flashModal').addEventListener('mousedown',onStart);
+  document.addEventListener('mousemove',e=>{
+    if(document.getElementById('flashModal').classList.contains('show'))onMove(e);
+  });
+  document.addEventListener('mouseup',e=>{
+    if(document.getElementById('flashModal').classList.contains('show'))onEnd(e);
+  });
+
+  // Keyboard shortcuts
+  document.addEventListener('keydown',e=>{
+    if(!document.getElementById('flashModal').classList.contains('show')) return;
+    if(e.key==='Escape'){closeFlash();return;}
+    if(e.key===' '||e.key==='Enter'){if(!FC.flipped)flipCard();return;}
+    if(!FC.flipped) return;
+    if(e.key==='1') rateCard('again');
+    else if(e.key==='2') rateCard('hard');
+    else if(e.key==='3') rateCard('good');
+    else if(e.key==='4') rateCard('easy');
+    else if(e.key==='ArrowLeft') rateCard('again');
+    else if(e.key==='ArrowRight') rateCard('easy');
+  });
+})();
+/* ── END FLASHCARD ENGINE ─────────────────────────────── */
+
 
 // ══════════════════════════════════════════════════════════════════════
 // FLOATING TABLE OF CONTENTS
